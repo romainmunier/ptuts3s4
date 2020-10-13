@@ -20,49 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f538abe-3504-49dd-874b-231c566b5b68" name="Default Changelist" comment="Création et modification du fichier d'environnement .env">
-      <change afterPath="$PROJECT_DIR$/public/assets/background/parchemin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Simple-Line-Icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Simple-Line-Icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Simple-Line-Icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Simple-Line-Icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Simple-Line-Icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/SourceSansPro.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/simple-line-icons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/simple-line-icons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/external.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.easing.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/fonts.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/scripts.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/stylesheets.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/includes/home/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +176,7 @@
       <workItem from="1602141962800" duration="27000" />
       <workItem from="1602141995092" duration="1992000" />
       <workItem from="1602573875252" duration="2212000" />
-      <workItem from="1602589469652" duration="2952000" />
+      <workItem from="1602589469652" duration="5063000" />
     </task>
     <task id="LOCAL-00001" summary="Création et modification du fichier d'environnement .env">
       <created>1602142829755</created>

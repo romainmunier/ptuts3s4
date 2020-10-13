@@ -14,6 +14,17 @@ body {
 
 /* ################################
    #                              #
+   #   BOOSTRAP SURCHARGE STYLE   #
+   #                              #
+   ################################
+ */
+
+.masthead {
+    background: none;
+}
+
+/* ################################
+   #                              #
    # CUSTOM BUTTON LIKE BOOTSTRAP #
    #                              #
    ################################
@@ -23,6 +34,17 @@ body {
     color: #FFFFFF;
     background-color: #B66B23;
     border-color: #B66B23;
+}
+
+/* ################################
+   #                              #
+   #  GLOBAL WEBSITE STYLESHEET   #
+   #                              #
+   ################################
+ */
+
+.txt-black {
+    color: #000000 !important;
 }
 
 /* ################################
