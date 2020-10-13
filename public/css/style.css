@@ -1,0 +1,50 @@
+html, body {
+    user-select: none !important;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url('../assets/background/parchemin.jpg') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ################################
+   #                              #
+   # CUSTOM BUTTON LIKE BOOTSTRAP #
+   #                              #
+   ################################
+ */
+
+.btn-braun {
+    color: #FFFFFF;
+    background-color: #B66B23;
+    border-color: #B66B23;
+}
+
+/* ################################
+   #                              #
+   # RESPONSIVE STYLE - COMPUTER  #
+   #                              #
+   ################################
+ */
+
+@media screen and (min-width: 1001px) {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 3px transparent;
+        border-radius: 50px;
+        background: #010000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#F4B67E,#BE8551);
+        border-radius: 10px;
+    }
+}

@@ -2,11 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>{% block title %}CEFC{% endblock %}</title>
+
+        {% include "includes/stylesheets.html.twig" %}
+        {% include "includes/fonts.html.twig" %}
     </head>
-    <body>
+    <body id="page-top">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% include "includes/scripts.html.twig" %}
     </body>
 </html>
