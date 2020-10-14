@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f538abe-3504-49dd-874b-231c566b5b68" name="Default Changelist" comment="Création et modification du fichier d'environnement .env">
-      <change afterPath="$PROJECT_DIR$/templates/includes/home/navbar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/background/banner2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/background/Banner Font.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +176,10 @@
       <workItem from="1602141962800" duration="27000" />
       <workItem from="1602141995092" duration="1992000" />
       <workItem from="1602573875252" duration="2212000" />
-      <workItem from="1602589469652" duration="5063000" />
+      <workItem from="1602589469652" duration="5915000" />
+      <workItem from="1602673684389" duration="197000" />
+      <workItem from="1602673909562" duration="815000" />
+      <workItem from="1602681482447" duration="733000" />
     </task>
     <task id="LOCAL-00001" summary="Création et modification du fichier d'environnement .env">
       <created>1602142829755</created>
