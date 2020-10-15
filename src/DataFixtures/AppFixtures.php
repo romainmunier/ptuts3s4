@@ -18,7 +18,9 @@ class AppFixtures extends Fixture
         $user = new User();
         $user->setUsername("romainmunier")
             ->setPassword("toor")
-            ->setRoles(["ROLE_ADMIN"]);
+            ->setRoles(["ROLE_ADMIN"])
+            ->setFirstname(ucfirst("romain"))
+            ->setLastname(strtoupper("munier"));
 
         $encoded = $this->encoder->encodePassword($user, $user->getPassword());
         $user->setPassword($encoded);

@@ -47,6 +47,27 @@ body {
     color: #000000 !important;
 }
 
+.bg-lightbraun {
+    background: rgba(232,206,143,0.8) !important;
+}
+
+.rounded-5 {
+    border-radius: 2em;
+}
+
+.collapse-btn {
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 8px;
+    color: #1C1C1C !important;
+    padding: 10px !important;
+}
+
+.collapse-btn:hover {
+    background: #F4F4F4 !important;
+}
+
 /* ################################
    #                              #
    # RESPONSIVE STYLE - COMPUTER  #
@@ -68,5 +89,30 @@ body {
     ::-webkit-scrollbar-thumb {
         background: linear-gradient(#F4B67E,#BE8551);
         border-radius: 10px;
+    }
+
+    .row-align-left {
+        text-align: left !important;;
+    }
+
+    .row-align-right {
+        text-align: right !important;;
+    }
+}
+
+/* ################################
+   #                              #
+   #  RESPONSIVE STYLE - MOBILE   #
+   #                              #
+   ################################
+ */
+
+@media screen and (max-width: 1000px) {
+    .row-align-left {
+        text-align: center !important;
+    }
+
+    .row-align-right {
+        text-align: center !important;;
     }
 }

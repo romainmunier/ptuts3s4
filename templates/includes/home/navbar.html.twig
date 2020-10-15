@@ -14,6 +14,31 @@
                             </span>
                     </a>
                 </li>
+
+                {% if app.user %}
+                    <li class="nav-item sidebar-nav-item">
+                        <a class="nav-link" role="button" onclick="$('#collapse-usermenu').collapse('toggle')">
+                            <i class="fas fa-user"></i>&nbsp;
+                            {{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}
+                        </a>
+                        <div class="collapse" id="collapse-usermenu">
+                            <div class="bg-white text-black-50 border rounded py-2 collapse-inner" style="width: 96%; margin-left: 2%; margin-right: 2%; margin-top: 1%;">
+                                <a class="collapse-item collapse-btn" href="">Tableau de bord</a>
+                                <a class="collapse-item collapse-btn" href="">Mon compte</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="collapse-item collapse-btn" href="{{ path("logout") }}">Déconnexion</a>
+                            </div>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item sidebar-nav-item">
+                        <a class="nav-link js-scroll-trigger" role="button" onclick="$('#loginModal').modal();">
+                            <i class="fas fa-sign-in-alt"></i>&nbsp;
+                            Connexion
+                        </a>
+                    </li>
+                {% endif %}
+
                 <li class="nav-item sidebar-nav-item">
                     <a class="nav-link js-scroll-trigger" href="#page-top">
                         <i class="fas fa-home"></i>&nbsp;
@@ -22,25 +47,25 @@
                 </li>
                 <li class="nav-item sidebar-nav-item">
                     <a class="nav-link js-scroll-trigger" href="#about">
-                        <i class="fas fa-info"></i>&nbsp;
+                        <i class="fas fa-info-circle"></i>&nbsp;
                         Présentation
                     </a>
                 </li>
                 <li class="nav-item sidebar-nav-item">
                     <a class="nav-link js-scroll-trigger" href="">
-                        <i class="fas fa-file"></i>&nbsp;
+                        <i class="fas fa-folder"></i>&nbsp;
                         Ressources
                     </a>
                 </li>
                 <li class="nav-item sidebar-nav-item">
                     <a class="nav-link js-scroll-trigger" href="">
-                        <i class="fas fa-comments"></i>&nbsp;
+                        <i class="fas fa-camera"></i>&nbsp;
                         Trombinoscope
                     </a>
                 </li>
                 <li class="nav-item sidebar-nav-item">
                     <a class="nav-link js-scroll-trigger" href="">
-                        <i class="fas fa-info"></i>&nbsp;
+                        <i class="fas fa-comments"></i>&nbsp;
                         Forum
                     </a>
                 </li>
@@ -60,13 +85,6 @@
                     <a class="nav-link js-scroll-trigger" href="">
                         <i class="fas fa-envelope"></i>&nbsp;
                         Contact
-                    </a>
-                </li>
-
-                <li class="nav-item sidebar-nav-item">
-                    <a class="nav-link js-scroll-trigger" href="">
-                        <i class="fas fa-sign-in"></i>&nbsp;
-                        Connexion
                     </a>
                 </li>
             </ul>
