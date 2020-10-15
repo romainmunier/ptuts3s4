@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f538abe-3504-49dd-874b-231c566b5b68" name="Default Changelist" comment="Création et modification du fichier d'environnement .env">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201015105659.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/axios.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/APIController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/home/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/home/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/scripts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/scripts.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +39,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -163,7 +171,8 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SymfonyProjects/CoursIUTSymfony" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SymfonyProjects/LimiteLimite" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="gitlive.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -189,7 +198,7 @@
       <workItem from="1602673909562" duration="815000" />
       <workItem from="1602681482447" duration="733000" />
       <workItem from="1602743929034" duration="5523000" />
-      <workItem from="1602758654797" duration="3114000" />
+      <workItem from="1602758654797" duration="11841000" />
     </task>
     <task id="LOCAL-00001" summary="Création et modification du fichier d'environnement .env">
       <created>1602142829755</created>
@@ -226,18 +235,23 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="487" y="32" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602745443921" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602589672936">
+    <state x="446" y="274" key="ComposerInitDialogKey" timestamp="1602782884212">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602172159724" />
+    <state x="446" y="274" key="ComposerInitDialogKey/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602782884212" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602779201833">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602779201833" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602589672936" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1602576044335">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1602576044335" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602759494684">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1602776727555">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602776727555" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1602759494684" />
   </component>
 </project>
