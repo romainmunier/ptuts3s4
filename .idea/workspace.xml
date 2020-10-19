@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f538abe-3504-49dd-874b-231c566b5b68" name="Default Changelist" comment="Création et modification du fichier d'environnement .env">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/axios.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/APIController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/includes/home/modal.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/scripts.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/scripts.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +166,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SymfonyProjects/LimiteLimite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SymfonyProjects/CoursIUTSymfony" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="gitlive.settings" />
@@ -198,7 +193,11 @@
       <workItem from="1602673909562" duration="815000" />
       <workItem from="1602681482447" duration="733000" />
       <workItem from="1602743929034" duration="5523000" />
-      <workItem from="1602758654797" duration="11841000" />
+      <workItem from="1602758654797" duration="12235000" />
+      <workItem from="1602835970682" duration="4743000" />
+      <workItem from="1603096274447" duration="2452000" />
+      <workItem from="1603100787102" duration="94000" />
+      <workItem from="1603132381082" duration="114000" />
     </task>
     <task id="LOCAL-00001" summary="Création et modification du fichier d'environnement .env">
       <created>1602142829755</created>
@@ -235,15 +234,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="487" y="32" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1602745443921" />
+    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603100239554">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1603100239554" />
     <state x="446" y="274" key="ComposerInitDialogKey" timestamp="1602782884212">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="274" key="ComposerInitDialogKey/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602782884212" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602779201833">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1603100880048">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/-1920.-889.1920.1040@0.0.1366.728" timestamp="1602779201833" />
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602589672936" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603100880048" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1602576044335">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -45,7 +45,9 @@ function onRegister() {
 
                 document.getElementById("SUCCESSFULL_CREATION_ACCOUNT").style.display = "block";
 
-                setTimeout(function() { document.getElementById("SUCCESSFULL_CREATION_ACCOUNT").style.display = "none"; }, 5000)
+                setTimeout(function() { document.getElementById("SUCCESSFULL_CREATION_ACCOUNT").style.display = "none"; }, 5000);
+
+                document.getElementById("usernameLoginInput").value = FORM[2]['value'];
             }
         });
     } else {

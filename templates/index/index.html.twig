@@ -25,7 +25,7 @@
     <section id="about" class="content-section">
         <div class="container text-center bg-lightbraun rounded-5">
             <div class="row">
-                <div class="col-lg-10 mx-auto mt-2">
+                <div class="col-lg-10 mx-auto mt-4">
                     <h2 class="text-left" style="color: #484D51">Informations à propos de CEFC</h2>
                     <p class="lead text-justify mb-2 txt-black">
                         La Compagnie Excalibur Franche Comté (CEFC) est une association du type loi 1901, fondée à Belfort en septembre 2000, dont le thème central est l'époque moyenâgeuse. Les objectifs de l'association sont triples, basés sur le sport, l'animation et la culture. Ses membres peuvent :
@@ -48,94 +48,5 @@
         </div>
     </section>
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="background: #AE8F42">
-                <div class="modal-body" id="loginCollapse">
-                    <h4 class="text-white">Connectez-vous à votre compte</h4>
-                    <hr>
-                    <form action="{{ path('login') }}" id="loginForm" method="POST">
-                        <div class="alert alert-success" role="alert" style="display: none" id="SUCCESSFULL_CREATION_ACCOUNT">
-                            Votre compte a été créé avec succès ! Vous pouvez vous connecter dès maintenant !
-                        </div>
-                        <div class="form-group">
-                            <label for="usernameLoginInput" class="text-white">
-                                <strong>Identifiant</strong>
-                            </label>
-                            <input type="text" class="form-control" id="usernameLoginInput" name="_username" minlength="4" maxlength="128" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordLoginInput" class="text-white">
-                                <strong>Mot de passe</strong>
-                            </label>
-                            <input type="password" class="form-control" id="passwordLoginInput" name="_password" minlength="4" maxlength="128" required>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="ssdmInput" name="remember_me">
-                            <label class="form-check-label" for="ssdmInput">Se souvenir de moi</label>
-                        </div>
-                        <div class="modal-footer" style="justify-content: left">
-                            <button type="button" class="btn btn-dark" onclick="$('#registerModal').modal();">Inscription</button>
-                            <button type="submit" class="btn btn-primary">Connexion</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content" style="background: #AE8F42">
-                <div class="modal-body" id="loginCollapse">
-                    <h4 class="text-white">Rejoignez notre communauté !</h4>
-                    <hr>
-                    <form action="#" method="POST" id="registerForm" onsubmit="onRegister(); return false;">
-                        <div class="form-row">
-                            <div class="col-lg-6">
-                                <label for="firstnameRegisterInput" class="text-white">
-                                    <strong>Prénom</strong>
-                                </label>
-                                <input type="text" class="form-control" id="firstnameRegisterInput" name="Firstname" minlength="2" maxlength="128" required>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="lastnameRegisterInput" class="text-white">
-                                    <strong>NOM</strong>
-                                </label>
-                                <input type="text" class="form-control" id="lastnameRegisterInput" name="Lastname" minlength="2" maxlength="128" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="usernameRegisterInput" class="text-white">
-                                <strong>Identifiant</strong>
-                            </label>
-                            <input type="text" class="form-control" id="usernameRegisterInput" name="Username" minlength="4" maxlength="128" required oninput="checkRegisterUsername(this.value)">
-                        </div>
-                        <div class="alert alert-danger" role="alert" style="display: none" id="USERNAME_ALREADY_USED">
-                            L'identifiant renseigné est déjà utilisé. Veuillez en choisir un autre.
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordRegisterInput" class="text-white">
-                                <strong>Mot de passe</strong>
-                            </label>
-                            <input type="password" class="form-control" id="passwordRegisterInput" name="Password" minlength="4" maxlength="128" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordRegisterConfirmationInput" class="text-white">
-                                <strong>Confirmation</strong>
-                            </label>
-                            <input type="password" class="form-control" id="passwordRegisterConfirmationInput" name="PasswordConfirmation" minlength="4" maxlength="128" required>
-                        </div>
-                        <div class="alert alert-danger" role="alert" style="display: none" id="PASSWORD_NOT_EQUAL">
-                            Les deux mots de passe entrés ne correspondent pas. Veuillez réessayer.
-                        </div>
-                        <div class="modal-footer" style="justify-content: left">
-                            <button type="button" class="btn btn-dark" onclick="$('#registerModal').modal('hide')">Annuler</button>
-                            <button type="submit" class="btn btn-primary">M'inscrire</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "includes/home/modal.html.twig" %}
 {% endblock %}
