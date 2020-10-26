@@ -73,7 +73,10 @@ class __TwigTemplate_0662a3a41573ff84ddabcd445e15aea800f6b48579404ca30b56ef9a28f
                         </a>
                         <div class=\"collapse\" id=\"collapse-usermenu\">
                             <div class=\"bg-white text-black-50 border rounded py-2 collapse-inner\" style=\"width: 96%; margin-left: 2%; margin-right: 2%; margin-top: 1%;\">
-                                <a class=\"collapse-item collapse-btn\" href=\"\">Tableau de bord</a>
+                                <a class=\"collapse-item collapse-btn\" href=\"";
+            // line 26
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("dashboard");
+            echo "\">Tableau de bord</a>
                                 <a class=\"collapse-item collapse-btn\" href=\"\">Mon compte</a>
                                 <div class=\"dropdown-divider\"></div>
                                 <a class=\"collapse-item collapse-btn\" href=\"";
@@ -168,7 +171,7 @@ class __TwigTemplate_0662a3a41573ff84ddabcd445e15aea800f6b48579404ca30b56ef9a28f
 
     public function getDebugInfo()
     {
-        return array (  98 => 41,  89 => 34,  81 => 29,  69 => 22,  64 => 19,  62 => 18,  43 => 1,);
+        return array (  101 => 41,  92 => 34,  84 => 29,  78 => 26,  69 => 22,  64 => 19,  62 => 18,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -198,7 +201,7 @@ class __TwigTemplate_0662a3a41573ff84ddabcd445e15aea800f6b48579404ca30b56ef9a28f
                         </a>
                         <div class=\"collapse\" id=\"collapse-usermenu\">
                             <div class=\"bg-white text-black-50 border rounded py-2 collapse-inner\" style=\"width: 96%; margin-left: 2%; margin-right: 2%; margin-top: 1%;\">
-                                <a class=\"collapse-item collapse-btn\" href=\"\">Tableau de bord</a>
+                                <a class=\"collapse-item collapse-btn\" href=\"{{ path(\"dashboard\") }}\">Tableau de bord</a>
                                 <a class=\"collapse-item collapse-btn\" href=\"\">Mon compte</a>
                                 <div class=\"dropdown-divider\"></div>
                                 <a class=\"collapse-item collapse-btn\" href=\"{{ path(\"logout\") }}\">Déconnexion</a>

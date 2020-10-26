@@ -21,6 +21,55 @@ class APIController extends AbstractController
     }
 
     /**
+     * @Route("/api/checkoldpassword", name="check_oldpassword", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+     public function checkOldPassword(Request $request) {
+         $manager = $this->getDoctrine()->getManager();
+
+         $password = json_decode($request->getContent(), true)["Password"];
+         $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+         if ($this->encoder->encodePassword($user, strval($password)) === $user->getPassword()) {
+             return new JsonResponse(["same" => "TRUE"]);
+         } else {
+             return new JsonResponse(["same" => "FALSE"]);
+         }
+     }
+
+    /**
+     * @Route("/api/updatepassword", name="updatepassword", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function updatePassword(Request $request) {
+        $manager = $this->getDoctrine()->getManager();
+
+        $oldpassword = json_decode($request->getContent(), true)["OldPassword"];
+        $newpassword = json_decode($request->getContent(), true)["NewPassword"];
+        $confirmpassword = json_decode($request->getContent(), true)["ConfirmPassword"];
+
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+        if ($this->encoder->encodePassword($user, $oldpassword) === $user->getPassword()) {
+            if ($newpassword === $confirmpassword) {
+                $user->setPassword($newpassword);
+                $encoded = $this->encoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($encoded);
+
+                $manager->flush();
+
+                return new JsonResponse(["error" => "NULL"]);
+            } else {
+                return new JsonResponse(["error" => "ERROR_BADCONFIRMATION"]);
+            }
+        } else {
+            return new JsonResponse(["error" => "ERROR_BADPASSWD"]);
+        }
+    }
+
+    /**
      * @Route("/api/checkusername", name="check_username", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
@@ -38,53 +87,5 @@ class APIController extends AbstractController
             return new JsonResponse(["used" => "TRUE"]);
         }
 
-    }
-
-    /**
-     * @Route("/api/register", name="register", methods={"POST"})
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function register(Request $request) {
-        $manager = $this->getDoctrine()->getManager();
-
-        $error = [];
-        $data = json_decode($request->getContent(), true);
-
-        if (!(strlen($data['Firstname']) >= 2) or !(strlen($data['Firstname']) <= 128) or !is_string($data['Firstname'])) {
-            array_push($error, ["Firstname" => "BAD_LENGTH_OR_BAD_TYPE"]);
-        }
-
-        if (!(strlen($data['Lastname']) >= 2) or !(strlen($data['Lastname']) <= 128) or !is_string($data['Lastname'])) {
-            array_push($error, ["Lastname" => "BAD_LENGTH_OR_BAD_TYPE"]);
-        }
-
-        if (!(strlen($data['Username']) >= 2) or !(strlen($data['Username']) <= 128) or !is_string($data['Username'])) {
-            array_push($error, ["Username" => "BAD_LENGTH_OR_BAD_TYPE"]);
-        }
-
-        if (!(strlen($data['Password']) >= 4) or !(strlen($data['Password']) <= 128)) {
-            array_push($error, ["Password" => "BAD_LENGTH"]);
-        }
-
-        if (empty($error)) {
-            if (empty($manager->getRepository(User::class)->findBy(["Username" => $data["Username"]]))) {
-                $user = new User();
-                $user->setFirstname(ucfirst($data['Firstname']))
-                    ->setLastname(strtoupper($data['Lastname']))
-                    ->setUsername($data['Username'])
-                    ->setPassword($data['Password'])
-                    ->setRoles(["ROLE_USER"]);
-
-                $encoded = $this->encoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($encoded);
-    
-                $manager->persist($user);
-                $manager->flush();
-            }
-
-        }
-
-        return new JsonResponse($error);
     }
 }

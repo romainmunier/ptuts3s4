@@ -1,0 +1,156 @@
+html, body {
+    user-select: none;
+}
+
+/* ################################
+   #                              #
+   #  GLOBAL WEBSITE STYLESHEET   #
+   #                              #
+   ################################
+ */
+
+.bg-medieval-light {
+    background-image: url(../../assets/background/parchemin.jpg) !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.bg-medieval-dark {
+    background-image: url(../../assets/background/parchemin-dark.jpg) !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.bg-none {
+    background: none !important;
+}
+
+.bg-braun-light {
+    background: #EC9A50 !important;
+}
+
+.bg-braun-dark {
+    background: #B66B23 !important;
+}
+
+.progress-bar-dark {
+    background-color: #343A40 !important;
+}
+
+.progress-bar-danger {
+    background-color: #DC3545 !important;
+}
+
+.progress-bar-warning {
+    background-color: #FFC107 !important;
+}
+
+.progress-bar-primary {
+    background-color: #18BC9C !important;
+}
+
+.progress-bar-success {
+    background-color: #28A745 !important;
+}
+
+/* ################################
+   #                              #
+   #   CUSTOM CSS - GENERAL WEB   #
+   #                              #
+   ################################
+ */
+
+@media screen and (min-width: 1001px) {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 3px transparent;
+        border-radius: 50px;
+        background: #010000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#F4B67E,#BE8551);
+        border-radius: 10px;
+    }
+}
+
+/* ################################
+   #                              #
+   # CUSTOM CSS - SETTINGS PAGE   #
+   #                              #
+   ################################
+ */
+
+@media screen and (min-width: 1001px) {
+    .settings-container {
+        width: 90% !important;
+        margin: 0 5%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .settings-button {
+        width: 16% !important;
+        height: auto;
+        padding: 3% 0;
+        border-radius: 0;
+        background: none;
+        margin: 2% 2%;
+        border: 2px solid #F8F9FC;
+    }
+
+    .settings-small {
+        font-size: 14px;
+        color: #9E9E9E;
+    }
+
+    .settings-button:hover {
+        border: 2px solid #858796;
+    }
+
+    .settings-button:focus, .settings-button:active {
+        border: 2px solid #4E73DF;
+        outline: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .settings-container {
+        width: 90% !important;
+        margin: 0 5%;
+        height: auto;
+    }
+
+    .settings-button {
+        width: 96% !important;
+        height: auto;
+        padding: 3% 0;
+        border-radius: 0;
+        background: none;
+        margin: 2% 2%;
+        border: 2px solid #F8F9FC;
+    }
+
+    .settings-small {
+        font-size: 14px;
+        color: #9E9E9E;
+    }
+
+    .settings-button:hover {
+        border: 2px solid #858796;
+    }
+
+    .settings-button:focus, .settings-button:active {
+        border: 2px solid #4E73DF;
+        outline: none;
+    }
+}

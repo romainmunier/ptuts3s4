@@ -72,70 +72,7 @@ class __TwigTemplate_09a737aea6fa17bba1680e702d392dd41a9b403fe6cfb14b7132326d5c6
                             <label class=\"form-check-label\" for=\"ssdmInput\">Se souvenir de moi</label>
                         </div>
                         <div class=\"modal-footer\" style=\"justify-content: left\">
-                            <button type=\"button\" class=\"btn btn-dark\" onclick=\"\$('#registerModal').modal();\">Inscription</button>
                             <button type=\"submit\" class=\"btn btn-primary\">Connexion</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-";
-        }
-        // line 38
-        echo "
-";
-        // line 39
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 39, $this->source); })()), "user", [], "any", false, false, false, 39)) {
-            // line 40
-            echo "    <div class=\"modal fade\" id=\"registerModal\" tabindex=\"-1\" aria-labelledby=\"registerModalLabel\" aria-hidden=\"true\">
-        <div class=\"modal-dialog modal-lg modal-dialog-centered\">
-            <div class=\"modal-content\" style=\"background: #AE8F42\">
-                <div class=\"modal-body\" id=\"loginCollapse\">
-                    <h4 class=\"text-white\">Rejoignez notre communauté !</h4>
-                    <hr>
-                    <form action=\"#\" method=\"POST\" id=\"registerForm\" onsubmit=\"onRegister(); return false;\">
-                        <div class=\"form-row\">
-                            <div class=\"col-lg-6\">
-                                <label for=\"firstnameRegisterInput\" class=\"text-white\">
-                                    <strong>Prénom</strong>
-                                </label>
-                                <input type=\"text\" class=\"form-control\" id=\"firstnameRegisterInput\" name=\"Firstname\" minlength=\"2\" maxlength=\"128\" required>
-                            </div>
-                            <div class=\"col-lg-6\">
-                                <label for=\"lastnameRegisterInput\" class=\"text-white\">
-                                    <strong>NOM</strong>
-                                </label>
-                                <input type=\"text\" class=\"form-control\" id=\"lastnameRegisterInput\" name=\"Lastname\" minlength=\"2\" maxlength=\"128\" required>
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"usernameRegisterInput\" class=\"text-white\">
-                                <strong>Identifiant</strong>
-                            </label>
-                            <input type=\"text\" class=\"form-control\" id=\"usernameRegisterInput\" name=\"Username\" minlength=\"4\" maxlength=\"128\" required oninput=\"checkRegisterUsername(this.value)\">
-                        </div>
-                        <div class=\"alert alert-danger\" role=\"alert\" style=\"display: none\" id=\"USERNAME_ALREADY_USED\">
-                            L'identifiant renseigné est déjà utilisé. Veuillez en choisir un autre.
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"passwordRegisterInput\" class=\"text-white\">
-                                <strong>Mot de passe</strong>
-                            </label>
-                            <input type=\"password\" class=\"form-control\" id=\"passwordRegisterInput\" name=\"Password\" minlength=\"4\" maxlength=\"128\" required>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"passwordRegisterConfirmationInput\" class=\"text-white\">
-                                <strong>Confirmation</strong>
-                            </label>
-                            <input type=\"password\" class=\"form-control\" id=\"passwordRegisterConfirmationInput\" name=\"PasswordConfirmation\" minlength=\"4\" maxlength=\"128\" required>
-                        </div>
-                        <div class=\"alert alert-danger\" role=\"alert\" style=\"display: none\" id=\"PASSWORD_NOT_EQUAL\">
-                            Les deux mots de passe entrés ne correspondent pas. Veuillez réessayer.
-                        </div>
-                        <div class=\"modal-footer\" style=\"justify-content: left\">
-                            <button type=\"button\" class=\"btn btn-dark\" onclick=\"\$('#registerModal').modal('hide')\">Annuler</button>
-                            <button type=\"submit\" class=\"btn btn-primary\">M'inscrire</button>
                         </div>
                     </form>
                 </div>
@@ -164,7 +101,7 @@ class __TwigTemplate_09a737aea6fa17bba1680e702d392dd41a9b403fe6cfb14b7132326d5c6
 
     public function getDebugInfo()
     {
-        return array (  91 => 40,  89 => 39,  86 => 38,  53 => 8,  45 => 2,  43 => 1,);
+        return array (  53 => 8,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -197,65 +134,7 @@ class __TwigTemplate_09a737aea6fa17bba1680e702d392dd41a9b403fe6cfb14b7132326d5c6
                             <label class=\"form-check-label\" for=\"ssdmInput\">Se souvenir de moi</label>
                         </div>
                         <div class=\"modal-footer\" style=\"justify-content: left\">
-                            <button type=\"button\" class=\"btn btn-dark\" onclick=\"\$('#registerModal').modal();\">Inscription</button>
                             <button type=\"submit\" class=\"btn btn-primary\">Connexion</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endif %}
-
-{% if not app.user %}
-    <div class=\"modal fade\" id=\"registerModal\" tabindex=\"-1\" aria-labelledby=\"registerModalLabel\" aria-hidden=\"true\">
-        <div class=\"modal-dialog modal-lg modal-dialog-centered\">
-            <div class=\"modal-content\" style=\"background: #AE8F42\">
-                <div class=\"modal-body\" id=\"loginCollapse\">
-                    <h4 class=\"text-white\">Rejoignez notre communauté !</h4>
-                    <hr>
-                    <form action=\"#\" method=\"POST\" id=\"registerForm\" onsubmit=\"onRegister(); return false;\">
-                        <div class=\"form-row\">
-                            <div class=\"col-lg-6\">
-                                <label for=\"firstnameRegisterInput\" class=\"text-white\">
-                                    <strong>Prénom</strong>
-                                </label>
-                                <input type=\"text\" class=\"form-control\" id=\"firstnameRegisterInput\" name=\"Firstname\" minlength=\"2\" maxlength=\"128\" required>
-                            </div>
-                            <div class=\"col-lg-6\">
-                                <label for=\"lastnameRegisterInput\" class=\"text-white\">
-                                    <strong>NOM</strong>
-                                </label>
-                                <input type=\"text\" class=\"form-control\" id=\"lastnameRegisterInput\" name=\"Lastname\" minlength=\"2\" maxlength=\"128\" required>
-                            </div>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"usernameRegisterInput\" class=\"text-white\">
-                                <strong>Identifiant</strong>
-                            </label>
-                            <input type=\"text\" class=\"form-control\" id=\"usernameRegisterInput\" name=\"Username\" minlength=\"4\" maxlength=\"128\" required oninput=\"checkRegisterUsername(this.value)\">
-                        </div>
-                        <div class=\"alert alert-danger\" role=\"alert\" style=\"display: none\" id=\"USERNAME_ALREADY_USED\">
-                            L'identifiant renseigné est déjà utilisé. Veuillez en choisir un autre.
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"passwordRegisterInput\" class=\"text-white\">
-                                <strong>Mot de passe</strong>
-                            </label>
-                            <input type=\"password\" class=\"form-control\" id=\"passwordRegisterInput\" name=\"Password\" minlength=\"4\" maxlength=\"128\" required>
-                        </div>
-                        <div class=\"form-group\">
-                            <label for=\"passwordRegisterConfirmationInput\" class=\"text-white\">
-                                <strong>Confirmation</strong>
-                            </label>
-                            <input type=\"password\" class=\"form-control\" id=\"passwordRegisterConfirmationInput\" name=\"PasswordConfirmation\" minlength=\"4\" maxlength=\"128\" required>
-                        </div>
-                        <div class=\"alert alert-danger\" role=\"alert\" style=\"display: none\" id=\"PASSWORD_NOT_EQUAL\">
-                            Les deux mots de passe entrés ne correspondent pas. Veuillez réessayer.
-                        </div>
-                        <div class=\"modal-footer\" style=\"justify-content: left\">
-                            <button type=\"button\" class=\"btn btn-dark\" onclick=\"\$('#registerModal').modal('hide')\">Annuler</button>
-                            <button type=\"submit\" class=\"btn btn-primary\">M'inscrire</button>
                         </div>
                     </form>
                 </div>

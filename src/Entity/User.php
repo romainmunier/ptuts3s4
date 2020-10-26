@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -47,6 +49,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $Pseudo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Settings::class, mappedBy="User", orphanRemoval=true)
+     */
+    private $Settings;
+
+    public function __construct()
+    {
+        $this->Settings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -131,6 +143,37 @@ class User implements UserInterface
     public function setPseudo(?string $Pseudo): self
     {
         $this->Pseudo = $Pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Settings[]
+     */
+    public function getSettings(): Collection
+    {
+        return $this->Settings;
+    }
+
+    public function addSetting(Settings $setting): self
+    {
+        if (!$this->Settings->contains($setting)) {
+            $this->Settings[] = $setting;
+            $setting->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSetting(Settings $setting): self
+    {
+        if ($this->Settings->contains($setting)) {
+            $this->Settings->removeElement($setting);
+            // set the owning side to null (unless already changed)
+            if ($setting->getUser() === $this) {
+                $setting->setUser(null);
+            }
+        }
 
         return $this;
     }

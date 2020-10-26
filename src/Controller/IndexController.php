@@ -29,4 +29,11 @@ class IndexController extends AbstractController
     public function logout() {
 
     }
+
+    /**
+     * @Route("/register", name="register")
+     */
+    public function register() {
+        return $this->render("index/register.html.twig");
+    }
 }

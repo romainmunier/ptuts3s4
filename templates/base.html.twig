@@ -8,9 +8,10 @@
         {% include "includes/stylesheets.html.twig" %}
         {% include "includes/fonts.html.twig" %}
     </head>
-    <body id="page-top">
+    <body id="page-top" {% if app.request.pathInfo != "/" and userSettings.medieval[0] %}class="{{ userSettings.medieval[1] }}"{% endif %}>
         {% block body %}{% endblock %}
 
+        {% block scripts %}{% endblock %}
         {% include "includes/scripts.html.twig" %}
     </body>
 </html>
