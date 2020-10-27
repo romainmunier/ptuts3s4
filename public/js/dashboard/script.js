@@ -1,8 +1,10 @@
 function checkSamePasswordRegister(password1, password2) {
     if (password1 !== password2) {
-        document.getElementById("error_NOT_SAME_PASSWORD").style.display = "block";
+        $('#newPassword').attr("class", "form-control is-invalid");
+        $('#confirmPassword').attr("class", "form-control is-invalid");
     } else {
-        document.getElementById("error_NOT_SAME_PASSWORD").style.display = "none";
+        $('#newPassword').attr("class", "form-control is-valid");
+        $('#confirmPassword').attr("class", "form-control is-valid");
     }
 }
 
@@ -94,10 +96,12 @@ function updatePassword() {
         }
     }).then(function(response) {
         if (response["data"]["same"] === "TRUE") {
-            document.getElementById("error_BADPASSWORD").style.display = "none";
+            $('#newPassword').attr("class", "form-control is-valid");
+            $('#error_BADPASSWORD').hide();
             return true;
         } else {
-            document.getElementById("error_BADPASSWORD").style.display = "block";
+            $('#newPassword').attr("class", "form-control is-invalid");
+            $('#error_BADPASSWORD').show();
             return false;
 
         }
@@ -105,8 +109,6 @@ function updatePassword() {
 
     if (oldPasswordSame) {
         if (FORM[2]["value"] === FORM[3]["value"]) {
-            document.getElementById("error_NOT_SAME_PASSWORD").style.display = "none";
-
             axios({
                 method: "post",
                 url: "/api/updatepassword",

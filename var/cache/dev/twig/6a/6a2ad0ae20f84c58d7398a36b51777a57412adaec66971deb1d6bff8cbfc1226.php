@@ -40,23 +40,34 @@ class __TwigTemplate_7d9f978a80f773b4e8df7f0af666f3c93283abe4051fa00fd1ce25e4ff3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "includes/stylesheets.html.twig"));
 
         // line 1
-        if (!twig_in_filter("dashboard", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "request", [], "any", false, false, false, 1), "pathInfo", [], "any", false, false, false, 1))) {
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "request", [], "any", false, false, false, 1), "pathInfo", [], "any", false, false, false, 1), [0 => "/401"])) {
             // line 2
-            echo "    <link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/home/bootstrap.min.css"), "html", null, true);
-            echo "\">
-    <link rel=\"stylesheet\" href=\"";
-            // line 3
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/home/style.css"), "html", null, true);
-            echo "\">
-";
-        } else {
-            // line 5
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/dashboard/bootstrap.min.css"), "html", null, true);
             echo "\">
     <link rel=\"stylesheet\" href=\"";
+            // line 3
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/dashboard/style.css"), "html", null, true);
+            echo "\">
+";
+        } elseif (!twig_in_filter("dashboard", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 4
+(isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 4, $this->source); })()), "request", [], "any", false, false, false, 4), "pathInfo", [], "any", false, false, false, 4))) {
+            // line 5
+            echo "    <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/home/bootstrap.min.css"), "html", null, true);
+            echo "\">
+    <link rel=\"stylesheet\" href=\"";
             // line 6
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/home/style.css"), "html", null, true);
+            echo "\">
+";
+        } else {
+            // line 8
+            echo "    <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/dashboard/bootstrap.min.css"), "html", null, true);
+            echo "\">
+    <link rel=\"stylesheet\" href=\"";
+            // line 9
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/dashboard/style.css"), "html", null, true);
             echo "\">
 ";
@@ -81,12 +92,15 @@ class __TwigTemplate_7d9f978a80f773b4e8df7f0af666f3c93283abe4051fa00fd1ce25e4ff3
 
     public function getDebugInfo()
     {
-        return array (  60 => 6,  55 => 5,  50 => 3,  45 => 2,  43 => 1,);
+        return array (  71 => 9,  66 => 8,  61 => 6,  56 => 5,  54 => 4,  50 => 3,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% if \"dashboard\" not in app.request.pathInfo %}
+        return new Source("{% if app.request.pathInfo in [\"/401\"] %}
+    <link rel=\"stylesheet\" href=\"{{ asset(\"css/dashboard/bootstrap.min.css\") }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset(\"css/dashboard/style.css\") }}\">
+{% elseif \"dashboard\" not in app.request.pathInfo %}
     <link rel=\"stylesheet\" href=\"{{ asset(\"css/home/bootstrap.min.css\") }}\">
     <link rel=\"stylesheet\" href=\"{{ asset(\"css/home/style.css\") }}\">
 {% else %}

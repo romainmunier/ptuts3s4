@@ -344,6 +344,13 @@
         <argument type="service" id=".service_locator.g9CqTPp.App\Controller\DashboardController"/>
       </call>
     </service>
+    <service id="App\Controller\ErrorController" class="App\Controller\ErrorController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.g9CqTPp.App\Controller\ErrorController"/>
+      </call>
+    </service>
     <service id="App\Controller\IndexController" class="App\Controller\IndexController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -4177,6 +4184,14 @@
         <argument>null</argument>
       </call>
       <call method="add">
+        <argument type="service" id=".security.request_matcher.9yj5zr_"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+          <argument>ROLE_DEVELOPERS</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
         <argument type="service" id=".security.request_matcher.PhQgZ9B"/>
         <argument type="collection">
           <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
@@ -4602,7 +4617,7 @@
       <argument type="collection"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">index</argument>
+          <argument key="login_path">login_if_not_connected</argument>
           <argument key="default_target_path">index</argument>
           <argument key="always_use_default_target_path">false</argument>
           <argument key="target_path_parameter">_target_path</argument>
@@ -4620,7 +4635,7 @@
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">index</argument>
+          <argument key="login_path">login_if_not_connected</argument>
           <argument key="failure_path">null</argument>
           <argument key="failure_forward">false</argument>
           <argument key="failure_path_parameter">_failure_path</argument>
@@ -4637,7 +4652,7 @@
       <argument type="service" id="security.authentication.success_handler.main.form_login"/>
       <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
       <argument type="collection">
-        <argument key="login_path">index</argument>
+        <argument key="login_path">login_if_not_connected</argument>
         <argument key="check_path">login</argument>
         <argument key="use_forward">false</argument>
         <argument key="require_previous_session">false</argument>
@@ -4658,7 +4673,7 @@
     <service id="security.authentication.form_entry_point.main" class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
       <argument type="service" id="http_kernel"/>
       <argument type="service" id="security.http_utils"/>
-      <argument>index</argument>
+      <argument>login_if_not_connected</argument>
       <argument>false</argument>
     </service>
     <service id="security.authentication.provider.rememberme.main" class="Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider" public="false">
@@ -4740,6 +4755,9 @@
     </service>
     <service id=".security.request_matcher.pbyKmZE" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/dashboard</argument>
+    </service>
+    <service id=".security.request_matcher.9yj5zr_" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/control/admin</argument>
     </service>
     <service id=".security.request_matcher.PhQgZ9B" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/</argument>
@@ -5143,6 +5161,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DashboardController" class="App\Controller\DashboardController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DashboardController" class="App\Controller\DashboardController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DashboardController" class="App\Controller\DashboardController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5411,15 +5432,22 @@
         <argument key="loader" type="service" id=".errored..service_locator.C9JCBPC.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator._RztPCG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="utils" type="service" id="security.authentication_utils"/>
+      </argument>
+    </service>
     <service id=".service_locator.nyfkghW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="auth" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.FQxgqII" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.PtQjTPj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\DashboardController::login" type="service" id=".service_locator._RztPCG"/>
         <argument key="App\Controller\IndexController::login" type="service" id=".service_locator.nyfkghW"/>
         <argument key="App\Kernel::loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service" id=".service_locator.C9JCBPC"/>
@@ -5427,6 +5455,7 @@
         <argument key="kernel::loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.beq5mCo"/>
+        <argument key="App\Controller\DashboardController:login" type="service" id=".service_locator._RztPCG"/>
         <argument key="App\Controller\IndexController:login" type="service" id=".service_locator.nyfkghW"/>
         <argument key="kernel:loadRoutes" type="service" id=".service_locator.C9JCBPC"/>
         <argument key="kernel:registerContainerConfiguration" type="service" id=".service_locator.C9JCBPC"/>
@@ -5732,6 +5761,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.g9CqTPp" method="withContext"/>
     </service>
+    <service id=".service_locator.g9CqTPp.App\Controller\ErrorController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ErrorController"/>
+      <argument>App\Controller\ErrorController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.g9CqTPp" method="withContext"/>
+    </service>
     <service id=".service_locator.g9CqTPp.App\Controller\IndexController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\IndexController"/>
       <argument>App\Controller\IndexController</argument>
@@ -5911,12 +5946,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.FQxgqII"/>
+      <argument type="service" id=".service_locator.PtQjTPj"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.FQxgqII"/>
+      <argument type="service" id=".service_locator.PtQjTPj"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6314,7 +6349,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.FQxgqII"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.PtQjTPj"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

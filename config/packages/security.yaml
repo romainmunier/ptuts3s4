@@ -25,7 +25,7 @@ security:
             provider: login
 
             form_login:
-                login_path: index
+                login_path: login_if_not_connected
                 check_path: login
                 default_target_path: index
 
@@ -42,5 +42,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/dashboard, roles: ROLE_DEVELOPERS }
+        - { path: ^/dashboard, roles: [ROLE_DEVELOPERS] }
+        - { path: ^/control/admin, roles: [ROLE_ADMIN, ROLE_DEVELOPERS]}
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

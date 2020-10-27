@@ -251,7 +251,7 @@ class __TwigTemplate_263d2127ac49f969760145d749457c41025d7a528cb8eef826608a267c6
         // line 72
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 72, $this->source); })()), "color", [], "any", false, false, false, 72), "html", null, true);
         echo "\">
-                    <span>Copyright © Romain MUNIER ";
+                    <span>Copyright © CEFC Developers Team ";
         // line 73
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
@@ -356,7 +356,7 @@ class __TwigTemplate_263d2127ac49f969760145d749457c41025d7a528cb8eef826608a267c6
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-{{ userSettings.color }}\">
-                    <span>Copyright © Romain MUNIER {{ date(\"Y\")|date(\"Y\") }}</span>
+                    <span>Copyright © CEFC Developers Team {{ date(\"Y\")|date(\"Y\") }}</span>
                 </div>
             </div>
         </footer>

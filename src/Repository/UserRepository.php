@@ -19,32 +19,30 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    public function search($search) {
+        $manager = $this->getEntityManager();
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $manager->createQuery(
+            "
+                SELECT u.id as id, u.Username as username, u.Pseudo as pseudo, u.Firstname as firstname, u.Lastname as lastname
+                FROM App\Entity\User u
+                WHERE u.Username LIKE '%${search}%' OR u.Pseudo LIKE '%${search}%' OR u.Firstname LIKE '%${search}%' OR u.Lastname LIKE '%${search}%'
+                ORDER BY u.Lastname ASC, u.Firstname ASC 
+            "
+        );
+
+        $userList = array();
+
+        foreach($query->getResult() as $key => $r) {
+            $user = new User();
+            $user->setFirstname($r["firstname"])
+                ->setLastname($r["lastname"])
+                ->setPseudo($r["pseudo"])
+                ->setUsername($r["username"]);
+
+            array_push($userList, $user);
+        }
+
+        return $userList;
     }
-    */
 }

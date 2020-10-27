@@ -17,7 +17,7 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/fastlogin", name="login")
      */
     public function login(AuthenticationUtils $auth) {
         return $this->redirectToRoute("index");

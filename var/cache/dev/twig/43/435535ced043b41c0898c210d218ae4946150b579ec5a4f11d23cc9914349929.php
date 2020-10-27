@@ -133,6 +133,10 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                             <a class=\"btn btn-link nav-link text-";
         // line 52
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 52, $this->source); })()), "color", [], "any", false, false, false, 52), "html", null, true);
+        echo " ";
+        if (twig_in_filter("/dashboard/users", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 52, $this->source); })()), "request", [], "any", false, false, false, 52), "pathInfo", [], "any", false, false, false, 52))) {
+            echo "active";
+        }
         echo "\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-admin-users\" href=\"#collapse-admin-users\" role=\"button\" onclick=\"collapseAll();\">
                                 <i class=\"fas fa-users\"></i>&nbsp;
                                 <span>Utilisateurs</span>
@@ -151,7 +155,9 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                                     <a class=\"collapse-item text-";
         // line 59
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 59, $this->source); })()), "theme", [], "any", false, false, false, 59), "html", null, true);
-        echo "\" href=\"\">Utilisateurs</a>
+        echo "\" href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users");
+        echo "\">Utilisateurs</a>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +187,7 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
 
     public function getDebugInfo()
     {
-        return array (  153 => 59,  149 => 58,  143 => 57,  135 => 52,  112 => 38,  103 => 34,  83 => 24,  65 => 9,  51 => 7,  43 => 1,);
+        return array (  157 => 59,  153 => 58,  147 => 57,  135 => 52,  112 => 38,  103 => 34,  83 => 24,  65 => 9,  51 => 7,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -237,14 +243,14 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                     </div>
                     <li class=\"nav-item\" role=\"presentation\">
                         <div class=\"nav-item dropdown\">
-                            <a class=\"btn btn-link nav-link text-{{ userSettings.color }}\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-admin-users\" href=\"#collapse-admin-users\" role=\"button\" onclick=\"collapseAll();\">
+                            <a class=\"btn btn-link nav-link text-{{ userSettings.color }} {% if \"/dashboard/users\" in app.request.pathInfo %}active{% endif %}\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-admin-users\" href=\"#collapse-admin-users\" role=\"button\" onclick=\"collapseAll();\">
                                 <i class=\"fas fa-users\"></i>&nbsp;
                                 <span>Utilisateurs</span>
                             </a>
                             <div class=\"collapse w-100 py-2\" id=\"collapse-admin-users\" style=\"margin-left: 0; border-radius: 8px;\">
                                 <div class=\"bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded\" style=\"width: 96%; margin: 0 2%;\">
                                     <h6 class=\"collapse-header text-{{ userSettings.theme }}\">Options</h6>
-                                    <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"\">Utilisateurs</a>
+                                    <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path(\"users\") }}\">Utilisateurs</a>
                                 </div>
                             </div>
                         </div>

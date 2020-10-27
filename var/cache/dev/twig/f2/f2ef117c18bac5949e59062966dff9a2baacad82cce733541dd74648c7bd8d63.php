@@ -241,9 +241,9 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 90, $this->source); })()), "user", [], "any", false, false, false, 90), "id", [], "any", false, false, false, 90), "html", null, true);
         echo "\">
                                                                 <input type=\"password\" class=\"form-control\" placeholder=\"\" id=\"oldPassword\" name=\"oldPassword\" required>
-                                                            </div>
-                                                            <div class=\"alert alert-danger\" id=\"error_BADPASSWORD\" role=\"alert\" style=\"display: none\">
-                                                                Votre ancien mot de passe est éronné. Veuillez réessayer.
+                                                                <div class=\"invalid-feedback\" id=\"error_BADPASSWORD\">
+                                                                    Votre ancien mot de passe est incorrect
+                                                                </div>
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <label for=\"newPassword\">
@@ -256,6 +256,9 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
                                                                     <strong>Confirmation du mot de passe</strong>
                                                                 </label>
                                                                 <input type=\"password\" class=\"form-control\" placeholder=\"\" id=\"confirmPassword\" name=\"confirmPassword\" required oninput=\"checkSamePasswordRegister(document.getElementById('newPassword').value, this.value)\">
+                                                                <div class=\"invalid-feedback\">
+                                                                    Les deux mots de passe ne correspondent pas.
+                                                                </div>
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <label for=\"passwordStrength\">
@@ -264,9 +267,6 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
                                                                 <div class=\"progress\">
                                                                     <div class=\"progress-bar progress-bar-striped progress-bar-animated progress-bar-danger\" id=\"passwordStrength\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 0%\"></div>
                                                                 </div>
-                                                            </div>
-                                                            <div class=\"alert alert-danger\" id=\"error_NOT_SAME_PASSWORD\" role=\"alert\" style=\"display: none\">
-                                                                Les deux mots de passe ne correspondent pas. Veuillez réessayer avant de valider l'inscription.
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <button class=\"btn btn-primary\" type=\"button\" onclick=\"updatePassword()\">Modifier mon mot de passe</button>
@@ -389,7 +389,7 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
         // line 204
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 204, $this->source); })()), "color", [], "any", false, false, false, 204), "html", null, true);
         echo "\">
-                    <span>Copyright © Romain MUNIER ";
+                    <span>Copyright © CEFC Developers Team ";
         // line 205
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
@@ -513,9 +513,9 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
                                                                 </label>
                                                                 <input type=\"hidden\" name=\"id\" value=\"{{ app.user.id }}\">
                                                                 <input type=\"password\" class=\"form-control\" placeholder=\"\" id=\"oldPassword\" name=\"oldPassword\" required>
-                                                            </div>
-                                                            <div class=\"alert alert-danger\" id=\"error_BADPASSWORD\" role=\"alert\" style=\"display: none\">
-                                                                Votre ancien mot de passe est éronné. Veuillez réessayer.
+                                                                <div class=\"invalid-feedback\" id=\"error_BADPASSWORD\">
+                                                                    Votre ancien mot de passe est incorrect
+                                                                </div>
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <label for=\"newPassword\">
@@ -528,6 +528,9 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
                                                                     <strong>Confirmation du mot de passe</strong>
                                                                 </label>
                                                                 <input type=\"password\" class=\"form-control\" placeholder=\"\" id=\"confirmPassword\" name=\"confirmPassword\" required oninput=\"checkSamePasswordRegister(document.getElementById('newPassword').value, this.value)\">
+                                                                <div class=\"invalid-feedback\">
+                                                                    Les deux mots de passe ne correspondent pas.
+                                                                </div>
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <label for=\"passwordStrength\">
@@ -536,9 +539,6 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
                                                                 <div class=\"progress\">
                                                                     <div class=\"progress-bar progress-bar-striped progress-bar-animated progress-bar-danger\" id=\"passwordStrength\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 0%\"></div>
                                                                 </div>
-                                                            </div>
-                                                            <div class=\"alert alert-danger\" id=\"error_NOT_SAME_PASSWORD\" role=\"alert\" style=\"display: none\">
-                                                                Les deux mots de passe ne correspondent pas. Veuillez réessayer avant de valider l'inscription.
                                                             </div>
                                                             <div class=\"form-group\">
                                                                 <button class=\"btn btn-primary\" type=\"button\" onclick=\"updatePassword()\">Modifier mon mot de passe</button>
@@ -626,7 +626,7 @@ class __TwigTemplate_9bd4e39a111578e8bc73927e0ed1beedaddf98d9ad912b3c56475e61f90
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-{{ userSettings.color }}\">
-                    <span>Copyright © Romain MUNIER {{ date(\"Y\")|date(\"Y\") }}</span>
+                    <span>Copyright © CEFC Developers Team {{ date(\"Y\")|date(\"Y\") }}</span>
                 </div>
             </div>
         </footer>

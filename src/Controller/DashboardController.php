@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DashboardController extends AbstractController
 {
@@ -24,10 +25,15 @@ class DashboardController extends AbstractController
 
         $userSettings = json_decode($userSettings->getContent(), true);
 
-
-
         return $this->render("dashboard/index/index.html.twig", [
             "userSettings" => $userSettings
         ]);
+    }
+
+    /**
+     * @Route("/login", name="login_if_not_connected")
+     */
+    public function login(AuthenticationUtils $utils) {
+        return $this->render("index/login.html.twig");
     }
 }

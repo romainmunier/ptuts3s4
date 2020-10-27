@@ -49,14 +49,14 @@
                     </div>
                     <li class="nav-item" role="presentation">
                         <div class="nav-item dropdown">
-                            <a class="btn btn-link nav-link text-{{ userSettings.color }}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-admin-users" href="#collapse-admin-users" role="button" onclick="collapseAll();">
+                            <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/users" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-admin-users" href="#collapse-admin-users" role="button" onclick="collapseAll();">
                                 <i class="fas fa-users"></i>&nbsp;
                                 <span>Utilisateurs</span>
                             </a>
                             <div class="collapse w-100 py-2" id="collapse-admin-users" style="margin-left: 0; border-radius: 8px;">
                                 <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
-                                    <a class="collapse-item text-{{ userSettings.theme }}" href="">Utilisateurs</a>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users") }}">Utilisateurs</a>
                                 </div>
                             </div>
                         </div>
