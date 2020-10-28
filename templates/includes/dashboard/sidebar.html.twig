@@ -7,11 +7,11 @@
 <nav class="navbar navbar-{{ userSettings.theme }} align-items-start sidebar sidebar-{{ userSettings.theme }} accordion {% if not userSettings.medieval[0] %}bg-{{ userSettings.theme }}{% else %}bg-none{% endif %} p-0">
     <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="{{ path("index") }}">
-            <div class="sidebar-brand-icon rotate-n-0">
-                <i class="fas fa-laptop-code"></i>
-            </div>
+{#            <div class="sidebar-brand-icon rotate-n-0">#}
+{#                <i class="fas fa-laptop-code"></i>#}
+{#            </div>#}
             <div class="sidebar-brand-text mx-3">
-                <span>CEFC</span>
+                <span>Compagnie<br>Excalibur</span>
             </div>
         </a>
         <div class="text-center d-none d-md-inline">
@@ -31,10 +31,6 @@
                         <p class="mb-0">MENU</p>
                     </div>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link text-{{ userSettings.color }}" href="{{ path("index") }}">
-                            <i class="fas fa-home"></i>
-                            <span>Accueil</span>
-                        </a>
                         <a class="nav-link {% if (app.request.pathinfo == "/dashboard") %}active{% endif %} text-{{ userSettings.color }}" href="{{ path("dashboard") }}">
                             <i class="fas fa-tachometer-alt"></i>
                             <span>Tableau de bord</span>
@@ -55,6 +51,8 @@
                             </a>
                             <div class="collapse w-100 py-2" id="collapse-admin-users" style="margin-left: 0; border-radius: 8px;">
                                 <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
+                                    <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users_add") }}">Nouvel utilisateur</a>
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
                                     <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users") }}">Utilisateurs</a>
                                 </div>

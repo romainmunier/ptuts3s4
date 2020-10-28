@@ -130,34 +130,55 @@ function updatePassword() {
             })
         }
     }
+}
 
-    // if (FORM[3]['value'] === FORM[4]['value']) {
-    //     /* HIDE SOME USELESS ELEMENTS */
-    //     document.getElementById("PASSWORD_NOT_EQUAL").style.display = "none";
-    //
-    //     /* CREATING AND POSTING REQUEST */
-    //     axios({
-    //         method: 'post',
-    //         url: '/api/register',
-    //         data: {
-    //             Firstname: FORM[0]['value'],
-    //             Lastname: FORM[1]['value'],
-    //             Username: FORM[2]['value'],
-    //             Password: FORM[3]['value']
-    //         }
-    //     }).then(function(response) {
-    //         if (response["data"].length === 0) {
-    //             $('#registerForm')[0].reset();
-    //             $('#registerModal').modal("hide");
-    //
-    //             document.getElementById("SUCCESSFULL_CREATION_ACCOUNT").style.display = "block";
-    //
-    //             setTimeout(function() { document.getElementById("SUCCESSFULL_CREATION_ACCOUNT").style.display = "none"; }, 5000);
-    //
-    //             document.getElementById("usernameLoginInput").value = FORM[2]['value'];
-    //         }
-    //     });
-    // } else {
-    //     document.getElementById("PASSWORD_NOT_EQUAL").style.display = "block";
-    // }
+function createPassword() {
+    let password1 = document.getElementById("newPassword").value;
+    let password2 = document.getElementById("confirmPassword").value;
+    if (password1.toString() === password2.toString()) {
+        document.getElementById("passwordBtn").style.display = "none";
+        document.getElementById("editPasswordDiv").style.display = "flex";
+        document.getElementById("passwordInput").value = password1;
+        $('#modal-createpassword').modal("hide");
+    }
+}
+
+function checkAlreadyUsedUsername(username) {
+    axios({
+        method: "post",
+        url: "/api/checkusername",
+        data: {
+            Username: username.toString()
+        }
+    }).then(function(response) {
+        if (response["data"]["used"] === "FALSE") {
+            $('#username').attr("class", "form-control is-valid");
+        } else {
+            $('#username').attr("class", "form-control is-invalid");
+        }
+    })
+}
+
+let regex = /^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/
+
+function checkRegExp(id) {
+    let value = document.getElementById(id).value.toString();
+
+    if (regex.test(value)) {
+        $('#' + id).attr("class", "form-control is-valid");
+    } else {
+        $('#' + id).attr("class", "form-control is-invalid");
+    }
+}
+
+function checkUsePseudo(state) {
+    if (state) {
+        $('#pseudo').attr("required", "true");
+        $('#pseudo').removeAttr("readonly");
+        $('#pseudo').attr("placeholder", "LeCafarDu93");
+    } else {
+        $('#pseudo').removeAttr("required");
+        $('#pseudo').attr("readonly", "true");
+        $('#pseudo').attr("placeholder", "");
+    }
 }

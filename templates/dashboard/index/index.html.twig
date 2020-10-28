@@ -11,11 +11,11 @@
             {% include "includes/dashboard/navbar.html.twig" %}
             <div class="container-fluid">
                 <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-{{ userSettings.color}} mb-0">Dashboard</h3>
-                    <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">
-                        <i class="fas fa-download fa-sm text-white-50"></i>&nbsp;
-                        Generate Report
-                    </a>
+                    <h3 class="text-{{ userSettings.color}} mb-0">Tableau de bord</h3>
+{#                    <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">#}
+{#                        <i class="fas fa-download fa-sm text-white-50"></i>&nbsp;#}
+{#                        Generate Report#}
+{#                    </a>#}
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-xl-3 mb-4">
@@ -24,14 +24,14 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-uppercase text-primary font-weight-bold text-xs mb-1">
-                                            <span>Earnings (monthly)</span>
+                                            <span>Utilisateurs</span>
                                         </div>
                                         <div class="text-{{ userSettings.color }} font-weight-bold h5 mb-0">
-                                            <span>$40,000</span>
+                                            <span>{{ count["users"] }}</span>
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        <i class="fas fa-users fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -43,14 +43,14 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-uppercase text-success font-weight-bold text-xs mb-1">
-                                            <span>Earnings (annual)</span>
+                                            <span>Articles</span>
                                         </div>
                                         <div class="text-{{ userSettings.color }} font-weight-bold h5 mb-0">
-                                            <span>$215,000</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <i class="fas fa-newspaper fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -62,25 +62,25 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-uppercase text-info font-weight-bold text-xs mb-1">
-                                            <span>Tasks</span>
+                                            <span>Construction</span>
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
                                                 <div class="text-{{ userSettings.color }} font-weight-bold h5 mb-0 mr-3">
-                                                    <span>50%</span>
+                                                    <span>20 %</span>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                                                        <span class="sr-only">50%</span>
+                                                    <div class="progress-bar bg-info" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                                                        <span class="sr-only">20 %</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <i class="fas fa-tools fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -92,14 +92,14 @@
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
                                         <div class="text-uppercase text-warning font-weight-bold text-xs mb-1">
-                                            <span>Pending Requests</span>
+                                            <span>Messages non-lu</span>
                                         </div>
                                         <div class="text-{{ userSettings.color }} font-weight-bold h5 mb-0">
-                                            <span>18</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fas fa-envelope-open-text fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                     <div class="col-lg-7 col-xl-8">
                         <div class="card shadow mb-4 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
                             <div class="card-header d-flex justify-content-between align-items-center bg-{{ userSettings.theme }}">
-                                <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Earnings Overview</h6>
+                                <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Courbe aléatoire</h6>
                                 <div class="dropdown no-arrow">
                                     <button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">
                                         <i class="fas fa-ellipsis-v text-gray-400"></i>
@@ -134,7 +134,7 @@
                     <div class="col-lg-5 col-xl-4">
                         <div class="card shadow mb-4 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
                             <div class="card-header d-flex justify-content-between align-items-center bg-{{ userSettings.theme }}">
-                                <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Revenue Sources</h6>
+                                <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Graphique aléatoire</h6>
                                 <div class="dropdown no-arrow">
                                     <button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">
                                         <i class="fas fa-ellipsis-v text-gray-400"></i>

@@ -35,7 +35,8 @@ class UserRepository extends ServiceEntityRepository
 
         foreach($query->getResult() as $key => $r) {
             $user = new User();
-            $user->setFirstname($r["firstname"])
+            $user->setId($r["id"])
+                ->setFirstname($r["firstname"])
                 ->setLastname($r["lastname"])
                 ->setPseudo($r["pseudo"])
                 ->setUsername($r["username"]);

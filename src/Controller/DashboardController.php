@@ -24,9 +24,12 @@ class DashboardController extends AbstractController
         ]);
 
         $userSettings = json_decode($userSettings->getContent(), true);
+        $count = array();
+        $count["users"] = count($manager->getRepository(User::class)->findAll());
 
         return $this->render("dashboard/index/index.html.twig", [
-            "userSettings" => $userSettings
+            "userSettings" => $userSettings,
+            "count" => $count
         ]);
     }
 

@@ -1,4 +1,4 @@
-{% if app.request.pathInfo in ["/401"] %}
+{% if app.request.pathInfo in ["/401", "/404", "/501"] %}
     <link rel="stylesheet" href="{{ asset("css/dashboard/bootstrap.min.css") }}">
     <link rel="stylesheet" href="{{ asset("css/dashboard/style.css") }}">
 {% elseif "dashboard" not in app.request.pathInfo %}

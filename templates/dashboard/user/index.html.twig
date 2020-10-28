@@ -65,7 +65,7 @@
                                                 <i class="fas fa-eraser text-white"></i>
                                             </a>
                                         {% endif %}
-                                        <a class="btn btn-success btn-sm" type="button" href="">
+                                        <a class="btn btn-success btn-sm" type="button" href="{{ path("users_add") }}">
                                             <i class="fas fa-user-plus text-white"></i>
                                         </a>
                                         <a class="btn btn-primary btn-sm" type="button" data-toggle="collapse" href="#filterOptions" aria-expanded="false" aria-controls="filterOptions">
@@ -196,7 +196,7 @@
                                             <td style="width: 20%;">{{ user.firstname|capitalize }}</td>
                                             <td style="width: 20%;">{{ user.lastname|upper }}</td>
                                             <td style="width: 30%; text-align: center;">
-                                                <a class="btn btn-warning btn-sm" href="">
+                                                <a class="btn btn-warning btn-sm" href="{{ path("users_edit", {"id" : user.id}) }}">
                                                     <i class="fas fa-user-edit text-white"></i>
                                                 </a>
                                                 <a class="btn btn-danger btn-sm" role="button" onclick="$('#modal-{{ user.id }}-delete').modal();">
@@ -219,7 +219,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                        <a type="button" class="btn btn-danger" href="{{ path("user_delete", {"id" : user.id|default(0)}) }}">Supprimer</a>
+                                                        <a type="button" class="btn btn-danger" href="{{ path("user_delete", { "id" : user.id }) }}">Supprimer</a>
                                                     </div>
                                                 </div>
                                             </div>

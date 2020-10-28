@@ -108,12 +108,10 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                     <h3 class=\"text-";
         // line 14
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 14, $this->source); })()), "color", [], "any", false, false, false, 14), "html", null, true);
-        echo " mb-0\">Dashboard</h3>
-                    <a class=\"btn btn-primary btn-sm d-none d-sm-inline-block\" role=\"button\" href=\"#\">
-                        <i class=\"fas fa-download fa-sm text-white-50\"></i>&nbsp;
-                        Generate Report
-                    </a>
-                </div>
+        echo " mb-0\">Tableau de bord</h3>
+";
+        // line 19
+        echo "                </div>
                 <div class=\"row\">
                     <div class=\"col-md-6 col-xl-3 mb-4\">
                         <div class=\"card shadow border-left-primary py-2 bg-";
@@ -124,17 +122,20 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-primary font-weight-bold text-xs mb-1\">
-                                            <span>Earnings (monthly)</span>
+                                            <span>Utilisateurs</span>
                                         </div>
                                         <div class=\"text-";
         // line 29
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 29, $this->source); })()), "color", [], "any", false, false, false, 29), "html", null, true);
         echo " font-weight-bold h5 mb-0\">
-                                            <span>\$40,000</span>
+                                            <span>";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["count"]) || array_key_exists("count", $context) ? $context["count"] : (function () { throw new RuntimeError('Variable "count" does not exist.', 30, $this->source); })()), "users", [], "array", false, false, false, 30), "html", null, true);
+        echo "</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-users fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -149,17 +150,17 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-success font-weight-bold text-xs mb-1\">
-                                            <span>Earnings (annual)</span>
+                                            <span>Articles</span>
                                         </div>
                                         <div class=\"text-";
         // line 48
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 48, $this->source); })()), "color", [], "any", false, false, false, 48), "html", null, true);
         echo " font-weight-bold h5 mb-0\">
-                                            <span>\$215,000</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-dollar-sign fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-newspaper fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +175,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-info font-weight-bold text-xs mb-1\">
-                                            <span>Tasks</span>
+                                            <span>Construction</span>
                                         </div>
                                         <div class=\"row no-gutters align-items-center\">
                                             <div class=\"col-auto\">
@@ -182,20 +183,20 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
         // line 69
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 69, $this->source); })()), "color", [], "any", false, false, false, 69), "html", null, true);
         echo " font-weight-bold h5 mb-0 mr-3\">
-                                                    <span>50%</span>
+                                                    <span>20 %</span>
                                                 </div>
                                             </div>
                                             <div class=\"col\">
                                                 <div class=\"progress progress-sm\">
-                                                    <div class=\"progress-bar bg-info\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 50%;\">
-                                                        <span class=\"sr-only\">50%</span>
+                                                    <div class=\"progress-bar bg-info\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 20%;\">
+                                                        <span class=\"sr-only\">20 %</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-clipboard-list fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-tools fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -210,17 +211,17 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-warning font-weight-bold text-xs mb-1\">
-                                            <span>Pending Requests</span>
+                                            <span>Messages non-lu</span>
                                         </div>
                                         <div class=\"text-";
         // line 97
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 97, $this->source); })()), "color", [], "any", false, false, false, 97), "html", null, true);
         echo " font-weight-bold h5 mb-0\">
-                                            <span>18</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-comments fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-envelope-open-text fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +243,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <h6 class=\"text-";
         // line 113
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 113, $this->source); })()), "color", [], "any", false, false, false, 113), "html", null, true);
-        echo " font-weight-bold m-0\">Earnings Overview</h6>
+        echo " font-weight-bold m-0\">Courbe aléatoire</h6>
                                 <div class=\"dropdown no-arrow\">
                                     <button class=\"btn btn-link btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\" type=\"button\">
                                         <i class=\"fas fa-ellipsis-v text-gray-400\"></i>
@@ -292,7 +293,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <h6 class=\"text-";
         // line 137
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 137, $this->source); })()), "color", [], "any", false, false, false, 137), "html", null, true);
-        echo " font-weight-bold m-0\">Revenue Sources</h6>
+        echo " font-weight-bold m-0\">Graphique aléatoire</h6>
                                 <div class=\"dropdown no-arrow\">
                                     <button class=\"btn btn-link btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\" type=\"button\">
                                         <i class=\"fas fa-ellipsis-v text-gray-400\"></i>
@@ -600,7 +601,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
 
     public function getDebugInfo()
     {
-        return array (  577 => 341,  573 => 340,  497 => 267,  491 => 264,  475 => 251,  469 => 248,  453 => 235,  447 => 232,  443 => 231,  438 => 229,  434 => 228,  428 => 227,  414 => 216,  402 => 207,  390 => 198,  378 => 189,  366 => 180,  360 => 177,  356 => 176,  350 => 175,  319 => 147,  314 => 145,  310 => 144,  306 => 143,  302 => 142,  294 => 137,  290 => 136,  284 => 135,  269 => 123,  264 => 121,  260 => 120,  256 => 119,  252 => 118,  244 => 113,  240 => 112,  234 => 111,  217 => 97,  207 => 90,  183 => 69,  171 => 60,  156 => 48,  146 => 41,  131 => 29,  121 => 22,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  578 => 341,  574 => 340,  498 => 267,  492 => 264,  476 => 251,  470 => 248,  454 => 235,  448 => 232,  444 => 231,  439 => 229,  435 => 228,  429 => 227,  415 => 216,  403 => 207,  391 => 198,  379 => 189,  367 => 180,  361 => 177,  357 => 176,  351 => 175,  320 => 147,  315 => 145,  311 => 144,  307 => 143,  303 => 142,  295 => 137,  291 => 136,  285 => 135,  270 => 123,  265 => 121,  261 => 120,  257 => 119,  253 => 118,  245 => 113,  241 => 112,  235 => 111,  218 => 97,  208 => 90,  184 => 69,  172 => 60,  157 => 48,  147 => 41,  133 => 30,  129 => 29,  119 => 22,  114 => 19,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -618,11 +619,11 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
             {% include \"includes/dashboard/navbar.html.twig\" %}
             <div class=\"container-fluid\">
                 <div class=\"d-sm-flex justify-content-between align-items-center mb-4\">
-                    <h3 class=\"text-{{ userSettings.color}} mb-0\">Dashboard</h3>
-                    <a class=\"btn btn-primary btn-sm d-none d-sm-inline-block\" role=\"button\" href=\"#\">
-                        <i class=\"fas fa-download fa-sm text-white-50\"></i>&nbsp;
-                        Generate Report
-                    </a>
+                    <h3 class=\"text-{{ userSettings.color}} mb-0\">Tableau de bord</h3>
+{#                    <a class=\"btn btn-primary btn-sm d-none d-sm-inline-block\" role=\"button\" href=\"#\">#}
+{#                        <i class=\"fas fa-download fa-sm text-white-50\"></i>&nbsp;#}
+{#                        Generate Report#}
+{#                    </a>#}
                 </div>
                 <div class=\"row\">
                     <div class=\"col-md-6 col-xl-3 mb-4\">
@@ -631,14 +632,14 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-primary font-weight-bold text-xs mb-1\">
-                                            <span>Earnings (monthly)</span>
+                                            <span>Utilisateurs</span>
                                         </div>
                                         <div class=\"text-{{ userSettings.color }} font-weight-bold h5 mb-0\">
-                                            <span>\$40,000</span>
+                                            <span>{{ count[\"users\"] }}</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-calendar fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-users fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -650,14 +651,14 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-success font-weight-bold text-xs mb-1\">
-                                            <span>Earnings (annual)</span>
+                                            <span>Articles</span>
                                         </div>
                                         <div class=\"text-{{ userSettings.color }} font-weight-bold h5 mb-0\">
-                                            <span>\$215,000</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-dollar-sign fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-newspaper fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -669,25 +670,25 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-info font-weight-bold text-xs mb-1\">
-                                            <span>Tasks</span>
+                                            <span>Construction</span>
                                         </div>
                                         <div class=\"row no-gutters align-items-center\">
                                             <div class=\"col-auto\">
                                                 <div class=\"text-{{ userSettings.color }} font-weight-bold h5 mb-0 mr-3\">
-                                                    <span>50%</span>
+                                                    <span>20 %</span>
                                                 </div>
                                             </div>
                                             <div class=\"col\">
                                                 <div class=\"progress progress-sm\">
-                                                    <div class=\"progress-bar bg-info\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 50%;\">
-                                                        <span class=\"sr-only\">50%</span>
+                                                    <div class=\"progress-bar bg-info\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 20%;\">
+                                                        <span class=\"sr-only\">20 %</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-clipboard-list fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-tools fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -699,14 +700,14 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                                 <div class=\"row align-items-center no-gutters\">
                                     <div class=\"col mr-2\">
                                         <div class=\"text-uppercase text-warning font-weight-bold text-xs mb-1\">
-                                            <span>Pending Requests</span>
+                                            <span>Messages non-lu</span>
                                         </div>
                                         <div class=\"text-{{ userSettings.color }} font-weight-bold h5 mb-0\">
-                                            <span>18</span>
+                                            <span>0</span>
                                         </div>
                                     </div>
                                     <div class=\"col-auto\">
-                                        <i class=\"fas fa-comments fa-2x text-gray-300\"></i>
+                                        <i class=\"fas fa-envelope-open-text fa-2x text-gray-300\"></i>
                                     </div>
                                 </div>
                             </div>
@@ -717,7 +718,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                     <div class=\"col-lg-7 col-xl-8\">
                         <div class=\"card shadow mb-4 bg-{{ userSettings.theme }} border-{{ userSettings.color }}\">
                             <div class=\"card-header d-flex justify-content-between align-items-center bg-{{ userSettings.theme }}\">
-                                <h6 class=\"text-{{ userSettings.color }} font-weight-bold m-0\">Earnings Overview</h6>
+                                <h6 class=\"text-{{ userSettings.color }} font-weight-bold m-0\">Courbe aléatoire</h6>
                                 <div class=\"dropdown no-arrow\">
                                     <button class=\"btn btn-link btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\" type=\"button\">
                                         <i class=\"fas fa-ellipsis-v text-gray-400\"></i>
@@ -741,7 +742,7 @@ class __TwigTemplate_208f932b103e06a1225b3a1ee232b6d30b494037207918bb9223644c53c
                     <div class=\"col-lg-5 col-xl-4\">
                         <div class=\"card shadow mb-4 bg-{{ userSettings.theme }} border-{{ userSettings.color }}\">
                             <div class=\"card-header d-flex justify-content-between align-items-center bg-{{ userSettings.theme }}\">
-                                <h6 class=\"text-{{ userSettings.color }} font-weight-bold m-0\">Revenue Sources</h6>
+                                <h6 class=\"text-{{ userSettings.color }} font-weight-bold m-0\">Graphique aléatoire</h6>
                                 <div class=\"dropdown no-arrow\">
                                     <button class=\"btn btn-link btn-sm dropdown-toggle\" data-toggle=\"dropdown\" aria-expanded=\"false\" type=\"button\">
                                         <i class=\"fas fa-ellipsis-v text-gray-400\"></i>

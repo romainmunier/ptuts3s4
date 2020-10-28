@@ -11,42 +11,69 @@
             {% include "includes/dashboard/navbar.html.twig" %}
             <div class="container-fluid">
                 <h3 class="text-{{ userSettings.color }} mb-4">Mon compte</h3>
-                <div class="row mb-3">
-                    <div class="col-lg-4">
-                        <div class="card mb-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                            <div class="card-body text-center shadow">
-                                <img class="rounded-circle mb-3 mt-4" src="{{ asset("assets/profile/paladomas.jpg") }}" width="160" height="160">
-                                <div class="mb-3">
-                                    <button class="btn btn-primary btn-sm" type="button">Changer de photo</button>
+                <form action="{{ path("account") }}" method="POST">
+                    <input type="hidden" name="METHOD" value="EDIT">
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="card mb-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                <div class="card-body text-center shadow">
+                                    <img class="rounded-circle mb-3 mt-4" src="{{ asset("assets/profile/paladomas.jpg") }}" width="160" height="160">
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary btn-sm" type="button">Changer de photo</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card shadow mb-4 border-{{ userSettings.color }}">
-                            <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Projects</h6>
-                            </div>
-                            <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                <h4 class="small font-weight-bold">
-                                    Server migration
-                                    <span class="float-right">20%</span>
-                                </h4>
-                                <div class="progress progress-sm mb-3">
-                                    <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-                                        <span class="sr-only">20%</span>
+                            <div class="card shadow mb-4 border-{{ userSettings.color }}">
+                                <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <h6 class="text-{{ userSettings.color }} font-weight-bold m-0">Droits utilisateur</h6>
+                                </div>
+                                <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <label>
+                                        <strong>Gestion</strong>
+                                    </label>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox_ROLEADMIN" name="Roles[]" value="ROLE_ADMIN" {% if "ROLE_ADMIN" in app.user.roles %}checked{% endif %} readonly disabled>
+                                        <label class="custom-control-label" for="checkbox_ROLEADMIN">Administrateur</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox_ROLEDEVELOPERS" name="Roles[]" value="ROLE_DEVELOPERS" {% if "ROLE_DEVELOPERS" in app.user.roles %}checked{% endif %} readonly disabled>
+                                        <label class="custom-control-label" for="checkbox_ROLEDEVELOPERS">Développeur</label>
+                                    </div>
+                                    <br>
+                                    <label>
+                                        <strong>Édition</strong>
+                                    </label>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox_ROLEWRITER" name="Roles[]" value="ROLE_WRITER" {% if "ROLE_WRITER" in app.user.roles %}checked{% endif %} readonly disabled>
+                                        <label class="custom-control-label" for="checkbox_ROLEWRITER">Écrivain</label>
+                                    </div>
+                                    <br>
+                                    <label>
+                                        <strong>Équipe</strong>
+                                    </label>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox_ROLEMEMBER" name="Roles[]" value="ROLE_MEMBER" {% if "ROLE_MEMBER" in app.user.roles %}checked{% endif %} readonly disabled>
+                                        <label class="custom-control-label" for="checkbox_ROLEMEMBER">Adhérent</label>
+                                    </div>
+                                    <br>
+                                    <label>
+                                        <strong>Affichage</strong>
+                                    </label>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox_ROLEUSER" name="Roles[]" value="ROLE_USER" {% if "ROLE_USER" in app.user.roles %}checked{% endif %} readonly disabled>
+                                        <label class="custom-control-label" for="checkbox_ROLEUSER">Utilisateur</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card shadow mb-3 border-{{ userSettings.color }}">
-                                    <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                        <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations de connexion</p>
-                                    </div>
-                                    <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                        <form action="" method="POST">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3 border-{{ userSettings.color }}">
+                                        <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations de connexion</p>
+                                        </div>
+                                        <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
                                             <div class="alert alert-success alert-dismissible fade show" role="alert" id="SUCCESS_UPDATE_PASSWORD" style="display: none;">
                                                 <strong>Information :</strong> Votre mot de passe a été mis à jour avec succès !
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -71,130 +98,118 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                        <div class="modal fade" id="modal-updatepassword" tabindex="-1" aria-labelledby="UpdatePassword" aria-hidden="true" style="height: 90% !important;">
-                                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                <div class="modal-content bg-{{ userSettings.theme }}" style="border: none; height: 90% !important;">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-{{ userSettings.color }}" id="exampleModalLabel">Modifier mon mot de passe</h5>
-                                                        <button type="button" class="close text-{{ userSettings.color }}" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="#" method="POST" id="updatePasswordForm" onsubmit="updatePassword(); return false;">
-                                                            <div class="form-group">
-                                                                <label for="oldPassword">
-                                                                    <strong>Ancien mot de passe</strong>
-                                                                </label>
-                                                                <input type="hidden" name="id" value="{{ app.user.id }}">
-                                                                <input type="password" class="form-control" placeholder="" id="oldPassword" name="oldPassword" required>
-                                                                <div class="invalid-feedback" id="error_BADPASSWORD">
-                                                                    Votre ancien mot de passe est incorrect
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="newPassword">
-                                                                    <strong>Nouveau mot de passe</strong>
-                                                                </label>
-                                                                <input type="password" class="form-control" placeholder="" id="newPassword" name="newPassword" required oninput="checkPasswordStrength(this.value); checkSamePasswordRegister(this.value, document.getElementById('confirmPassword').value)">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="confirmPassword">
-                                                                    <strong>Confirmation du mot de passe</strong>
-                                                                </label>
-                                                                <input type="password" class="form-control" placeholder="" id="confirmPassword" name="confirmPassword" required oninput="checkSamePasswordRegister(document.getElementById('newPassword').value, this.value)">
-                                                                <div class="invalid-feedback">
-                                                                    Les deux mots de passe ne correspondent pas.
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="passwordStrength">
-                                                                    <strong>Solidité du mot de passe</strong>
-                                                                </label>
-                                                                <div class="progress">
-                                                                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-danger" id="passwordStrength" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <button class="btn btn-primary" type="button" onclick="updatePassword()">Modifier mon mot de passe</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card shadow border-{{ userSettings.color }}">
-                                    <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                        <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations de contact</p>
-                                    </div>
-                                    <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="address">
-                                                    <strong>Address</strong>
-                                                </label>
-                                                <input class="form-control" type="text" placeholder="Sunset Blvd, 38" name="address">
-                                            </div>
+                                    <div class="card shadow border-{{ userSettings.color }}">
+                                        <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations de contact</p>
+                                        </div>
+                                        <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
                                             <div class="form-row">
-                                                <div class="col">
-                                                    <div class="form-group">
-                                                        <label for="city">
-                                                            <strong>City</strong>
-                                                        </label>
-                                                        <input class="form-control" type="text" placeholder="Los Angeles" name="city">
+                                                <div class="col-lg-6">
+                                                    <label for="firstname">
+                                                        <strong>Prénom</strong>
+                                                    </label>
+                                                    <input class="form-control {{ errors["Firstname"]|default("") }}" type="text" placeholder="John" value="{{ app.user.firstname }}" name="Firstname" id="firstname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <div class="invalid-feedback">
+                                                        Votre prénom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="form-group">
-                                                        <label for="country">
-                                                            <strong>Country</strong>
-                                                        </label>
-                                                        <input class="form-control" type="text" placeholder="USA" name="country">
+                                                <div class="col-lg-6">
+                                                    <label for="lastname">
+                                                        <strong>Nom</strong>
+                                                    </label>
+                                                    <input class="form-control {{ errors["Lastname"]|default("") }}" type="text" placeholder="DOE" value="{{ app.user.lastname }}" name="Lastname" id="lastname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <div class="invalid-feedback">
+                                                        Votre nom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card shadow border-{{ userSettings.color }}">
+                                        <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Paramètres sur les forums</p>
+                                        </div>
+                                        <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input class="custom-control-input" type="checkbox" name="usePseudo" id="switch-usepseudo" onchange="checkUsePseudo(this.checked)" {% if app.user.pseudo != NULL %}checked{% endif %}>
+                                                    <label class="custom-control-label" for="switch-usepseudo">
+                                                        <strong>Utiliser un pseudo</strong>
+                                                    </label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
+                                                <label for="pseudo">
+                                                    <strong>Pseudo utilisé</strong>
+                                                </label>
+                                                <input class="form-control {{ errors["Pseudo"]|default("") }}" type="text" placeholder="" value="{{ app.user.pseudo|default("") }}" name="Pseudo" id="pseudo" minlength="2" maxlength="128"  {% if app.user.pseudo == NULL %}readonly{% endif %}>
+                                                <div class="invalid-feedback">
+                                                    Étant donné que vous avez choisi d'utiliser un pseudo, il faut le définir.
+                                                </div>
                                             </div>
-                                        </form>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-sm" type="submit">Sauvegarder les informations</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card shadow mb-5 border-{{ userSettings.color }}">
-                    <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                        <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Paramètres sur les forums</p>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-updatepassword" tabindex="-1" aria-labelledby="UpdatePassword" aria-hidden="true" style="height: 90% !important;">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-{{ userSettings.theme }}" style="border: none; height: 90% !important;">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-{{ userSettings.color }}" id="exampleModalLabel">Modifier mon mot de passe</h5>
+                        <button type="button" class="close text-{{ userSettings.color }}" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="signature">
-                                            <strong>Signature</strong>
-                                            <br>
-                                        </label>
-                                        <textarea class="form-control" rows="4" name="signature"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-switch">
-                                            <input class="custom-control-input" type="checkbox" id="formCheck-1">
-                                            <label class="custom-control-label" for="formCheck-1">
-                                                <strong>Notify me about new replies</strong>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
-                                    </div>
-                                </form>
+                    <div class="modal-body">
+                        <form action="#" method="POST" id="updatePasswordForm" onsubmit="updatePassword(); return false;">
+                            <div class="form-group">
+                                <label for="oldPassword">
+                                    <strong>Ancien mot de passe</strong>
+                                </label>
+                                <input type="hidden" name="id" value="{{ app.user.id }}">
+                                <input type="password" class="form-control" placeholder="" id="oldPassword" name="oldPassword" required>
+                                <div class="invalid-feedback" id="error_BADPASSWORD">
+                                    Votre ancien mot de passe est incorrect
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="newPassword">
+                                    <strong>Nouveau mot de passe</strong>
+                                </label>
+                                <input type="password" class="form-control" placeholder="" id="newPassword" name="newPassword" required oninput="checkPasswordStrength(this.value); checkSamePasswordRegister(this.value, document.getElementById('confirmPassword').value)">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">
+                                    <strong>Confirmation du mot de passe</strong>
+                                </label>
+                                <input type="password" class="form-control" placeholder="" id="confirmPassword" name="confirmPassword" required oninput="checkSamePasswordRegister(document.getElementById('newPassword').value, this.value)">
+                                <div class="invalid-feedback">
+                                    Les deux mots de passe ne correspondent pas.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordStrength">
+                                    <strong>Solidité du mot de passe</strong>
+                                </label>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-danger" id="passwordStrength" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="button" onclick="updatePassword()">Modifier mon mot de passe</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

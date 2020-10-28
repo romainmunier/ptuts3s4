@@ -60,27 +60,30 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
         echo "        ";
         $this->loadTemplate("includes/fonts.html.twig", "base.html.twig", 9)->display($context);
         // line 10
+        echo "        ";
+        $this->loadTemplate("includes/icons.html.twig", "base.html.twig", 10)->display($context);
+        // line 11
         echo "    </head>
     <body id=\"page-top\" ";
-        // line 11
-        if ((!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "request", [], "any", false, false, false, 11), "pathInfo", [], "any", false, false, false, 11), [0 => "/", 1 => "/register", 2 => "/login"]) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 11, $this->source); })()), "medieval", [], "any", false, false, false, 11), 0, [], "array", false, false, false, 11))) {
+        // line 12
+        if ((!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "request", [], "any", false, false, false, 12), "pathInfo", [], "any", false, false, false, 12), [0 => "/", 1 => "/register", 2 => "/login"]) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()), "medieval", [], "any", false, false, false, 12), 0, [], "array", false, false, false, 12))) {
             echo "class=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 11, $this->source); })()), "medieval", [], "any", false, false, false, 11), 1, [], "array", false, false, false, 11), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()), "medieval", [], "any", false, false, false, 12), 1, [], "array", false, false, false, 12), "html", null, true);
             echo "\"";
         }
         echo ">
         ";
-        // line 12
-        $this->displayBlock('body', $context, $blocks);
         // line 13
+        $this->displayBlock('body', $context, $blocks);
+        // line 14
         echo "
         ";
-        // line 14
-        $this->displayBlock('scripts', $context, $blocks);
         // line 15
-        echo "        ";
-        $this->loadTemplate("includes/scripts.html.twig", "base.html.twig", 15)->display($context);
+        $this->displayBlock('scripts', $context, $blocks);
         // line 16
+        echo "        ";
+        $this->loadTemplate("includes/scripts.html.twig", "base.html.twig", 16)->display($context);
+        // line 17
         echo "    </body>
 </html>
 ";
@@ -111,7 +114,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
     }
 
-    // line 12
+    // line 13
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -129,7 +132,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
     }
 
-    // line 14
+    // line 15
     public function block_scripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -159,7 +162,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
     public function getDebugInfo()
     {
-        return array (  133 => 14,  115 => 12,  96 => 6,  84 => 16,  81 => 15,  79 => 14,  76 => 13,  74 => 12,  66 => 11,  63 => 10,  60 => 9,  58 => 8,  53 => 6,  46 => 1,);
+        return array (  136 => 15,  118 => 13,  99 => 6,  87 => 17,  84 => 16,  82 => 15,  79 => 14,  77 => 13,  69 => 12,  66 => 11,  63 => 10,  60 => 9,  58 => 8,  53 => 6,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -173,6 +176,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
         {% include \"includes/stylesheets.html.twig\" %}
         {% include \"includes/fonts.html.twig\" %}
+        {% include \"includes/icons.html.twig\" %}
     </head>
     <body id=\"page-top\" {% if app.request.pathInfo not in [\"/\", \"/register\", \"/login\"] and userSettings.medieval[0] %}class=\"{{ userSettings.medieval[1] }}\"{% endif %}>
         {% block body %}{% endblock %}

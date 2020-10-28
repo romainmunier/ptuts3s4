@@ -6,14 +6,60 @@ use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
     /**
-     * @Route("/dashboard/account", name="account")
+     * @var UserPasswordEncoderInterface
      */
-    public function index()
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder) {
+        $this->encoder = $encoder;
+    }
+
+    public function check($data) {
+        $manager = $this->getDoctrine()->getManager();
+        $errors = array();
+
+        // Check username
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $data["Username"]]);
+        if ($user and $data["METHOD"] == "ADD") {
+            $errors["Username"] = "is-invalid";
+        }
+
+        // Check password
+        if (isset($data["Password"]) and $data["Password"] == "") {
+            $errors["Password"] = "is-invalid";
+        }
+
+        // Check firstname
+        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/", $data["Firstname"])) {
+            $errors["Firstname"] = "is-invalid";
+        }
+
+        // Check lastname
+        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/", $data["Lastname"])) {
+            $errors["Lastname"] = "is-invalid";
+        }
+
+        // Check use pseudo
+        if (isset($data["usePseudo"]) and $data["usePseudo"] == "on") {
+            if ($data["Pseudo"] == "") {
+                $errors["Pseudo"] = "is-invalid";
+            }
+        }
+
+        return $errors;
+    }
+
+    /**
+     * @Route("/dashboard/account", name="account", methods={"GET", "POST"})
+     */
+    public function index(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
 
@@ -23,9 +69,35 @@ class UserController extends AbstractController
 
         $userSettings = json_decode($userSettings->getContent(), true);
 
-        return $this->render("dashboard/user/account.html.twig", [
-            "userSettings" => $userSettings
-        ]);
+        if ($request->getMethod() == "GET") {
+            return $this->render("dashboard/user/account.html.twig", [
+                "userSettings" => $userSettings
+            ]);
+        }
+
+        $errors = $this->check($_POST);
+
+        if (!empty($errors)) {
+            return $this->render("dashboard/user/account.html.twig", [
+                "userSettings" => $userSettings,
+                "errors" => $errors
+            ]);
+        }
+
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+        $user->setFirstname(ucfirst($_POST['Firstname']));
+        $user->setLastname(strtoupper($_POST['Lastname']));
+
+        if (isset($_POST["usePseudo"]) and $_POST["usePseudo"] == "on") {
+            $user->setPseudo($_POST["Pseudo"]);
+        } else {
+            $user->setPseudo(NULL);
+        }
+
+        $manager->flush();
+
+        return $this->redirectToRoute("account");
     }
 
     /**
@@ -97,6 +169,113 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/dashboard/users/add", name="users_add", methods={"GET", "POST"})
+     */
+    public function add(Request $request) {
+        $manager = $this->getDoctrine()->getManager();
+
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+
+        $userSettings = json_decode($userSettings->getContent(), true);
+
+        if ($request->getMethod() == "GET") {
+            return $this->render("dashboard/user/add.html.twig", [
+                "userSettings" => $userSettings
+            ]);
+        }
+
+        $errors = $this->check($_POST);
+
+        if (!empty($errors)) {
+            return $this->render("dashboard/user/add.html.twig", [
+                "userSettings" => $userSettings,
+                "errors" => $errors
+            ]);
+        }
+
+        $user = new User();
+        $user->setUsername($_POST["Username"])
+            ->setPassword($_POST["Password"])
+            ->setFirstname(ucfirst($_POST["Firstname"]))
+            ->setLastname(strtoupper($_POST["Lastname"]))
+            ->setPseudo(NULL)
+            ->setRoles(array("ROLE_USER"));
+
+        $encoded = $this->encoder->encodePassword($user, $user->getPassword());
+        $user->setPassword($encoded);
+
+        $manager->persist($user);
+        $manager->flush();
+
+        return $this->redirectToRoute("users_edit", ["id" => $user->getId()]);
+    }
+
+    /**
+     * @Route("/dashboard/users/edit/{id}", name="users_edit", methods={"GET", "POST"})
+     */
+    public function edit(int $id, Request $request) {
+        $manager = $this->getDoctrine()->getManager();
+
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+
+        $userSettings = json_decode($userSettings->getContent(), true);
+
+        $user = $manager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            return $this->redirectToRoute("ERROR_404");
+        }
+
+        if ($request->getMethod() == "GET") {
+            return $this->render("dashboard/user/edit.html.twig", [
+                "userSettings" => $userSettings,
+                "user" => $user
+            ]);
+        }
+
+        $errors = $this->check($_POST);
+
+
+        if (!empty($errors)) {
+            return $this->render("dashboard/user/edit.html.twig", [
+                "userSettings" => $userSettings,
+                "user" => $manager->getRepository(User::class)->find($id),
+                "errors" => $errors
+            ]);
+        }
+
+        if ($_POST["Password"] != $user->getPassword()) {
+            $user->setPassword($_POST['Password']);
+            $encoded = $this->encoder->encodePassword($user, $_POST['Password']);
+            $user->setPassword($encoded);
+        }
+
+        $user->setFirstname(ucfirst($_POST['Firstname']));
+        $user->setLastname(strtoupper($_POST['Lastname']));
+
+        if (isset($_POST["usePseudo"]) and $_POST["usePseudo"] == "on") {
+            $user->setPseudo($_POST["Pseudo"]);
+        } else {
+            $user->setPseudo(NULL);
+        }
+
+        $roles = array();
+        foreach($_POST['Roles'] as $key => $r) {
+            array_push($roles, $r);
+        }
+
+        $user->setRoles($roles);
+
+        $manager->flush();
+
+        return $this->redirectToRoute("users_edit", ["id" => $id]);
+    }
+
+    /**
      * @Route("/control/admin/users/delete/{id}", name="user_delete", methods={"GET"})
      * @param int $id
      * @return RedirectResponse
@@ -138,5 +317,6 @@ class UserController extends AbstractController
                     return $this->redirectToRoute("users");
             }
         }
+        return $this->redirectToRoute("users");
     }
 }

@@ -40,7 +40,7 @@ class __TwigTemplate_7d9f978a80f773b4e8df7f0af666f3c93283abe4051fa00fd1ce25e4ff3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "includes/stylesheets.html.twig"));
 
         // line 1
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "request", [], "any", false, false, false, 1), "pathInfo", [], "any", false, false, false, 1), [0 => "/401"])) {
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 1, $this->source); })()), "request", [], "any", false, false, false, 1), "pathInfo", [], "any", false, false, false, 1), [0 => "/401", 1 => "/404", 2 => "/501"])) {
             // line 2
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/dashboard/bootstrap.min.css"), "html", null, true);
@@ -97,7 +97,7 @@ class __TwigTemplate_7d9f978a80f773b4e8df7f0af666f3c93283abe4051fa00fd1ce25e4ff3
 
     public function getSourceContext()
     {
-        return new Source("{% if app.request.pathInfo in [\"/401\"] %}
+        return new Source("{% if app.request.pathInfo in [\"/401\", \"/404\", \"/501\"] %}
     <link rel=\"stylesheet\" href=\"{{ asset(\"css/dashboard/bootstrap.min.css\") }}\">
     <link rel=\"stylesheet\" href=\"{{ asset(\"css/dashboard/style.css\") }}\">
 {% elseif \"dashboard\" not in app.request.pathInfo %}

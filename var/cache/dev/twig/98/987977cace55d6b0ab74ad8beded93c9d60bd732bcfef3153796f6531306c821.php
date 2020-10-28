@@ -247,7 +247,9 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                                         ";
         }
         // line 68
-        echo "                                        <a class=\"btn btn-success btn-sm\" type=\"button\" href=\"\">
+        echo "                                        <a class=\"btn btn-success btn-sm\" type=\"button\" href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users_add");
+        echo "\">
                                             <i class=\"fas fa-user-plus text-white\"></i>
                                         </a>
                                         <a class=\"btn btn-primary btn-sm\" type=\"button\" data-toggle=\"collapse\" href=\"#filterOptions\" aria-expanded=\"false\" aria-controls=\"filterOptions\">
@@ -445,7 +447,10 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                 echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["user"], "lastname", [], "any", false, false, false, 197)), "html", null, true);
                 echo "</td>
                                             <td style=\"width: 30%; text-align: center;\">
-                                                <a class=\"btn btn-warning btn-sm\" href=\"\">
+                                                <a class=\"btn btn-warning btn-sm\" href=\"";
+                // line 199
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 199)]), "html", null, true);
+                echo "\">
                                                     <i class=\"fas fa-user-edit text-white\"></i>
                                                 </a>
                                                 <a class=\"btn btn-danger btn-sm\" role=\"button\" onclick=\"\$('#modal-";
@@ -486,7 +491,7 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                                                         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Annuler</button>
                                                         <a type=\"button\" class=\"btn btn-danger\" href=\"";
                 // line 222
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => ((twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", true, true, false, 222)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 222), 0)) : (0))]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 222)]), "html", null, true);
                 echo "\">Supprimer</a>
                                                     </div>
                                                 </div>
@@ -643,7 +648,7 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
 
     public function getDebugInfo()
     {
-        return array (  620 => 297,  616 => 296,  599 => 281,  596 => 280,  585 => 277,  576 => 276,  571 => 275,  569 => 274,  557 => 264,  551 => 263,  547 => 262,  514 => 234,  510 => 232,  501 => 228,  489 => 222,  480 => 218,  467 => 210,  462 => 208,  453 => 202,  445 => 197,  441 => 196,  437 => 195,  433 => 194,  427 => 191,  417 => 190,  412 => 187,  406 => 185,  403 => 184,  399 => 183,  379 => 166,  369 => 165,  364 => 164,  360 => 163,  356 => 162,  270 => 81,  264 => 80,  250 => 68,  242 => 64,  240 => 63,  228 => 58,  223 => 56,  209 => 47,  203 => 46,  197 => 45,  191 => 44,  185 => 43,  180 => 41,  176 => 40,  168 => 35,  162 => 34,  155 => 33,  141 => 25,  137 => 23,  132 => 22,  120 => 16,  117 => 15,  113 => 14,  109 => 13,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  625 => 297,  621 => 296,  604 => 281,  601 => 280,  590 => 277,  581 => 276,  576 => 275,  574 => 274,  562 => 264,  556 => 263,  552 => 262,  519 => 234,  515 => 232,  506 => 228,  494 => 222,  485 => 218,  472 => 210,  467 => 208,  458 => 202,  452 => 199,  447 => 197,  443 => 196,  439 => 195,  435 => 194,  429 => 191,  419 => 190,  414 => 187,  408 => 185,  405 => 184,  401 => 183,  381 => 166,  371 => 165,  366 => 164,  362 => 163,  358 => 162,  272 => 81,  266 => 80,  250 => 68,  242 => 64,  240 => 63,  228 => 58,  223 => 56,  209 => 47,  203 => 46,  197 => 45,  191 => 44,  185 => 43,  180 => 41,  176 => 40,  168 => 35,  162 => 34,  155 => 33,  141 => 25,  137 => 23,  132 => 22,  120 => 16,  117 => 15,  113 => 14,  109 => 13,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -715,7 +720,7 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                                                 <i class=\"fas fa-eraser text-white\"></i>
                                             </a>
                                         {% endif %}
-                                        <a class=\"btn btn-success btn-sm\" type=\"button\" href=\"\">
+                                        <a class=\"btn btn-success btn-sm\" type=\"button\" href=\"{{ path(\"users_add\") }}\">
                                             <i class=\"fas fa-user-plus text-white\"></i>
                                         </a>
                                         <a class=\"btn btn-primary btn-sm\" type=\"button\" data-toggle=\"collapse\" href=\"#filterOptions\" aria-expanded=\"false\" aria-controls=\"filterOptions\">
@@ -846,7 +851,7 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                                             <td style=\"width: 20%;\">{{ user.firstname|capitalize }}</td>
                                             <td style=\"width: 20%;\">{{ user.lastname|upper }}</td>
                                             <td style=\"width: 30%; text-align: center;\">
-                                                <a class=\"btn btn-warning btn-sm\" href=\"\">
+                                                <a class=\"btn btn-warning btn-sm\" href=\"{{ path(\"users_edit\", {\"id\" : user.id}) }}\">
                                                     <i class=\"fas fa-user-edit text-white\"></i>
                                                 </a>
                                                 <a class=\"btn btn-danger btn-sm\" role=\"button\" onclick=\"\$('#modal-{{ user.id }}-delete').modal();\">
@@ -869,7 +874,7 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
                                                     </div>
                                                     <div class=\"modal-footer\">
                                                         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Annuler</button>
-                                                        <a type=\"button\" class=\"btn btn-danger\" href=\"{{ path(\"user_delete\", {\"id\" : user.id|default(0)}) }}\">Supprimer</a>
+                                                        <a type=\"button\" class=\"btn btn-danger\" href=\"{{ path(\"user_delete\", { \"id\" : user.id }) }}\">Supprimer</a>
                                                     </div>
                                                 </div>
                                             </div>
