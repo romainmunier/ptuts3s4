@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Settings;
 use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -235,6 +236,13 @@ class UserController extends AbstractController
         $user->setPassword($encoded);
 
         $manager->persist($user);
+        $manager->flush();
+
+        $setting = new Settings();
+        $setting->setUser($user)
+            ->setSettings(["Theme" => "light", "Medieval" => false]);
+
+        $manager->persist($setting);
         $manager->flush();
 
         return $this->redirectToRoute("users_edit", ["id" => $user->getId()]);
