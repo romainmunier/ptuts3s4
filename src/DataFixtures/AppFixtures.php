@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
+use App\Entity\MailingList;
 use App\Entity\Settings;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -17,6 +19,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         mb_internal_encoding("UTF-8");
+
+        $userEntity = array();
 
         $userList = array(
             0 => array(
@@ -64,6 +68,8 @@ class AppFixtures extends Fixture
 
             $manager->persist($user);
 
+            array_push($userEntity, $user);
+
             $setting = new Settings();
             $setting->setUser($user)
                 ->setSettings(["Theme" => "light", "Medieval" => false]);
@@ -95,6 +101,8 @@ class AppFixtures extends Fixture
 
                     $manager->persist($user);
 
+                    array_push($userEntity, $user);
+
                     $setting = new Settings();
                     $setting->setUser($user)
                         ->setSettings(["Theme" => "light", "Medieval" => false]);
@@ -107,6 +115,47 @@ class AppFixtures extends Fixture
             }
         }
 
+        $category = new Category();
+        $category->setName("Catégorie initiale")
+            ->setParent(null)
+            ->setSumup("Catégorie initiale")
+            ->setDate(\DateTime::createFromFormat("Y-m-d", "2020-01-01"))
+            ->setVisibility(true);
 
+        $manager->persist($category);
+        $manager->flush();
+
+        $createrandom = readline("Créer des listes de diffusion aléatoire ? [Yes/no]\n> ");
+        if (strpos(strtolower(strval($createrandom)), "y") !== false) {
+            $count = readline("Nombre de listes : [0-10 000]\n> ");
+            $cntByList = readline("Nombre de comptes max par liste : [0-10 000]\n> ");
+            if (is_numeric(intval($count))) {
+                for($i=0; $i<intval($count); $i++) {
+                    if (is_numeric($cntByList)) {
+                        $usrIds = array();
+                        for($j=0; $j<mt_rand(1,intval($cntByList)); $j++) {
+                            $key = array_rand($userEntity, 1);
+                            array_push($usrIds, $userEntity[$key]->getId());
+                            echo "Nouvel utilisateur dans la liste " . $i . " : " . $userEntity[$key]->getFirstname() . " " . $userEntity[$key]->getLastname() . "\n";
+                        }
+
+                        $type = ["HYBRID", "MAIL", "PHONE"];
+
+                        $mailing = new MailingList();
+                        $mailing->setName("Liste n°" . $i)
+                            ->setSumup("Sumup de la liste " . $i)
+                            ->setType($type[array_rand($type, 1)])
+                            ->setDate(\DateTime::createFromFormat("Y-m-d", "2020-01-01"))
+                            ->setList($usrIds);
+
+                        $manager->persist($mailing);
+
+                        echo "New random mailing list : List " . $i . "\n\n";
+
+                        $manager->flush();
+                    }
+                }
+            }
+        }
     }
 }

@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Pseudo', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Settings'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Pseudo', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Settings', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Phone'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Pseudo', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Settings'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Firstname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Lastname', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Pseudo', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Settings', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'Phone'];
     }
 
     /**
@@ -387,6 +387,50 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeSetting', [$setting]);
 
         return parent::removeSetting($setting);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMail(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMail', []);
+
+        return parent::getMail();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMail(?string $Mail): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMail', [$Mail]);
+
+        return parent::setMail($Mail);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPhone(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhone', []);
+
+        return parent::getPhone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPhone(?string $Phone): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', [$Phone]);
+
+        return parent::setPhone($Phone);
     }
 
 }

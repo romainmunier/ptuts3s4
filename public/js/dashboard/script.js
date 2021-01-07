@@ -159,10 +159,26 @@ function checkAlreadyUsedUsername(username) {
     })
 }
 
-let regex = /^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/
+let RegExpName = /^[a-zA-Z0-9éèçàùôâîêïäëöüû °-]{2,128}$/;
+let RegExpMail = /^([a-zA-Z0-9-éàûô.]{2,})+[@]([a-zA-Z0-9-éàûô]{2,128})+[.]([a-zA-Z0-9-]){1,5}$/;
+let RegExpPhone = /(^([+][0-9]{2,3})+[0-9]{9})$|^([0-9]{10}$)/;
 
-function checkRegExp(id) {
+function checkRegExp(id, type) {
     let value = document.getElementById(id).value.toString();
+
+    let regex;
+
+    switch (type) {
+        case "NAME":
+            regex = RegExpName;
+            break;
+        case "MAIL":
+            regex = RegExpMail;
+            break
+        case "PHONE":
+            regex = RegExpPhone;
+            break;
+    }
 
     if (regex.test(value)) {
         $('#' + id).attr("class", "form-control is-valid");
@@ -171,14 +187,121 @@ function checkRegExp(id) {
     }
 }
 
-function checkUsePseudo(state) {
+function checkUse(id, state, sample) {
     if (state) {
-        $('#pseudo').attr("required", "true");
-        $('#pseudo').removeAttr("readonly");
-        $('#pseudo').attr("placeholder", "LeCafarDu93");
+        $('#' + id).attr("required", "true");
+        $('#' + id).removeAttr("readonly");
+        $('#' + id).attr("placeholder", sample);
+        $('#' + id + "Div").slideDown("slow");
     } else {
-        $('#pseudo').removeAttr("required");
-        $('#pseudo').attr("readonly", "true");
-        $('#pseudo').attr("placeholder", "");
+        $('#' + id).removeAttr("required");
+        $('#' + id).attr("readonly", "true");
+        $('#' + id).attr("placeholder", "");
+        $('#' + id + "Div").slideUp("slow");
     }
+}
+
+window.addEventListener("load", function(event) {
+    if (window.location.href.includes("account") || window.location.href.includes("users/edit")) {
+        // Load function and define default values
+
+        if (document.getElementById("pseudo").value === "") {
+            $('#pseudoDiv').hide();
+        }
+
+        if (document.getElementById("mail").value === "") {
+            $('#mailDiv').hide();
+        }
+
+        if (document.getElementById("phone").value === "") {
+            $('#phoneDiv').hide();
+        }
+    }
+});
+
+
+var unassignedUser = document.getElementById('unassigned-user');
+var assignedUser = document.getElementById('assigned-user');
+
+// Example 2 - Shared lists
+new Sortable(unassignedUser, {
+    group: 'shared', // set both lists to same group
+    animation: 150
+});
+
+new Sortable(assignedUser, {
+    group: 'shared',
+    animation: 150
+});
+
+function onSumupSwitcheChange(state) {
+    if (state) {
+        $("#sumupDiv").slideDown("slow");
+        $("#sumup").attr("required", "true");
+        document.getElementById("sumup").value = "";
+    } else {
+        $("#sumupDiv").slideUp("slow");
+        $("#sumup").removeAttr("required");
+        document.getElementById("sumup").value = "";
+    }
+}
+
+function checkAddListForm() {
+    FORM = $('#addListForm').serializeArray();
+    $('#assigned-user').children().each(function(index) {
+        let id = $(this).attr('id').toString().split("-")[1];
+        $('#usersItem').append(`<input type="hidden" name="Users[]" value="${id}">`)
+    });
+
+    FORM.submit();
+}
+
+function selectSearchCategory(id) {
+    toggleSlideCollapse();
+    document.getElementById("newParentCategory").value =  document.getElementById("searchName-" + id).innerText;
+    document.getElementById("updateParentId").value = id;
+}
+
+function searchCategoryInDatabase(value) {
+    axios({
+        method: "post",
+        url: "/api/getCategoryByValue",
+        data: {
+            value: value.toString()
+        }
+    }).then(function(response) {
+        const data = response["data"];
+        $('#results').empty();
+
+        data.forEach(function(item) {
+            const dateTime = item.date.date.slice(0,10);
+            const year = dateTime.split("-")[0];
+            const month = dateTime.split("-")[1];
+            const day = dateTime.split("-")[2];
+
+            const date = day + "/" + month + "/" + year;
+
+            const child = `<div class="card searchItem" id="search-${item.id}" onclick="selectSearchCategory(${item.id})">
+                                <div class="card-header" id="searchName-${item.id}">
+                                    ${item.name}
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>${item.sumup}</p>
+                                        <footer class="blockquote-footer">Dernière modification le <cite title="Source Title">${date}</cite></footer>
+                                    </blockquote>
+                                </div>
+                            </div><br>`;
+
+            $('#results').append(child);
+        })
+
+    })
+}
+
+function addArticle() {
+    const title = document.getElementById("articleTitle").value;
+    const containment = tinyMCE.get("commentText").getContent();
+
+    console.log(title, containment);
 }

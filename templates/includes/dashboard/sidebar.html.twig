@@ -1,6 +1,7 @@
 <script>
     function collapseAll() {
         $('collapse-admin-users').collapse("hide");
+        $('collapse-admin-mailing').collapse("hide");
     }
 </script>
 
@@ -41,25 +42,108 @@
                     <li class="nav-item" role="presentation"></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
-                        <p class="mb-0">GESTION</p>
+                        <p class="mb-0">ALBUMS</p>
                     </div>
                     <li class="nav-item" role="presentation">
                         <div class="nav-item dropdown">
-                            <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/users" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-admin-users" href="#collapse-admin-users" role="button" onclick="collapseAll();">
-                                <i class="fas fa-users"></i>&nbsp;
-                                <span>Utilisateurs</span>
+                            <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/category" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-category" href="#collapse-category" role="button" onclick="collapseAll();">
+                                <i class="fas fa-filter"></i>&nbsp;
+                                <span>Catégories</span>
                             </a>
-                            <div class="collapse w-100 py-2" id="collapse-admin-users" style="margin-left: 0; border-radius: 8px;">
+                            <div class="collapse w-100 py-2" id="collapse-category" style="margin-left: 0; border-radius: 8px;">
                                 <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
-                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users_add") }}">Nouvel utilisateur</a>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="">Ajouter une catégorie</a>
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
-                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users") }}">Utilisateurs</a>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("category") }}">Toutes les catégories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <div class="nav-item dropdown">
+                            <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/gallery" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-gallery" href="#collapse-gallery" role="button" onclick="collapseAll();">
+                                <i class="fas fa-images"></i>&nbsp;
+                                <span>Galerie</span>
+                            </a>
+                            <div class="collapse w-100 py-2" id="collapse-gallery" style="margin-left: 0; border-radius: 8px;">
+                                <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
+                                    <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="">Ajouter des images</a>
+                                    <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="">Toutes les images</a>
                                 </div>
                             </div>
                         </div>
                     </li>
                 </ul>
+                {% if is_granted("ROLE_WRITER") or is_granted("ROLE_ADMIN") or is_granted("ROLE_DEVELOPERS") %}
+                    <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                        <li class="nav-item" role="presentation"></li>
+                        <hr class="sidebar-divider">
+                        <div class="sidebar-heading">
+                            <p class="mb-0">AUTEURS</p>
+                        </div>
+                        <li class="nav-item" role="presentation">
+                            <div class="nav-item dropdown">
+                                <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/news" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-writer-news" href="#collapse-writer-news" role="button" onclick="collapseAll();">
+                                    <i class="fas fa-newspaper"></i>&nbsp;
+                                    <span>Articles</span>
+                                </a>
+                                <div class="collapse w-100 py-2" id="collapse-writer-news" style="margin-left: 0; border-radius: 8px;">
+                                    <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path('articles_add') }}">Nouvel article</a>
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("articles") }}">Tous les articles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_DEVELOPERS") %}
+                    <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                        <li class="nav-item" role="presentation"></li>
+                        <hr class="sidebar-divider">
+                        <div class="sidebar-heading">
+                            <p class="mb-0">GESTION</p>
+                        </div>
+                        <li class="nav-item" role="presentation">
+                            <div class="nav-item dropdown">
+                                <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/mailing" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-admin-mailing" href="#collapse-admin-mailing" role="button" onclick="collapseAll();">
+                                    <i class="fas fa-envelope-open-text"></i>&nbsp;
+                                    <span>Diffusion</span>
+                                </a>
+                                <div class="collapse w-100 py-2" id="collapse-admin-mailing" style="margin-left: 0; border-radius: 8px;">
+                                    <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("mailing_add") }}">Nouvelle liste</a>
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("mailing") }}">Listes de diffusion</a>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="#">Envoyer un message</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <div class="nav-item dropdown">
+                                <a class="btn btn-link nav-link text-{{ userSettings.color }} {% if "/dashboard/users" in app.request.pathInfo %}active{% endif %}" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-admin-users" href="#collapse-admin-users" role="button" onclick="collapseAll();">
+                                    <i class="fas fa-users"></i>&nbsp;
+                                    <span>Utilisateurs</span>
+                                </a>
+                                <div class="collapse w-100 py-2" id="collapse-admin-users" style="margin-left: 0; border-radius: 8px;">
+                                    <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users_add") }}">Nouvel utilisateur</a>
+                                        <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
+                                        <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path("users") }}">Utilisateurs</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                {% endif %}
             </div>
         </nav>
     </div>

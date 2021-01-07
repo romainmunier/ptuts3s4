@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\Json;
 
 class APIController extends AbstractController
 {
@@ -86,6 +88,17 @@ class APIController extends AbstractController
         } else {
             return new JsonResponse(["used" => "TRUE"]);
         }
+    }
 
+    /**
+     * @Route("/api/getCategoryByValue", name="get_category", methods={"POST"})
+     */
+    public function getCategory(Request $request) {
+        $manager = $this->getDoctrine()->getManager();
+        $value = json_decode($request->getContent(), true)["value"];
+
+        $results = $manager->getRepository(Category::class)->findByValue($value);
+
+        return new JsonResponse($results);
     }
 }

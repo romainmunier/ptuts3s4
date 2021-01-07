@@ -55,9 +55,25 @@ class User implements UserInterface
      */
     private $Settings;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Mail;
+
+    /**
+     * @ORM\Column(type="string", length=12, nullable=true)
+     */
+    private $Phone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="Author", orphanRemoval=true)
+     */
+    private $Articles;
+
     public function __construct()
     {
         $this->Settings = new ArrayCollection();
+        $this->Articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +195,61 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($setting->getUser() === $this) {
                 $setting->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->Mail;
+    }
+
+    public function setMail(?string $Mail): self
+    {
+        $this->Mail = $Mail;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->Phone;
+    }
+
+    public function setPhone(?string $Phone): self
+    {
+        $this->Phone = $Phone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->Articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->Articles->contains($article)) {
+            $this->Articles[] = $article;
+            $article->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->Articles->contains($article)) {
+            $this->Articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getAuthor() === $this) {
+                $article->setAuthor(null);
             }
         }
 

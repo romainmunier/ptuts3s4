@@ -37,12 +37,12 @@ class UserController extends AbstractController
         }
 
         // Check firstname
-        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/", $data["Firstname"])) {
+        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû °-]{2,128}$/", $data["Firstname"])) {
             $errors["Firstname"] = "is-invalid";
         }
 
         // Check lastname
-        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû-]{2,128}$/", $data["Lastname"])) {
+        if (!preg_match("/^[a-zA-Zéèçàùôâîêïäëöüû °-]{2,128}$/", $data["Lastname"])) {
             $errors["Lastname"] = "is-invalid";
         }
 
@@ -50,6 +50,20 @@ class UserController extends AbstractController
         if (isset($data["usePseudo"]) and $data["usePseudo"] == "on") {
             if ($data["Pseudo"] == "") {
                 $errors["Pseudo"] = "is-invalid";
+            }
+        }
+
+        // Check use mail
+        if (isset($data["useMail"]) and $data["useMail"] == "on") {
+            if ($data["Mail"] == "" or !preg_match("/^([a-zA-Z0-9-éàûô.]{2,})+[@]([a-zA-Z0-9-éàûô]{2,128})+[.]([a-zA-Z0-9-]){1,5}$/", $data["Mail"])) {
+                $errors["Mail"] = "is-invalid";
+            }
+        }
+
+        // Check use phone
+        if (isset($data["usePhone"]) and $data["usePhone"] == "on") {
+            if ($data["Phone"] == "" or !preg_match("/(^([+][0-9]{2,3})+[0-9]{9})$|^([0-9]{10}$)/", $data["Phone"])) {
+                $errors["Phone"] = "is-invalid";
             }
         }
 
@@ -93,6 +107,18 @@ class UserController extends AbstractController
             $user->setPseudo($_POST["Pseudo"]);
         } else {
             $user->setPseudo(NULL);
+        }
+
+        if (isset($_POST["useMail"]) and $_POST["useMail"] == "on") {
+            $user->setMail($_POST["Mail"]);
+        } else {
+            $user->setMail(NULL);
+        }
+
+        if (isset($_POST["usePhone"]) and $_POST["usePhone"] == "on") {
+            $user->setPhone($_POST["Phone"]);
+        } else {
+            $user->setPhone(NULL);
         }
 
         $manager->flush();
@@ -201,6 +227,8 @@ class UserController extends AbstractController
             ->setFirstname(ucfirst($_POST["Firstname"]))
             ->setLastname(strtoupper($_POST["Lastname"]))
             ->setPseudo(NULL)
+            ->setMail(NULL)
+            ->setPhone(NULL)
             ->setRoles(array("ROLE_USER"));
 
         $encoded = $this->encoder->encodePassword($user, $user->getPassword());
@@ -261,6 +289,18 @@ class UserController extends AbstractController
             $user->setPseudo($_POST["Pseudo"]);
         } else {
             $user->setPseudo(NULL);
+        }
+
+        if (isset($_POST["useMail"]) and $_POST["useMail"] == "on") {
+            $user->setMail($_POST["Mail"]);
+        } else {
+            $user->setMail(NULL);
+        }
+
+        if (isset($_POST["usePhone"]) and $_POST["usePhone"] == "on") {
+            $user->setPhone($_POST["Phone"]);
+        } else {
+            $user->setPhone(NULL);
         }
 
         $roles = array();

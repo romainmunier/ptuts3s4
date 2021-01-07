@@ -59,6 +59,10 @@ return [[
 '%5BApp%5CEntity%5CUser%23getSettings%5D%5B1%5D' => 1,
 '%5BApp%5CEntity%5CUser%23addSetting%5D%5B1%5D' => 1,
 '%5BApp%5CEntity%5CUser%23removeSetting%5D%5B1%5D' => 1,
+'%5BApp%5CEntity%5CUser%23getMail%5D%5B1%5D' => 1,
+'%5BApp%5CEntity%5CUser%23setMail%5D%5B1%5D' => 1,
+'%5BApp%5CEntity%5CUser%23getPhone%5D%5B1%5D' => 1,
+'%5BApp%5CEntity%5CUser%23setPhone%5D%5B1%5D' => 1,
 '%5BApp%5CEntity%5CUser%24id%5D%5B1%5D' => 7,
 '%5BApp%5CEntity%5CUser%24Username%5D%5B1%5D' => 8,
 '%5BApp%5CEntity%5CUser%24Password%5D%5B1%5D' => 9,
@@ -67,6 +71,8 @@ return [[
 '%5BApp%5CEntity%5CUser%24Lastname%5D%5B1%5D' => 8,
 '%5BApp%5CEntity%5CUser%24Pseudo%5D%5B1%5D' => 11,
 '%5BApp%5CEntity%5CUser%24Settings%5D%5B1%5D' => 12,
+'%5BApp%5CEntity%5CUser%24Mail%5D%5B1%5D' => 13,
+'%5BApp%5CEntity%5CUser%24Phone%5D%5B1%5D' => 14,
 '%5BDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%5D%5B1%5D' => 1,
 '%5BDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%23setContainer%5D%5B1%5D' => 1,
 '%5BDoctrine%5CBundle%5CDoctrineBundle%5CController%5CProfilerController%23explainAction%5D%5B1%5D' => 1,
@@ -564,6 +570,50 @@ return [[
                     'App\\Entity\\Settings',
                 ],
                 'orphanRemoval' => [
+                    true,
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+13 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'length' => [
+                    255,
+                ],
+                'nullable' => [
+                    true,
+                ],
+            ],
+        ],
+        [
+            $o[0],
+        ],
+        []
+    );
+},
+14 => static function () {
+    return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+        $o = [
+            clone (\Symfony\Component\VarExporter\Internal\Registry::$prototypes['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        ],
+        null,
+        [
+            'stdClass' => [
+                'length' => [
+                    12,
+                ],
+                'nullable' => [
                     true,
                 ],
             ],

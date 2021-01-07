@@ -11,6 +11,14 @@
             {% include "includes/dashboard/navbar.html.twig" %}
             <div class="container-fluid">
                 <h3 class="text-{{ userSettings.color }} mb-4">Création d'un compte</h3>
+                {% if errors is defined and errors is not empty %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Avertissement : </strong> Des erreurs ont été trouvée dans votre formulaire. Veuillez les corriger avant de continuer.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
                 <form action="" method="POST" id="createAccountForm">
                     <input type="hidden" name="METHOD" value="ADD">
                     <div class="row mb-3">
@@ -116,7 +124,7 @@
                                                     <label for="firstname">
                                                         <strong>Prénom</strong>
                                                     </label>
-                                                    <input class="form-control {{ errors["Firstname"]|default("") }}" type="text" placeholder="John" name="Firstname" id="firstname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <input class="form-control {{ errors["Firstname"]|default("") }}" type="text" placeholder="John" name="Firstname" id="firstname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id, 'NAME')">
                                                     <div class="invalid-feedback">
                                                         Votre prénom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>
@@ -125,7 +133,7 @@
                                                     <label for="lastname">
                                                         <strong>Nom</strong>
                                                     </label>
-                                                    <input class="form-control {{ errors["Lastname"]|default("") }}" type="text" placeholder="DOE" name="Lastname" id="lastname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <input class="form-control {{ errors["Lastname"]|default("") }}" type="text" placeholder="DOE" name="Lastname" id="lastname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id, 'NAME')">
                                                     <div class="invalid-feedback">
                                                         Votre nom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>

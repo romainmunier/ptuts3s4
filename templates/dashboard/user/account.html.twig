@@ -11,6 +11,14 @@
             {% include "includes/dashboard/navbar.html.twig" %}
             <div class="container-fluid">
                 <h3 class="text-{{ userSettings.color }} mb-4">Mon compte</h3>
+                {% if errors is defined and errors is not empty %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Avertissement : </strong> Des erreurs ont été trouvée dans votre formulaire. Veuillez les corriger avant de continuer.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
                 <form action="{{ path("account") }}" method="POST">
                     <input type="hidden" name="METHOD" value="EDIT">
                     <div class="row mb-3">
@@ -110,7 +118,7 @@
                                                     <label for="firstname">
                                                         <strong>Prénom</strong>
                                                     </label>
-                                                    <input class="form-control {{ errors["Firstname"]|default("") }}" type="text" placeholder="John" value="{{ app.user.firstname }}" name="Firstname" id="firstname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <input class="form-control {{ errors["Firstname"]|default("") }}" type="text" placeholder="John" value="{{ app.user.firstname }}" name="Firstname" id="firstname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id, 'NAME')">
                                                     <div class="invalid-feedback">
                                                         Votre prénom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>
@@ -119,10 +127,53 @@
                                                     <label for="lastname">
                                                         <strong>Nom</strong>
                                                     </label>
-                                                    <input class="form-control {{ errors["Lastname"]|default("") }}" type="text" placeholder="DOE" value="{{ app.user.lastname }}" name="Lastname" id="lastname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id)">
+                                                    <input class="form-control {{ errors["Lastname"]|default("") }}" type="text" placeholder="DOE" value="{{ app.user.lastname }}" name="Lastname" id="lastname" minlength="2" maxlength="128" required oninput="checkRegExp(this.id, 'NAME')">
                                                     <div class="invalid-feedback">
                                                         Votre nom doit faire entre 2 et 128 caractères et doit être composé de lettres uniquement
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card shadow border-{{ userSettings.color }}">
+                                        <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations de contact</p>
+                                        </div>
+                                        <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input class="custom-control-input" type="checkbox" name="useMail" id="switch-usemaildiff" onchange="checkUse('mail', this.checked, 'mail@domain.fr')" {% if app.user.mail != NULL %}checked{% endif %}>
+                                                    <label class="custom-control-label" for="switch-usemaildiff">
+                                                        <strong>Autoriser l'utilisation de mon adresse mail dans des listes de diffusion</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="mailDiv">
+                                                <label for="mail">
+                                                    <strong>Adresse mail</strong>
+                                                </label>
+                                                <input class="form-control {{ errors["Mail"]|default("") }}" type="email" placeholder="" value="{{ app.user.mail|default("") }}" name="Mail" id="mail" minlength="2" maxlength="255"  {% if app.user.mail == NULL %}readonly{% endif %} oninput="checkRegExp(this.id, 'MAIL')">
+                                                <div class="invalid-feedback">
+                                                    Étant donné que vous avez autorisé le site à utiliser votre adresse mail dans les listes de diffusion, il faut la définir.
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch">
+                                                    <input class="custom-control-input" type="checkbox" name="usePhone" id="switch-usephonediff" onchange="checkUse('phone', this.checked, '+33 X XX XX XX XX')" {% if app.user.phone != NULL %}checked{% endif %}>
+                                                    <label class="custom-control-label" for="switch-usephonediff">
+                                                        <strong>Autoriser l'utilisation de mon numéro de téléphone dans des listes de diffusion</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="phoneDiv">
+                                                <label for="phone">
+                                                    <strong>Numéro de téléphone</strong>
+                                                </label>
+                                                <input class="form-control {{ errors["Phone"]|default("") }}" type="tel" placeholder="" value="{{ app.user.phone|default("") }}" name="Phone" id="phone" minlength="2" maxlength="255"  {% if app.user.phone == NULL %}readonly{% endif %} oninput="checkRegExp(this.id, 'PHONE')">
+                                                <div class="invalid-feedback">
+                                                    Étant donné que vous avez autorisé le site à utiliser votre numéro de téléphone dans les listes de diffusion, il faut le définir.
                                                 </div>
                                             </div>
                                         </div>
@@ -135,13 +186,13 @@
                                         <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch">
-                                                    <input class="custom-control-input" type="checkbox" name="usePseudo" id="switch-usepseudo" onchange="checkUsePseudo(this.checked)" {% if app.user.pseudo != NULL %}checked{% endif %}>
+                                                    <input class="custom-control-input" type="checkbox" name="usePseudo" id="switch-usepseudo" onchange="checkUse('pseudo', this.checked, 'LeCafarDu93')" {% if app.user.pseudo != NULL %}checked{% endif %}>
                                                     <label class="custom-control-label" for="switch-usepseudo">
                                                         <strong>Utiliser un pseudo</strong>
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" id="pseudoDiv">
                                                 <label for="pseudo">
                                                     <strong>Pseudo utilisé</strong>
                                                 </label>
