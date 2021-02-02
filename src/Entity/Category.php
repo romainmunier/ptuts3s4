@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,42 +18,42 @@ class Category
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Name;
+    private ?string $Name;
 
     /**
      * @ORM\Column(type="string", length=2048, nullable=true)
      */
-    private $Sumup;
+    private ?string $Sumup;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $Date;
+    private ?DateTimeInterface $Date;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Visibility;
+    private ?bool $Visibility;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Children")
      */
-    private $Parent;
+    private ?Category $Parent;
 
     /**
      * @ORM\OneToMany(targetEntity=Category::class, mappedBy="Parent", orphanRemoval=true)
      */
-    private $Children;
+    private ArrayCollection $Children;
 
     /**
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="Category", orphanRemoval=true)
      */
-    private $Articles;
+    private ArrayCollection $Articles;
 
     public function __construct()
     {
@@ -89,12 +90,12 @@ class Category
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->Date;
     }
 
-    public function setDate(\DateTimeInterface $Date): self
+    public function setDate(DateTimeInterface $Date): self
     {
         $this->Date = $Date;
 

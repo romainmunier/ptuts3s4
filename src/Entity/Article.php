@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,39 +16,39 @@ class Article
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Author;
+    private ?User $Author;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $Date;
+    private ?DateTimeInterface $Date;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Subject;
+    private ?string $Subject;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $Article;
+    private ?string $Article;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $Visibility;
+    private ?bool $Visibility;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Category;
+    private ?Category $Category;
 
     public function getId(): ?int
     {
@@ -66,12 +67,12 @@ class Article
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->Date;
     }
 
-    public function setDate(\DateTimeInterface $Date): self
+    public function setDate(DateTimeInterface $Date): self
     {
         $this->Date = $Date;
 

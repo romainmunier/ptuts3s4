@@ -15,18 +15,18 @@ class Settings
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Settings")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $User;
+    private ?User $User;
 
     /**
      * @ORM\Column(type="array")
      */
-    private $Settings = [];
+    private array $Settings = [];
 
     public function getId(): ?int
     {

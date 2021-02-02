@@ -18,57 +18,57 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Username;
+    private ?string $Username;
 
     /**
      * @ORM\Column(type="string", length=256)
      */
-    private $Password;
+    private ?string $Password;
 
     /**
      * @ORM\Column(type="array")
      */
-    private $Roles = [];
+    private array $Roles = [];
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Firstname;
+    private ?string $Firstname;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Lastname;
+    private ?string $Lastname;
 
     /**
      * @ORM\Column(type="string", length=128, nullable=true)
      */
-    private $Pseudo;
+    private ?string $Pseudo;
 
     /**
      * @ORM\OneToMany(targetEntity=Settings::class, mappedBy="User", orphanRemoval=true)
      */
-    private $Settings;
+    private ArrayCollection $Settings;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Mail;
+    private ?string $Mail;
 
     /**
      * @ORM\Column(type="string", length=12, nullable=true)
      */
-    private $Phone;
+    private ?string $Phone;
 
     /**
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="Author", orphanRemoval=true)
      */
-    private $Articles;
+    private ArrayCollection $Articles;
 
     public function __construct()
     {

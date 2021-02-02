@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MailingListRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,32 +16,32 @@ class MailingList
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private $Name;
+    private ?string $Name;
 
     /**
      * @ORM\Column(type="string", length=1024, nullable=true)
      */
-    private $Sumup;
+    private ?string $Sumup;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $Date;
+    private ?DateTimeInterface $Date;
 
     /**
      * @ORM\Column(type="array")
      */
-    private $List = [];
+    private array $List = [];
 
     /**
      * @ORM\Column(type="string", length=8)
      */
-    private $Type;
+    private ?string $Type;
 
     public function getId(): ?int
     {
@@ -71,12 +72,12 @@ class MailingList
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?DateTimeInterface
     {
         return $this->Date;
     }
 
-    public function setDate(\DateTimeInterface $Date): self
+    public function setDate(DateTimeInterface $Date): self
     {
         $this->Date = $Date;
 
