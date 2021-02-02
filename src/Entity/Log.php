@@ -16,37 +16,37 @@ class Log
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private ?string $username;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private ?string $name;
+    private $name;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private ?DateTimeInterface $date;
+    private $date;
 
     /**
      * @ORM\Column(type="string", length=64)
      */
-    private ?string $action;
+    private $action;
 
     /**
      * @ORM\Column(type="string", length=64)
      */
-    private ?string $page;
+    private $page;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $value;
+    private $value;
 
     public function getId(): ?int
     {

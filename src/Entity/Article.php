@@ -16,39 +16,39 @@ class Article
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?User $Author;
+    private $Author;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private ?DateTimeInterface $Date;
+    private $Date;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private ?string $Subject;
+    private $Subject;
 
     /**
      * @ORM\Column(type="text")
      */
-    private ?string $Article;
+    private $Article;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private ?bool $Visibility;
+    private $Visibility;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    private ?Category $Category;
+    private $Category;
 
     public function getId(): ?int
     {

@@ -16,22 +16,22 @@ class MailingList
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private ?string $Name;
+    private $Name;
 
     /**
      * @ORM\Column(type="string", length=1024, nullable=true)
      */
-    private ?string $Sumup;
+    private $Sumup;
 
     /**
      * @ORM\Column(type="date")
      */
-    private ?DateTimeInterface $Date;
+    private $Date;
 
     /**
      * @ORM\Column(type="array")

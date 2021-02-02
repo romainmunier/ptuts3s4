@@ -6,12 +6,16 @@ use App\Entity\Category;
 use App\Entity\MailingList;
 use App\Entity\Settings;
 use App\Entity\User;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+
+    private UserPasswordEncoderInterface $encoder;
+
     public function __construct(UserPasswordEncoderInterface $encoder) {
         $this->encoder = $encoder;
     }
@@ -119,7 +123,7 @@ class AppFixtures extends Fixture
         $category->setName("Catégorie initiale")
             ->setParent(null)
             ->setSumup("Catégorie initiale")
-            ->setDate(\DateTime::createFromFormat("Y-m-d", "2020-01-01"))
+            ->setDate(DateTime::createFromFormat("Y-m-d", "2020-01-01"))
             ->setVisibility(true);
 
         $manager->persist($category);
@@ -145,7 +149,7 @@ class AppFixtures extends Fixture
                         $mailing->setName("Liste n°" . $i)
                             ->setSumup("Sumup de la liste " . $i)
                             ->setType($type[array_rand($type, 1)])
-                            ->setDate(\DateTime::createFromFormat("Y-m-d", "2020-01-01"))
+                            ->setDate(DateTime::createFromFormat("Y-m-d", "2020-01-01"))
                             ->setList($usrIds);
 
                         $manager->persist($mailing);

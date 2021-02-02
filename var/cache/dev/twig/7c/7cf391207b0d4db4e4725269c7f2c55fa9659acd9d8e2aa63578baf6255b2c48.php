@@ -132,6 +132,6 @@ class __TwigTemplate_54ea927d789ebbb824fd7ab0a4ae94bb2e6e22ee85955188b54400dfa0b
     <script src=\"{{ asset(\"js/home/axios.min.js\") }}\"></script>
     <script src=\"{{ asset(\"js/dashboard/script.min.js\") }}\"></script>
     <script src=\"{{ asset(\"js/dashboard/script.js\") }}\"></script>
-{% endif %}", "includes/scripts.html.twig", "C:\\Users\\romainmunier\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\scripts.html.twig");
+{% endif %}", "includes/scripts.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\scripts.html.twig");
     }
 }

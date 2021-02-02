@@ -18,42 +18,42 @@ class Category
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=128)
      */
-    private ?string $Name;
+    private $Name;
 
     /**
      * @ORM\Column(type="string", length=2048, nullable=true)
      */
-    private ?string $Sumup;
+    private $Sumup;
 
     /**
      * @ORM\Column(type="date")
      */
-    private ?DateTimeInterface $Date;
+    private $Date;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private ?bool $Visibility;
+    private $Visibility;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Children")
      */
-    private ?Category $Parent;
+    private $Parent;
 
     /**
      * @ORM\OneToMany(targetEntity=Category::class, mappedBy="Parent", orphanRemoval=true)
      */
-    private ArrayCollection $Children;
+    private $Children;
 
     /**
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="Category", orphanRemoval=true)
      */
-    private ArrayCollection $Articles;
+    private $Articles;
 
     public function __construct()
     {

@@ -268,6 +268,6 @@ class __TwigTemplate_0662a3a41573ff84ddabcd445e15aea800f6b48579404ca30b56ef9a28f
             </ul>
         </div>
     </div>
-</nav>", "includes/home/navbar.html.twig", "C:\\Users\\romainmunier\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\home\\navbar.html.twig");
+</nav>", "includes/home/navbar.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\home\\navbar.html.twig");
     }
 }

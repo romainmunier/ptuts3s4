@@ -30,6 +30,7 @@ return [
         '/fastlogin' => [[['_route' => 'login', '_controller' => 'App\\Controller\\IndexController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\IndexController::logout'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'register', '_controller' => 'App\\Controller\\IndexController::register'], null, null, null, false, false, null]],
+        '/log' => [[['_route' => 'log', '_controller' => 'App\\Controller\\LogController::index'], null, null, null, false, false, null]],
         '/dashboard/mailing' => [[['_route' => 'mailing', '_controller' => 'App\\Controller\\MailingListController::index'], null, null, null, false, false, null]],
         '/dashboard/mailing/add' => [[['_route' => 'mailing_add', '_controller' => 'App\\Controller\\MailingListController::add'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/dashboard/news' => [[['_route' => 'news', '_controller' => 'App\\Controller\\NewsController::index'], null, null, null, false, false, null]],
@@ -69,11 +70,35 @@ return [
                     .')'
                     .'|users/edit/([^/]++)(*:343)'
                 .')'
-                .'|/control/admin/(?'
-                    .'|mailing/delete/([^/]++)(*:393)'
-                    .'|users/delete/([^/]++)(*:422)'
+                .'|/admin/([^/]++)/(?'
+                    .'|ca(?'
+                        .'|rousel/(?'
+                            .'|add(*:389)'
+                            .'|edit/([^/]++)(*:410)'
+                            .'|delete/([^/]++)(*:433)'
+                        .')'
+                        .'|tlink/(?'
+                            .'|add(*:454)'
+                            .'|edit/([^/]++)(*:475)'
+                            .'|delete/([^/]++)(*:498)'
+                        .')'
+                    .')'
+                    .'|link/(?'
+                        .'|add(*:519)'
+                        .'|edit/([^/]++)(*:540)'
+                        .'|delete/([^/]++)(*:563)'
+                    .')'
+                    .'|medias/(?'
+                        .'|add/([^/]++)(*:594)'
+                        .'|upload/([^/]++)(*:617)'
+                        .'|delete/([^/]++)(*:640)'
+                    .')'
                 .')'
-                .'|/export/settings/save/([^/]++)(*:461)'
+                .'|/control/admin/(?'
+                    .'|mailing/delete/([^/]++)(*:691)'
+                    .'|users/delete/([^/]++)(*:720)'
+                .')'
+                .'|/export/settings/save/([^/]++)(*:759)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -90,9 +115,21 @@ return [
         294 => [[['_route' => 'mailing_show', '_controller' => 'App\\Controller\\MailingListController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         315 => [[['_route' => 'mailing_edit', '_controller' => 'App\\Controller\\MailingListController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         343 => [[['_route' => 'users_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        393 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        422 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        461 => [
+        389 => [[['_route' => 'admin_carousel_add', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page'], null, null, true, false, null]],
+        410 => [[['_route' => 'admin_carousel_edit', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page', 'id'], null, null, false, true, null]],
+        433 => [[['_route' => 'admin_carousel_delete', '_controller' => 'App\\Controller\\CarouselLikeController::carouselDelete'], ['page', 'id'], null, null, false, true, null]],
+        454 => [[['_route' => 'admin_catlink_add', '_controller' => 'App\\Controller\\LinkController::catLinkHandle'], ['page'], null, null, true, false, null]],
+        475 => [[['_route' => 'admin_catlink_edit', '_controller' => 'App\\Controller\\LinkController::catLinkHandle'], ['page', 'id'], null, null, false, true, null]],
+        498 => [[['_route' => 'admin_catlink_delete', '_controller' => 'App\\Controller\\LinkController::deleteCat'], ['page', 'id'], null, null, false, true, null]],
+        519 => [[['_route' => 'admin_link_add', '_controller' => 'App\\Controller\\LinkController::linkHandle'], ['page'], null, null, true, false, null]],
+        540 => [[['_route' => 'admin_link_edit', '_controller' => 'App\\Controller\\LinkController::linkHandle'], ['page', 'id'], null, null, false, true, null]],
+        563 => [[['_route' => 'admin_link_delete', '_controller' => 'App\\Controller\\LinkController::linkDelete'], ['page', 'id'], null, null, false, true, null]],
+        594 => [[['_route' => 'medias_add', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
+        617 => [[['_route' => 'medias_upload', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
+        640 => [[['_route' => 'medias_delete', '_controller' => 'App\\Controller\\MediaController::delete'], ['page', 'id'], null, null, false, true, null]],
+        691 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        720 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        759 => [
             [['_route' => 'settings_save', '_controller' => 'App\\Controller\\SettingsController::saveSettings'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

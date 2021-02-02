@@ -83,6 +83,6 @@ class __TwigTemplate_6ebb5138f948ec348e4404f1baf431b7434dcdfd4a28201d37c561b1a9d
         return new Source("<link rel=\"stylesheet\" href=\"{{ asset(\"fonts/SourceSansPro.css\") }}\">
 <link rel=\"stylesheet\" href=\"{{ asset(\"fonts/font-awesome.min.css\") }}\">
 <link rel=\"stylesheet\" href=\"{{ asset(\"fonts/fontawesome-all.min.css\") }}\">
-<link rel=\"stylesheet\" href=\"{{ asset(\"fonts/simple-line-icons.css\") }}\">", "includes/fonts.html.twig", "C:\\Users\\romainmunier\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\fonts.html.twig");
+<link rel=\"stylesheet\" href=\"{{ asset(\"fonts/simple-line-icons.css\") }}\">", "includes/fonts.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\fonts.html.twig");
     }
 }
