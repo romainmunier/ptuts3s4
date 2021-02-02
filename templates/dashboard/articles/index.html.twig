@@ -22,11 +22,11 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-header text-bold">
-                                    {{ article.subject }}
+                                    {{ article.category.name }}
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
-                                        <p class="text-truncate">{{ containments[article.article]|raw }}</p>
+                                        <p class="text-truncate">{{ article.subject }}</p>
                                         <footer class="blockquote-footer">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le  
                                             <cite title="Source Title">{{ article.date|date("d/m/Y") }}</cite>
                                         </footer>

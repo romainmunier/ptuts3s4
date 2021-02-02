@@ -129,14 +129,14 @@ class __TwigTemplate_332358d0d75d046d9125d351e56929d7ab6a7031761a83d744c92e34b02
                                 <div class=\"card-header text-bold\">
                                     ";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "subject", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "category", [], "any", false, false, false, 25), "name", [], "any", false, false, false, 25), "html", null, true);
             echo "
                                 </div>
                                 <div class=\"card-body\">
                                     <blockquote class=\"blockquote mb-0\">
                                         <p class=\"text-truncate\">";
             // line 29
-            echo twig_get_attribute($this->env, $this->source, (isset($context["containments"]) || array_key_exists("containments", $context) ? $context["containments"] : (function () { throw new RuntimeError('Variable "containments" does not exist.', 29, $this->source); })()), twig_get_attribute($this->env, $this->source, $context["article"], "article", [], "any", false, false, false, 29), [], "array", false, false, false, 29);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "subject", [], "any", false, false, false, 29), "html", null, true);
             echo "</p>
                                         <footer class=\"blockquote-footer\">Rédigé par ";
             // line 30
@@ -277,11 +277,11 @@ class __TwigTemplate_332358d0d75d046d9125d351e56929d7ab6a7031761a83d744c92e34b02
                         <div class=\"col-lg-4\">
                             <div class=\"card\">
                                 <div class=\"card-header text-bold\">
-                                    {{ article.subject }}
+                                    {{ article.category.name }}
                                 </div>
                                 <div class=\"card-body\">
                                     <blockquote class=\"blockquote mb-0\">
-                                        <p class=\"text-truncate\">{{ containments[article.article]|raw }}</p>
+                                        <p class=\"text-truncate\">{{ article.subject }}</p>
                                         <footer class=\"blockquote-footer\">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le  
                                             <cite title=\"Source Title\">{{ article.date|date(\"d/m/Y\") }}</cite>
                                         </footer>

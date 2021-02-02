@@ -258,8 +258,8 @@
                         <div class="modal-body">
                             <p>Voulez-vous supprimer cette catégorie ?</p>
                             {% if category.children is not null %}
-                                <div class="alert alert-danger" role="alert">
-                                    Celle-ci contient <span class="badge bg-warning">{{ category.children|length }}</span> sous-catégories. Si vous supprimez cette catégorie, ces sous-catégories seront supprimées également.
+                                <div class="alert alert-danger text-justify" role="alert">
+                                    Celle-ci contient <span class="badge bg-warning">{{ category.children|length }}</span> sous-catégories. Si vous supprimez cette catégorie, ses sous-catégories seront supprimées également ainsi que les images de la gallerie et les articles qui lui sont liés. Avant toute suppression, vérifiez qu'elle ne contient aucune image ni aucun article.
                                 </div>
                             {% endif %}
                             <form action="{{ path("category", {"id" : category.parent.id}) }}" method="POST">

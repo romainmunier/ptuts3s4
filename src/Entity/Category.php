@@ -49,9 +49,15 @@ class Category
      */
     private $Children;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="Category", orphanRemoval=true)
+     */
+    private $Articles;
+
     public function __construct()
     {
         $this->Children = new ArrayCollection();
+        $this->Articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -144,6 +150,37 @@ class Category
             // set the owning side to null (unless already changed)
             if ($child->getParent() === $this) {
                 $child->setParent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->Articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->Articles->contains($article)) {
+            $this->Articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->Articles->contains($article)) {
+            $this->Articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
             }
         }
 

@@ -123,7 +123,31 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         Le titre entré est incorrect ou inexistant. Veuillez réessayer.
                     </div>
                 </div>
+                <div class=\"form-group\">
+                    <input type=\"text\" class=\"form-control\" id=\"newParentCategory\" value=\"\" readonly disabled>
+                    <input type=\"hidden\" name=\"Category\" id=\"updateParentId\" value=\"\">
+                    <br>
+                    <button class=\"btn btn-block btn-outline-primary\" type=\"button\" onclick=\"toggleSlideCollapse()\">Rechercher une catégorie</button>
+                </div>
+                <div id=\"collapseSearchForm\" style=\"display: none;\">
+                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"toggleSlideCollapse();\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                    <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\"Rechercher une catégorie ...\" oninput=\"searchCategoryInDatabase(this.value)\">
+                    <hr>
+                    <div class=\"card pt-3\">
+                        <div id=\"results\" style=\"width: 90%; max-height: 20rem; overflow-y: auto; margin-left: 5%; margin-right: 5%;\">
+
+                        </div>
+                    </div>
+                </div>
             </div>
+            <script>
+                function toggleSlideCollapse() {
+                    \$('#collapseEditForm').slideToggle();
+                    \$('#collapseSearchForm').slideToggle();
+                }
+            </script>
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
                 <textarea id=\"commentText\" name=\"article\">
@@ -137,7 +161,7 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         height: document.getElementById(\"writeArticleContainer\").offsetHeight,
                         toolbar: 'undo redo | link image | code',
                         images_upload_url: \"";
-        // line 44
+        // line 68
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("autoUploadTiny.php"), "html", null, true);
         echo "\",
                         directionality: \"fr_FR\",
@@ -200,11 +224,11 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-";
-        // line 104
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 104, $this->source); })()), "color", [], "any", false, false, false, 104), "html", null, true);
+        // line 128
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 128, $this->source); })()), "color", [], "any", false, false, false, 128), "html", null, true);
         echo "\">
                     <span>Copyright © CEFC Developers Team ";
-        // line 105
+        // line 129
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
                 </div>
@@ -231,7 +255,7 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
 
     public function getDebugInfo()
     {
-        return array (  208 => 105,  204 => 104,  141 => 44,  114 => 19,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  232 => 129,  228 => 128,  165 => 68,  114 => 19,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -266,7 +290,31 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         Le titre entré est incorrect ou inexistant. Veuillez réessayer.
                     </div>
                 </div>
+                <div class=\"form-group\">
+                    <input type=\"text\" class=\"form-control\" id=\"newParentCategory\" value=\"\" readonly disabled>
+                    <input type=\"hidden\" name=\"Category\" id=\"updateParentId\" value=\"\">
+                    <br>
+                    <button class=\"btn btn-block btn-outline-primary\" type=\"button\" onclick=\"toggleSlideCollapse()\">Rechercher une catégorie</button>
+                </div>
+                <div id=\"collapseSearchForm\" style=\"display: none;\">
+                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"toggleSlideCollapse();\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                    <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\"Rechercher une catégorie ...\" oninput=\"searchCategoryInDatabase(this.value)\">
+                    <hr>
+                    <div class=\"card pt-3\">
+                        <div id=\"results\" style=\"width: 90%; max-height: 20rem; overflow-y: auto; margin-left: 5%; margin-right: 5%;\">
+
+                        </div>
+                    </div>
+                </div>
             </div>
+            <script>
+                function toggleSlideCollapse() {
+                    \$('#collapseEditForm').slideToggle();
+                    \$('#collapseSearchForm').slideToggle();
+                }
+            </script>
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
                 <textarea id=\"commentText\" name=\"article\">

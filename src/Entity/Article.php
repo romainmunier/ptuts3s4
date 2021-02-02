@@ -43,6 +43,12 @@ class Article
      */
     private $Visibility;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="Articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +110,18 @@ class Article
     public function setVisibility(bool $Visibility): self
     {
         $this->Visibility = $Visibility;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?Category $Category): self
+    {
+        $this->Category = $Category;
 
         return $this;
     }

@@ -302,6 +302,7 @@ function searchCategoryInDatabase(value) {
 function addArticle() {
     const title = document.getElementById("articleTitle").value;
     const containment = tinyMCE.get("commentText").getContent();
+    const categoryId = document.getElementById("updateParentId").value;
     
     if (title === "") {
         $('#articleTitle').addClass("is-invalid");
@@ -312,7 +313,8 @@ function addArticle() {
         url: "/api/storeArticle",
         data: {
             title : title,
-            article : containment
+            article : containment,
+            category : categoryId
         }
     }).then((response) => {
         if (response.data === "OK") {
@@ -327,6 +329,7 @@ function saveArticle() {
     const title = document.getElementById("articleTitle").value;
     const containment = tinyMCE.get("commentText").getContent();
     const articleId = document.getElementById("articleByte").value;
+    const categoryId = document.getElementById("updateParentId").value;
 
     if (title === "") {
         $('#articleTitle').addClass("is-invalid");
@@ -338,7 +341,8 @@ function saveArticle() {
         data: {
             title : title,
             id : articleId,
-            article : containment
+            article : containment,
+            category : categoryId
         }
     }).then((response) => {
         if (response.data === "OK") {

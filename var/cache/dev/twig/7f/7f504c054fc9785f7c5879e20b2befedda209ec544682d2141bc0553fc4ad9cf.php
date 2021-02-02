@@ -519,11 +519,11 @@ class __TwigTemplate_91cb25904f11d7ac9e6cf8766026aa10be1fbd56523f64d6ab07dd6e6e1
             // line 260
             if ( !(null === twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 260, $this->source); })()), "children", [], "any", false, false, false, 260))) {
                 // line 261
-                echo "                                <div class=\"alert alert-danger\" role=\"alert\">
+                echo "                                <div class=\"alert alert-danger text-justify\" role=\"alert\">
                                     Celle-ci contient <span class=\"badge bg-warning\">";
                 // line 262
                 echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 262, $this->source); })()), "children", [], "any", false, false, false, 262)), "html", null, true);
-                echo "</span> sous-catégories. Si vous supprimez cette catégorie, ces sous-catégories seront supprimées également.
+                echo "</span> sous-catégories. Si vous supprimez cette catégorie, ses sous-catégories seront supprimées également ainsi que les images de la gallerie et les articles qui lui sont liés. Avant toute suppression, vérifiez qu'elle ne contient aucune image ni aucun article.
                                 </div>
                             ";
             }
@@ -848,8 +848,8 @@ class __TwigTemplate_91cb25904f11d7ac9e6cf8766026aa10be1fbd56523f64d6ab07dd6e6e1
                         <div class=\"modal-body\">
                             <p>Voulez-vous supprimer cette catégorie ?</p>
                             {% if category.children is not null %}
-                                <div class=\"alert alert-danger\" role=\"alert\">
-                                    Celle-ci contient <span class=\"badge bg-warning\">{{ category.children|length }}</span> sous-catégories. Si vous supprimez cette catégorie, ces sous-catégories seront supprimées également.
+                                <div class=\"alert alert-danger text-justify\" role=\"alert\">
+                                    Celle-ci contient <span class=\"badge bg-warning\">{{ category.children|length }}</span> sous-catégories. Si vous supprimez cette catégorie, ses sous-catégories seront supprimées également ainsi que les images de la gallerie et les articles qui lui sont liés. Avant toute suppression, vérifiez qu'elle ne contient aucune image ni aucun article.
                                 </div>
                             {% endif %}
                             <form action=\"{{ path(\"category\", {\"id\" : category.parent.id}) }}\" method=\"POST\">
@@ -874,6 +874,6 @@ class __TwigTemplate_91cb25904f11d7ac9e6cf8766026aa10be1fbd56523f64d6ab07dd6e6e1
             </div>
         </footer>
         {% endblock %}
-{# Fin de la gestion de la page #}", "dashboard/category/index.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/templates/dashboard/category/index.html.twig");
+{# Fin de la gestion de la page #}", "dashboard/category/index.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/templates/dashboard/category/index.html.twig");
     }
 }

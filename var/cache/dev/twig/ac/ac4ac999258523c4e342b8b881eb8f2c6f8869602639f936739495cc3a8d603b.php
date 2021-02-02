@@ -132,17 +132,47 @@ class __TwigTemplate_4e1c373892bc67e0f0a946a417819bd716c97c6cb7325b374ea2f60bb7e
                         Le titre entré est incorrect ou inexistant. Veuillez réessayer.
                     </div>
                 </div>
-            </div>
-            <input type=\"hidden\" id=\"articleByte\" value=\"";
+                <div class=\"form-group\">
+                    <input type=\"text\" class=\"form-control\" id=\"newParentCategory\" value=\"";
         // line 32
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 32, $this->source); })()), "article", [], "any", false, false, false, 32), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 32, $this->source); })()), "category", [], "any", false, false, false, 32), "name", [], "any", false, false, false, 32), "html", null, true);
+        echo "\" readonly disabled>
+                    <input type=\"hidden\" name=\"Category\" id=\"updateParentId\" value=\"";
+        // line 33
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 33, $this->source); })()), "category", [], "any", false, false, false, 33), "id", [], "any", false, false, false, 33), "html", null, true);
+        echo "\">
+                    <br>
+                    <button class=\"btn btn-block btn-outline-primary\" type=\"button\" onclick=\"toggleSlideCollapse()\">Rechercher une catégorie</button>
+                </div>
+                <div id=\"collapseSearchForm\" style=\"display: none;\">
+                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"toggleSlideCollapse();\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                    <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\"Rechercher une catégorie ...\" oninput=\"searchCategoryInDatabase(this.value)\">
+                    <hr>
+                    <div class=\"card pt-3\">
+                        <div id=\"results\" style=\"width: 90%; max-height: 20rem; overflow-y: auto; margin-left: 5%; margin-right: 5%;\">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function toggleSlideCollapse() {
+                    \$('#collapseEditForm').slideToggle();
+                    \$('#collapseSearchForm').slideToggle();
+                }
+            </script>
+            <input type=\"hidden\" id=\"articleByte\" value=\"";
+        // line 56
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new RuntimeError('Variable "article" does not exist.', 56, $this->source); })()), "article", [], "any", false, false, false, 56), "html", null, true);
         echo "\">
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
                 <textarea id=\"commentText\" name=\"article\">
                     ";
-        // line 36
-        echo twig_escape_filter($this->env, (isset($context["containment"]) || array_key_exists("containment", $context) ? $context["containment"] : (function () { throw new RuntimeError('Variable "containment" does not exist.', 36, $this->source); })()), "html", null, true);
+        // line 60
+        echo twig_escape_filter($this->env, (isset($context["containment"]) || array_key_exists("containment", $context) ? $context["containment"] : (function () { throw new RuntimeError('Variable "containment" does not exist.', 60, $this->source); })()), "html", null, true);
         echo "
                 </textarea>
                 <script>
@@ -153,7 +183,7 @@ class __TwigTemplate_4e1c373892bc67e0f0a946a417819bd716c97c6cb7325b374ea2f60bb7e
                         height: document.getElementById(\"writeArticleContainer\").offsetHeight,
                         toolbar: 'undo redo | link image | code',
                         images_upload_url: \"";
-        // line 45
+        // line 69
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("autoUploadTiny.php"), "html", null, true);
         echo "\",
                         directionality: \"fr_FR\",
@@ -216,11 +246,11 @@ class __TwigTemplate_4e1c373892bc67e0f0a946a417819bd716c97c6cb7325b374ea2f60bb7e
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-";
-        // line 105
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 105, $this->source); })()), "color", [], "any", false, false, false, 105), "html", null, true);
+        // line 129
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 129, $this->source); })()), "color", [], "any", false, false, false, 129), "html", null, true);
         echo "\">
                     <span>Copyright © CEFC Developers Team ";
-        // line 106
+        // line 130
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
                 </div>
@@ -247,7 +277,7 @@ class __TwigTemplate_4e1c373892bc67e0f0a946a417819bd716c97c6cb7325b374ea2f60bb7e
 
     public function getDebugInfo()
     {
-        return array (  224 => 106,  220 => 105,  157 => 45,  145 => 36,  138 => 32,  129 => 26,  120 => 19,  118 => 18,  116 => 17,  114 => 16,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  254 => 130,  250 => 129,  187 => 69,  175 => 60,  168 => 56,  142 => 33,  138 => 32,  129 => 26,  120 => 19,  118 => 18,  116 => 17,  114 => 16,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -282,7 +312,31 @@ class __TwigTemplate_4e1c373892bc67e0f0a946a417819bd716c97c6cb7325b374ea2f60bb7e
                         Le titre entré est incorrect ou inexistant. Veuillez réessayer.
                     </div>
                 </div>
+                <div class=\"form-group\">
+                    <input type=\"text\" class=\"form-control\" id=\"newParentCategory\" value=\"{{ article.category.name }}\" readonly disabled>
+                    <input type=\"hidden\" name=\"Category\" id=\"updateParentId\" value=\"{{ article.category.id }}\">
+                    <br>
+                    <button class=\"btn btn-block btn-outline-primary\" type=\"button\" onclick=\"toggleSlideCollapse()\">Rechercher une catégorie</button>
+                </div>
+                <div id=\"collapseSearchForm\" style=\"display: none;\">
+                    <button type=\"button\" class=\"close\" aria-label=\"Close\" onclick=\"toggleSlideCollapse();\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                    <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\"Rechercher une catégorie ...\" oninput=\"searchCategoryInDatabase(this.value)\">
+                    <hr>
+                    <div class=\"card pt-3\">
+                        <div id=\"results\" style=\"width: 90%; max-height: 20rem; overflow-y: auto; margin-left: 5%; margin-right: 5%;\">
+
+                        </div>
+                    </div>
+                </div>
             </div>
+            <script>
+                function toggleSlideCollapse() {
+                    \$('#collapseEditForm').slideToggle();
+                    \$('#collapseSearchForm').slideToggle();
+                }
+            </script>
             <input type=\"hidden\" id=\"articleByte\" value=\"{{ article.article }}\">
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>

@@ -28,7 +28,31 @@
                         Le titre entré est incorrect ou inexistant. Veuillez réessayer.
                     </div>
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="newParentCategory" value="" readonly disabled>
+                    <input type="hidden" name="Category" id="updateParentId" value="">
+                    <br>
+                    <button class="btn btn-block btn-outline-primary" type="button" onclick="toggleSlideCollapse()">Rechercher une catégorie</button>
+                </div>
+                <div id="collapseSearchForm" style="display: none;">
+                    <button type="button" class="close" aria-label="Close" onclick="toggleSlideCollapse();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <input class="form-control form-control-lg" type="text" placeholder="Rechercher une catégorie ..." oninput="searchCategoryInDatabase(this.value)">
+                    <hr>
+                    <div class="card pt-3">
+                        <div id="results" style="width: 90%; max-height: 20rem; overflow-y: auto; margin-left: 5%; margin-right: 5%;">
+
+                        </div>
+                    </div>
+                </div>
             </div>
+            <script>
+                function toggleSlideCollapse() {
+                    $('#collapseEditForm').slideToggle();
+                    $('#collapseSearchForm').slideToggle();
+                }
+            </script>
             <div id="writeArticleContainer" style="width: 90%; height: 70%; margin: 0 5%;">
                 <script src="https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
                 <textarea id="commentText" name="article">

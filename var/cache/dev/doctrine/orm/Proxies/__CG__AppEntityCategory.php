@@ -66,10 +66,10 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Name', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Sumup', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Date', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Visibility', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Children'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Name', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Sumup', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Date', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Visibility', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Children', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Articles'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Name', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Sumup', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Date', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Visibility', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Children'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Name', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Sumup', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Date', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Visibility', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Parent', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Children', '' . "\0" . 'App\\Entity\\Category' . "\0" . 'Articles'];
     }
 
     /**
@@ -332,6 +332,39 @@ class Category extends \App\Entity\Category implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeChild', [$child]);
 
         return parent::removeChild($child);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getArticles(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArticles', []);
+
+        return parent::getArticles();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addArticle(\App\Entity\Article $article): \App\Entity\Category
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addArticle', [$article]);
+
+        return parent::addArticle($article);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeArticle(\App\Entity\Article $article): \App\Entity\Category
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeArticle', [$article]);
+
+        return parent::removeArticle($article);
     }
 
 }

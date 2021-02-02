@@ -112,6 +112,8 @@ class APIController extends AbstractController
         
         $title = json_decode($request->getContent(), true)["title"];
         $containment = json_decode($request->getContent(), true)["article"];
+        $categoryId = intval(json_decode($request->getContent(), true)["category"]);
+        $category = $manager->getRepository(Category::class)->find($categoryId);
         $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
         
         $articleName = bin2hex(random_bytes(20));
@@ -124,7 +126,8 @@ class APIController extends AbstractController
                 ->setSubject($title)
                 ->setArticle($articleName)
                 ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
-                ->setVisibility(true);
+                ->setVisibility(true)
+                ->setCategory($category);
 
             $file = fopen($kernel->getProjectDir() . "/public/articles/" . $articleName . ".html", "w+");
             fwrite($file, $containment);
@@ -146,6 +149,8 @@ class APIController extends AbstractController
         $title = json_decode($request->getContent(), true)["title"];
         $containment = json_decode($request->getContent(), true)["article"];
         $id = json_decode($request->getContent(), true)["id"];
+        $categoryId = intval(json_decode($request->getContent(), true)["category"]);
+        $category = $manager->getRepository(Category::class)->find($categoryId);
         $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
 
         $article = $manager->getRepository(Article::class)->findOneBy(["Article" => $id]);
@@ -156,13 +161,13 @@ class APIController extends AbstractController
             $article->setAuthor($user)
                 ->setSubject($title)
                 ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
-                ->setVisibility(true);
+                ->setVisibility(true)
+                ->setCategory($category);
 
             $file = fopen($kernel->getProjectDir() . "/public/articles/" . $id . ".html", "w+");
             fwrite($file, $containment);
             fclose($file);
-
-            $manager->persist($article);
+            
             $manager->flush();
 
             return new JsonResponse("OK");
