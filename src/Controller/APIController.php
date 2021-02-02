@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Constraints\Json;
@@ -100,5 +102,70 @@ class APIController extends AbstractController
         $results = $manager->getRepository(Category::class)->findByValue($value);
 
         return new JsonResponse($results);
+    }
+    
+    /**
+     * @Route("/api/storeArticle", name="store_article", methods={"POST"})
+     */
+    public function storeArticle(Request $request, KernelInterface $kernel) {
+        $manager = $this->getDoctrine()->getManager();
+        
+        $title = json_decode($request->getContent(), true)["title"];
+        $containment = json_decode($request->getContent(), true)["article"];
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+        
+        $articleName = bin2hex(random_bytes(20));
+        
+        if ($title == "") {
+            return new JsonResponse("TITLE MISSING");
+        } else {
+            $article = new Article();
+            $article->setAuthor($user)
+                ->setSubject($title)
+                ->setArticle($articleName)
+                ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
+                ->setVisibility(true);
+
+            $file = fopen($kernel->getProjectDir() . "/public/articles/" . $articleName . ".html", "w+");
+            fwrite($file, $containment);
+            fclose($file);
+
+            $manager->persist($article);
+            $manager->flush();
+
+            return new JsonResponse("OK");
+        }
+    }
+
+    /**
+     * @Route("/api/saveArticle", name="save_article", methods={"POST"})
+     */
+    public function saveArticle(Request $request, KernelInterface $kernel) {
+        $manager = $this->getDoctrine()->getManager();
+
+        $title = json_decode($request->getContent(), true)["title"];
+        $containment = json_decode($request->getContent(), true)["article"];
+        $id = json_decode($request->getContent(), true)["id"];
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+        $article = $manager->getRepository(Article::class)->findOneBy(["Article" => $id]);
+
+        if ($title == "") {
+            return new JsonResponse("TITLE MISSING");
+        } else {
+            $article->setAuthor($user)
+                ->setSubject($title)
+                ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
+                ->setVisibility(true);
+
+            $file = fopen($kernel->getProjectDir() . "/public/articles/" . $id . ".html", "w+");
+            fwrite($file, $containment);
+            fclose($file);
+
+            $manager->persist($article);
+            $manager->flush();
+
+            return new JsonResponse("OK");
+        }
     }
 }

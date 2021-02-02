@@ -119,11 +119,14 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         <strong>Titre de votre article</strong>
                     </label>
                     <input type=\"text\" name=\"Title\" id=\"articleTitle\" class=\"form-control\" placeholder=\"Un nouveau combat à l'affiche !\" required>
+                    <div class=\"invalid-feedback\">
+                        Le titre entré est incorrect ou inexistant. Veuillez réessayer.
+                    </div>
                 </div>
             </div>
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
-                <textarea id=\"commentText\">
+                <textarea id=\"commentText\" name=\"article\">
                     Votre article, ici ...
                 </textarea>
                 <script>
@@ -134,7 +137,7 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         height: document.getElementById(\"writeArticleContainer\").offsetHeight,
                         toolbar: 'undo redo | link image | code',
                         images_upload_url: \"";
-        // line 41
+        // line 44
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("autoUploadTiny.php"), "html", null, true);
         echo "\",
                         directionality: \"fr_FR\",
@@ -197,11 +200,11 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-";
-        // line 101
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 101, $this->source); })()), "color", [], "any", false, false, false, 101), "html", null, true);
+        // line 104
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 104, $this->source); })()), "color", [], "any", false, false, false, 104), "html", null, true);
         echo "\">
                     <span>Copyright © CEFC Developers Team ";
-        // line 102
+        // line 105
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
                 </div>
@@ -228,7 +231,7 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
 
     public function getDebugInfo()
     {
-        return array (  205 => 102,  201 => 101,  138 => 41,  114 => 19,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  208 => 105,  204 => 104,  141 => 44,  114 => 19,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -259,11 +262,14 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
                         <strong>Titre de votre article</strong>
                     </label>
                     <input type=\"text\" name=\"Title\" id=\"articleTitle\" class=\"form-control\" placeholder=\"Un nouveau combat à l'affiche !\" required>
+                    <div class=\"invalid-feedback\">
+                        Le titre entré est incorrect ou inexistant. Veuillez réessayer.
+                    </div>
                 </div>
             </div>
             <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%;\">
                 <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
-                <textarea id=\"commentText\">
+                <textarea id=\"commentText\" name=\"article\">
                     Votre article, ici ...
                 </textarea>
                 <script>
@@ -339,6 +345,6 @@ class __TwigTemplate_d58a8a770e564718652763a03104b2a6edb440ae8a420c11c3646a986dd
             </div>
         </footer>
         {% endblock %}
-{# Fin de la gestion de la page #}", "dashboard/articles/add.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/templates/dashboard/articles/add.html.twig");
+{# Fin de la gestion de la page #}", "dashboard/articles/add.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/templates/dashboard/articles/add.html.twig");
     }
 }

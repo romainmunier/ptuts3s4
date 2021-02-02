@@ -302,6 +302,49 @@ function searchCategoryInDatabase(value) {
 function addArticle() {
     const title = document.getElementById("articleTitle").value;
     const containment = tinyMCE.get("commentText").getContent();
+    
+    if (title === "") {
+        $('#articleTitle').addClass("is-invalid");
+    }
 
-    console.log(title, containment);
+    axios({
+        method: "POST",
+        url: "/api/storeArticle",
+        data: {
+            title : title,
+            article : containment
+        }
+    }).then((response) => {
+        if (response.data === "OK") {
+            window.location.href = "/dashboard/articles";
+        } else if (response.data === "TITLE MISSING") {
+            $('#articleTitle').addClass("is-invalid");
+        }
+    })
+}
+
+function saveArticle() {
+    const title = document.getElementById("articleTitle").value;
+    const containment = tinyMCE.get("commentText").getContent();
+    const articleId = document.getElementById("articleByte").value;
+
+    if (title === "") {
+        $('#articleTitle').addClass("is-invalid");
+    }
+
+    axios({
+        method: "POST",
+        url: "/api/saveArticle",
+        data: {
+            title : title,
+            id : articleId,
+            article : containment
+        }
+    }).then((response) => {
+        if (response.data === "OK") {
+            window.location.href = "/dashboard/articles";
+        } else if (response.data === "TITLE MISSING") {
+            $('#articleTitle').addClass("is-invalid");
+        }
+    })
 }

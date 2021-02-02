@@ -17,8 +17,10 @@ return [
         '/api/updatepassword' => [[['_route' => 'updatepassword', '_controller' => 'App\\Controller\\APIController::updatePassword'], null, ['POST' => 0], null, false, false, null]],
         '/api/checkusername' => [[['_route' => 'check_username', '_controller' => 'App\\Controller\\APIController::checkUsername'], null, ['POST' => 0], null, false, false, null]],
         '/api/getCategoryByValue' => [[['_route' => 'get_category', '_controller' => 'App\\Controller\\APIController::getCategory'], null, ['POST' => 0], null, false, false, null]],
+        '/api/storeArticle' => [[['_route' => 'store_article', '_controller' => 'App\\Controller\\APIController::storeArticle'], null, ['POST' => 0], null, false, false, null]],
+        '/api/saveArticle' => [[['_route' => 'save_article', '_controller' => 'App\\Controller\\APIController::saveArticle'], null, ['POST' => 0], null, false, false, null]],
         '/dashboard/articles' => [[['_route' => 'articles', '_controller' => 'App\\Controller\\ArticlesController::index'], null, null, null, false, false, null]],
-        '/dashboard/articles/add' => [[['_route' => 'articles_add', '_controller' => 'App\\Controller\\ArticlesController::add'], null, null, null, false, false, null]],
+        '/dashboard/articles/add' => [[['_route' => 'articles_add', '_controller' => 'App\\Controller\\ArticlesController::add'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/dashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\DashboardController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login_if_not_connected', '_controller' => 'App\\Controller\\DashboardController::login'], null, null, null, false, false, null]],
         '/401' => [[['_route' => 'ERROR_401', '_controller' => 'App\\Controller\\ErrorController::ERROR401'], null, null, null, false, false, null]],
@@ -56,18 +58,22 @@ return [
                     .')'
                 .')'
                 .'|/dashboard/(?'
-                    .'|category(?:/([^/]++))?(*:205)'
-                    .'|mailing/(?'
-                        .'|show/([^/]++)(*:237)'
-                        .'|edit/([^/]++)(*:258)'
+                    .'|articles/(?'
+                        .'|edit/([^/]++)(*:208)'
+                        .'|delete/([^/]++)(*:231)'
                     .')'
-                    .'|users/edit/([^/]++)(*:286)'
+                    .'|category(?:/([^/]++))?(*:262)'
+                    .'|mailing/(?'
+                        .'|show/([^/]++)(*:294)'
+                        .'|edit/([^/]++)(*:315)'
+                    .')'
+                    .'|users/edit/([^/]++)(*:343)'
                 .')'
                 .'|/control/admin/(?'
-                    .'|mailing/delete/([^/]++)(*:336)'
-                    .'|users/delete/([^/]++)(*:365)'
+                    .'|mailing/delete/([^/]++)(*:393)'
+                    .'|users/delete/([^/]++)(*:422)'
                 .')'
-                .'|/export/settings/save/([^/]++)(*:404)'
+                .'|/export/settings/save/([^/]++)(*:461)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -78,13 +84,15 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        205 => [[['_route' => 'category', 'id' => null, '_controller' => 'App\\Controller\\CategoryController::index'], ['id'], ['GET' => 0, 'POST' => 1, 'DELETE' => 2, 'PUT' => 3], null, false, true, null]],
-        237 => [[['_route' => 'mailing_show', '_controller' => 'App\\Controller\\MailingListController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        258 => [[['_route' => 'mailing_edit', '_controller' => 'App\\Controller\\MailingListController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        286 => [[['_route' => 'users_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        336 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        365 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        404 => [
+        208 => [[['_route' => 'articles_edit', '_controller' => 'App\\Controller\\ArticlesController::edit'], ['article'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        231 => [[['_route' => 'articles_delete', '_controller' => 'App\\Controller\\ArticlesController::delete'], ['article'], ['GET' => 0], null, false, true, null]],
+        262 => [[['_route' => 'category', 'id' => null, '_controller' => 'App\\Controller\\CategoryController::index'], ['id'], ['GET' => 0, 'POST' => 1, 'DELETE' => 2, 'PUT' => 3], null, false, true, null]],
+        294 => [[['_route' => 'mailing_show', '_controller' => 'App\\Controller\\MailingListController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        315 => [[['_route' => 'mailing_edit', '_controller' => 'App\\Controller\\MailingListController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        343 => [[['_route' => 'users_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        393 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        422 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        461 => [
             [['_route' => 'settings_save', '_controller' => 'App\\Controller\\SettingsController::saveSettings'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
