@@ -71,34 +71,22 @@ return [
                     .'|users/edit/([^/]++)(*:343)'
                 .')'
                 .'|/admin/([^/]++)/(?'
-                    .'|ca(?'
-                        .'|rousel/(?'
-                            .'|add(*:389)'
-                            .'|edit/([^/]++)(*:410)'
-                            .'|delete/([^/]++)(*:433)'
-                        .')'
-                        .'|tlink/(?'
-                            .'|add(*:454)'
-                            .'|edit/([^/]++)(*:475)'
-                            .'|delete/([^/]++)(*:498)'
-                        .')'
-                    .')'
-                    .'|link/(?'
-                        .'|add(*:519)'
-                        .'|edit/([^/]++)(*:540)'
-                        .'|delete/([^/]++)(*:563)'
+                    .'|carousel/(?'
+                        .'|add(*:386)'
+                        .'|edit/([^/]++)(*:407)'
+                        .'|delete/([^/]++)(*:430)'
                     .')'
                     .'|medias/(?'
-                        .'|add/([^/]++)(*:594)'
-                        .'|upload/([^/]++)(*:617)'
-                        .'|delete/([^/]++)(*:640)'
+                        .'|add/([^/]++)(*:461)'
+                        .'|upload/([^/]++)(*:484)'
+                        .'|delete/([^/]++)(*:507)'
                     .')'
                 .')'
                 .'|/control/admin/(?'
-                    .'|mailing/delete/([^/]++)(*:691)'
-                    .'|users/delete/([^/]++)(*:720)'
+                    .'|mailing/delete/([^/]++)(*:558)'
+                    .'|users/delete/([^/]++)(*:587)'
                 .')'
-                .'|/export/settings/save/([^/]++)(*:759)'
+                .'|/export/settings/save/([^/]++)(*:626)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -115,21 +103,15 @@ return [
         294 => [[['_route' => 'mailing_show', '_controller' => 'App\\Controller\\MailingListController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         315 => [[['_route' => 'mailing_edit', '_controller' => 'App\\Controller\\MailingListController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
         343 => [[['_route' => 'users_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        389 => [[['_route' => 'admin_carousel_add', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page'], null, null, true, false, null]],
-        410 => [[['_route' => 'admin_carousel_edit', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page', 'id'], null, null, false, true, null]],
-        433 => [[['_route' => 'admin_carousel_delete', '_controller' => 'App\\Controller\\CarouselLikeController::carouselDelete'], ['page', 'id'], null, null, false, true, null]],
-        454 => [[['_route' => 'admin_catlink_add', '_controller' => 'App\\Controller\\LinkController::catLinkHandle'], ['page'], null, null, true, false, null]],
-        475 => [[['_route' => 'admin_catlink_edit', '_controller' => 'App\\Controller\\LinkController::catLinkHandle'], ['page', 'id'], null, null, false, true, null]],
-        498 => [[['_route' => 'admin_catlink_delete', '_controller' => 'App\\Controller\\LinkController::deleteCat'], ['page', 'id'], null, null, false, true, null]],
-        519 => [[['_route' => 'admin_link_add', '_controller' => 'App\\Controller\\LinkController::linkHandle'], ['page'], null, null, true, false, null]],
-        540 => [[['_route' => 'admin_link_edit', '_controller' => 'App\\Controller\\LinkController::linkHandle'], ['page', 'id'], null, null, false, true, null]],
-        563 => [[['_route' => 'admin_link_delete', '_controller' => 'App\\Controller\\LinkController::linkDelete'], ['page', 'id'], null, null, false, true, null]],
-        594 => [[['_route' => 'medias_add', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
-        617 => [[['_route' => 'medias_upload', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
-        640 => [[['_route' => 'medias_delete', '_controller' => 'App\\Controller\\MediaController::delete'], ['page', 'id'], null, null, false, true, null]],
-        691 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        720 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
-        759 => [
+        386 => [[['_route' => 'admin_carousel_add', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page'], null, null, true, false, null]],
+        407 => [[['_route' => 'admin_carousel_edit', '_controller' => 'App\\Controller\\CarouselLikeController::carouselHandle'], ['page', 'id'], null, null, false, true, null]],
+        430 => [[['_route' => 'admin_carousel_delete', '_controller' => 'App\\Controller\\CarouselLikeController::carouselDelete'], ['page', 'id'], null, null, false, true, null]],
+        461 => [[['_route' => 'medias_add', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
+        484 => [[['_route' => 'medias_upload', '_controller' => 'App\\Controller\\MediaController::add'], ['page', 'id'], null, null, false, true, null]],
+        507 => [[['_route' => 'medias_delete', '_controller' => 'App\\Controller\\MediaController::delete'], ['page', 'id'], null, null, false, true, null]],
+        558 => [[['_route' => 'mailing_delete', '_controller' => 'App\\Controller\\MailingListController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        587 => [[['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['GET' => 0], null, false, true, null]],
+        626 => [
             [['_route' => 'settings_save', '_controller' => 'App\\Controller\\SettingsController::saveSettings'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

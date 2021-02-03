@@ -15,40 +15,12 @@ class MediaFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $page = $options['attr'][0];
-        if ($page == 'accueil') {
+        if ($page == 'index') {
             $builder->add('title', TextType::class)
                 ->add('description', TextareaType::class)
                 ->add('medias', FileType::class, [
                     'mapped' => false,
                     'required' => false,
-                ])
-                ->add('submit', SubmitType::class);
-        } elseif ($page == 'event' or $page == 'stage') {
-            $builder->add('medias', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'multiple' => true
-            ])
-            ->add('submit', SubmitType::class);
-        } elseif ($page == 'formation') {
-            $builder->add('medias', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'multiple' => true
-            ])
-                ->add('submit', SubmitType::class);
-        } elseif ($page == 'projet') {
-            $builder->add('medias', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'multiple' => true
-            ])
-                ->add('submit', SubmitType::class);
-        } elseif ($page == 'assos') {
-            $builder->add('medias', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'multiple' => true
                 ])
                 ->add('submit', SubmitType::class);
         }

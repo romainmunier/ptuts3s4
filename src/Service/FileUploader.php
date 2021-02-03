@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
 {
-    private ?string $targetDirectory;
+    private $targetDirectory;
 
     public function upload(UploadedFile $file)
     {

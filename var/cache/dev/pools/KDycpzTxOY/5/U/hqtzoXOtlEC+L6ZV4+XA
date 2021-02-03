@@ -17,7 +17,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         ],
         'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\IsGranted' => [
             'attributes' => [
-                1 => 'ROLE_ADMIN',
+                1 => 'ROLE_DEVELOPERS',
             ],
         ],
     ],

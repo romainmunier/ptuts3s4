@@ -218,7 +218,7 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
             // line 89
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 89, $this->source); })()), "color", [], "any", false, false, false, 89), "html", null, true);
             echo " ";
-            if (twig_in_filter("/dashboard/news", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 89, $this->source); })()), "request", [], "any", false, false, false, 89), "pathInfo", [], "any", false, false, false, 89))) {
+            if (twig_in_filter("/dashboard/articles", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 89, $this->source); })()), "request", [], "any", false, false, false, 89), "pathInfo", [], "any", false, false, false, 89))) {
                 echo "active";
             }
             echo "\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-writer-news\" href=\"#collapse-writer-news\" role=\"button\" onclick=\"collapseAll();\">
@@ -482,7 +482,7 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                         </div>
                         <li class=\"nav-item\" role=\"presentation\">
                             <div class=\"nav-item dropdown\">
-                                <a class=\"btn btn-link nav-link text-{{ userSettings.color }} {% if \"/dashboard/news\" in app.request.pathInfo %}active{% endif %}\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-writer-news\" href=\"#collapse-writer-news\" role=\"button\" onclick=\"collapseAll();\">
+                                <a class=\"btn btn-link nav-link text-{{ userSettings.color }} {% if \"/dashboard/articles\" in app.request.pathInfo %}active{% endif %}\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-writer-news\" href=\"#collapse-writer-news\" role=\"button\" onclick=\"collapseAll();\">
                                     <i class=\"fas fa-newspaper\"></i>&nbsp;
                                     <span>Articles</span>
                                 </a>
@@ -543,6 +543,6 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
             </div>
         </nav>
     </div>
-</nav>", "includes/dashboard/sidebar.html.twig", "C:\\Users\\romainmunier\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\dashboard\\sidebar.html.twig");
+</nav>", "includes/dashboard/sidebar.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\includes\\dashboard\\sidebar.html.twig");
     }
 }

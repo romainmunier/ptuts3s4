@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\CarouselLike;
-use App\Entity\CategoryLink;
 use App\Form\CarouselLikeFormType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,18 +30,15 @@ class CarouselLikeController extends AbstractController
      * @param null $page
      * @param Request $request
      * @param CarouselLike|null $carousel
-     * @param CategoryLink|null $categoryLink
      * @return Response
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_DEVELOPERS")
      */
-    public function carouselHandle($page, Request $request, CarouselLike $carousel = null, CategoryLink $categoryLink=null): Response
+    public function carouselHandle($page, Request $request, CarouselLike $carousel = null): Response
     {
-
         $view = "edit";
         if (!$carousel) {
             $view = "add";
             $carousel = new CarouselLike();
-            $categoryLink = new CategoryLink();
         }
 
         $form = $this->createForm(CarouselLikeFormType::class, $carousel, array('attr' => [$page]));
@@ -50,10 +46,8 @@ class CarouselLikeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $carousel->setType($page);
-            $categoryLink->setCategorie($carousel->getName());
 
             $this->entityManager->persist($carousel);
-            $this->entityManager->persist($categoryLink);
             $this->entityManager->flush();
 
             $this->addFlash('success',($view == "edit" ? 'éditée' : 'ajoutée') . ' avec succès');
@@ -72,7 +66,7 @@ class CarouselLikeController extends AbstractController
      * @param $page
      * @param CarouselLike $carousel
      * @return Response
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_DEVELOPERS")
      */
     public function carouselDelete($page,CarouselLike $carousel): Response
     {
@@ -83,18 +77,11 @@ class CarouselLikeController extends AbstractController
 
         $medias = $carousel->getMedias();
         for($i = 0;$i<count($medias);$i++) {
-            unlink($this->getParameter('media').'/'.$page.'/'.$medias[$i]->getpath());
+            unlink($this->getParameter('carousel').'/'.$page.'/'.$medias[$i]->getpath());
         }
 
         $this->entityManager->remove($carousel);
         $this->entityManager->flush();
-
-        $catLink = $this->getDoctrine()->getRepository(CategoryLink::class)->findBy(['categorie' => $carousel->getName()]);
-        if ($catLink != null) {
-            $catLink = $catLink[0];
-            $this->entityManager->remove($catLink);
-            $this->entityManager->flush();
-        }
 
         $this->addFlash('success', 'Carousel supprimé avec succès');
         return $this->redirectToRoute($page);

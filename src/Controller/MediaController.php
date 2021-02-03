@@ -4,13 +4,11 @@ namespace App\Controller;
 
 use App\Entity\CarouselLike;
 use App\Entity\Media;
-use App\Entity\Title;
 use App\Form\MediaFormType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,7 +33,7 @@ class MediaController extends AbstractController
      * @param Request $request
      * @param CarouselLike $carouselLike
      * @return Response
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_DEVELOPERS")
      */
     public function add($page, Request $request, CarouselLike $carouselLike): Response
     {
@@ -46,8 +44,8 @@ class MediaController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->fileUploader->setTargetDirectory($this->getParameter($page));
-            if ($page == 'accueil') {
+            $this->fileUploader->setTargetDirectory($this->getParameter('carousel_'.$page));
+            if ($page == 'index') {
                 $mediaEntity = new Media();
                 $filePath = $this->fileUploader->upload($form->get('medias')->getData());
                 $mediaEntity->setPath($filePath)
@@ -90,14 +88,14 @@ class MediaController extends AbstractController
      * @param $page
      * @param Media $media
      * @return Response
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_DEVELOPERS")
      */
     public function delete($page, Media $media): Response
     {
         if (!$media) {
             $this->createNotFoundException("Ce média n'existe pas");
         }
-        unlink($this->getParameter('unlinkmedia').'/'.$page.'/'.$media->getpath());
+        unlink($this->getParameter('carousel').'/'.$page.'/'.$media->getpath());
 
         $this->manager->remove($media);
         $this->manager->flush();

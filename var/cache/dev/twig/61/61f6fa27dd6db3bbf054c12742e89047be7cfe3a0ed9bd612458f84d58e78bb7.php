@@ -143,58 +143,149 @@ class __TwigTemplate_f37abbce4e7a65f6868b86196536fe79cf9451d5334201ccb0f3eb28538
             </section>
 
             <section>
+                <div class=\"container\">
+                    <div class=\"row\">
+                        ";
+        // line 67
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 67, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 68
+            echo "                            <div class=\"col-lg-4\">
+                                <div class=\"card\">
+                                    <div class=\"card-body\">
+                                        <blockquote class=\"blockquote mb-0\">
+                                            <p class=\"text-truncate\">";
+            // line 72
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "subject", [], "any", false, false, false, 72), "html", null, true);
+            echo "</p>
+                                            <footer class=\"blockquote-footer\">Rédigé par ";
+            // line 73
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "author", [], "any", false, false, false, 73), "firstname", [], "any", false, false, false, 73), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "author", [], "any", false, false, false, 73), "lastname", [], "any", false, false, false, 73), "html", null, true);
+            echo " le
+                                                <cite title=\"Source Title\">";
+            // line 74
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "date", [], "any", false, false, false, 74), "d/m/Y"), "html", null, true);
+            echo "</cite>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                    <div class=\"card-footer\">
+                                        <div class=\"row\">
+                                            <a class=\"btn btn-outline-primary m-1\" href=\"#\">
+                                                <i class=\"fas fa-eye\"></i>
+                                            </a>
+                                            <a class=\"btn btn-outline-warning m-1\" href=\"";
+            // line 83
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("articles_edit", ["article" => twig_get_attribute($this->env, $this->source, $context["article"], "article", [], "any", false, false, false, 83)]), "html", null, true);
+            echo "\">
+                                                <i class=\"fas fa-edit\"></i>
+                                            </a>
+                                            <button class=\"btn btn-outline-danger m-1\" onclick=\"\$('#modal-";
+            // line 86
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 86), "html", null, true);
+            echo "-delete').modal();\">
+                                                <i class=\"fas fa-trash\"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"modal fade\" id=\"modal-";
+            // line 93
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 93), "html", null, true);
+            echo "-delete\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"deleteModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog modal-dialog-centered\">
+";
+            // line 96
+            echo "                                    <div>
+                                        <div class=\"modal-header\">
+                                            <h5 class=\"modal-title\">Confirmation de suppression</h5>
+                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                                                <span aria-hidden=\"true\">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <p>Êtes-vous sur de vouloir supprimer l'article nommé : \"";
+            // line 104
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "subject", [], "any", false, false, false, 104), "html", null, true);
+            echo "\" ?</p>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Annuler</button>
+                                            <a type=\"button\" class=\"btn btn-danger\" href=\"";
+            // line 108
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("articles_delete", ["article" => twig_get_attribute($this->env, $this->source, $context["article"], "article", [], "any", false, false, false, 108)]), "html", null, true);
+            echo "\">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 114
+        echo "                    </div>
+                </div>
+            </section>
+
+            <section>
                 <div class=\"row\">
                     <div class=\"col\">
                         <div class=\"title\">
                             ";
-        // line 68
-        if ((twig_test_empty((isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 68, $this->source); })())) || (0 === twig_compare(twig_length_filter($this->env, (isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 68, $this->source); })())), 0)))) {
-            // line 69
+        // line 122
+        if ((twig_test_empty((isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 122, $this->source); })())) || (0 === twig_compare(twig_length_filter($this->env, (isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 122, $this->source); })())), 0)))) {
+            // line 123
             echo "                                <h1 class=\"heading-stylized text-center\">Rien pour l'instant</h1>
                                 ";
-            // line 70
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 71
+            // line 124
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DEVELOPERS")) {
+                // line 125
                 echo "                                    <div class=\"text-center mt mb\">
                                         <a class=\"btn btn-primary\" href=\"";
-                // line 72
-                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_add", ["page" => "accueil"]);
+                // line 126
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_add", ["page" => "index"]);
                 echo "\">
                                             <i class=\"fa fa-plus-square\"></i></a>
                                     </div>
                                 ";
             }
-            // line 76
+            // line 130
             echo "                            ";
         } else {
-            // line 77
+            // line 131
             echo "                                ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 77, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["carousels"]) || array_key_exists("carousels", $context) ? $context["carousels"] : (function () { throw new RuntimeError('Variable "carousels" does not exist.', 131, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["carousel"]) {
-                // line 78
+                // line 132
                 echo "                                    <h1 class=\"heading-stylized text-center\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "name", [], "any", false, false, false, 78), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "name", [], "any", false, false, false, 132), "html", null, true);
                 echo "</h1>
                                     ";
-                // line 79
-                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                    // line 80
+                // line 133
+                if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DEVELOPERS")) {
+                    // line 134
                     echo "                                        <div class=\"text-center mt-2 mb-2\">
                                             <div class=\"btn-group\">
                                                 <a class=\"btn btn-primary\" href=\"";
-                    // line 82
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 82), "page" => "accueil"]), "html", null, true);
+                    // line 136
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 136), "page" => "index"]), "html", null, true);
                     echo "\">
                                                     <i class=\"fa fa-edit\"></i></a>
                                                 <a class=\"btn btn-primary\" href=\"";
-                    // line 84
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 84), "page" => "accueil"]), "html", null, true);
+                    // line 138
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_carousel_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 138), "page" => "index"]), "html", null, true);
                     echo "\">
                                                     <i class=\"fa fa-trash\"></i></a>
                                                 <a class=\"btn btn-primary\" href=\"";
-                    // line 86
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_add", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 86), "page" => "accueil"]), "html", null, true);
+                    // line 140
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_add", ["id" => twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 140), "page" => "index"]), "html", null, true);
                     echo "\">
                                                     <i class=\"fa fa-photo\"></i>
                                                 </a>
@@ -202,129 +293,129 @@ class __TwigTemplate_f37abbce4e7a65f6868b86196536fe79cf9451d5334201ccb0f3eb28538
                                         </div>
                                     ";
                 }
-                // line 92
+                // line 146
                 echo "                                    ";
-                if ((1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 92)), 1))) {
-                    // line 93
+                if ((1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 146)), 1))) {
+                    // line 147
                     echo "                                        <div id=\"carousel-";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 93), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 147), "html", null, true);
                     echo "\" class=\"carousel slide\" data-ride=\"carousel\">
                                             <ol class=\"carousel-indicators\">
                                                 ";
-                    // line 95
+                    // line 149
                     $context["i"] = 0;
-                    // line 96
+                    // line 150
                     echo "                                                ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 96));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 150));
                     foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
-                        // line 97
+                        // line 151
                         echo "                                                    <li data-target=\"#carousel-";
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 97), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 151), "html", null, true);
                         echo "\" data-slide-to=\"";
-                        echo twig_escape_filter($this->env, (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 97, $this->source); })()), "html", null, true);
+                        echo twig_escape_filter($this->env, (isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 151, $this->source); })()), "html", null, true);
                         echo "\"
                                                         ";
-                        // line 98
-                        if ((0 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 98, $this->source); })()), 0))) {
+                        // line 152
+                        if ((0 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 152, $this->source); })()), 0))) {
                             echo "class=\"active\"";
                         }
                         echo "></li>
                                                     ";
-                        // line 99
-                        $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 99, $this->source); })()) + 1);
-                        // line 100
+                        // line 153
+                        $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 153, $this->source); })()) + 1);
+                        // line 154
                         echo "                                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 101
+                    // line 155
                     echo "                                            </ol>
                                             <div class=\"carousel-inner\">
                                                 ";
-                    // line 103
+                    // line 157
                     $context["i"] = 0;
-                    // line 104
+                    // line 158
                     echo "                                                ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 104));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 158));
                     foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
-                        // line 105
+                        // line 159
                         echo "                                                    <div class=\"carousel-item ";
-                        if ((0 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 105, $this->source); })()), 0))) {
+                        if ((0 === twig_compare((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 159, $this->source); })()), 0))) {
                             echo "active";
                         }
                         echo "\">
                                                         ";
-                        // line 106
-                        if (((((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 106), "png")) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 106), "gif"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 106), "jpeg"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 106), "jpg")))) {
-                            // line 107
+                        // line 160
+                        if (((((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 160), "png")) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 160), "gif"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 160), "jpeg"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["media"], "type", [], "any", false, false, false, 160), "jpg")))) {
+                            // line 161
                             echo "                                                            <img class=\"d-block w-100\"
                                                                  src=\"";
-                            // line 108
-                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/accueil/" . twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 108))), "html", null, true);
+                            // line 162
+                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/carousel/index/" . twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 162))), "html", null, true);
                             echo "\"
                                                                  alt=\"";
-                            // line 109
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 109), "html", null, true);
+                            // line 163
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 163), "html", null, true);
                             echo "\">
                                                         ";
                         } else {
-                            // line 111
+                            // line 165
                             echo "                                                            <video controls class=\"d-block w-75 align-content-center\" style=\"margin: 0 auto;\">
                                                                 <source src=\"";
-                            // line 112
-                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/accueil/" . twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 112))), "html", null, true);
+                            // line 166
+                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/carousel/index/" . twig_get_attribute($this->env, $this->source, $context["media"], "path", [], "any", false, false, false, 166))), "html", null, true);
                             echo "\">
                                                             </video>
                                                         ";
                         }
-                        // line 115
+                        // line 169
                         echo "                                                        <div class=\"carousel-caption d-none d-md-block text-center\">
                                                             <div class=\"rounded bg-blue-gray carousel-custom\">";
-                        // line 116
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["media"], "description", [], "any", false, false, false, 116), "html", null, true);
+                        // line 170
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["media"], "description", [], "any", false, false, false, 170), "html", null, true);
                         echo "</div>
                                                             <div class=\"mt-2 mb-2\">
                                                                 ";
-                        // line 118
-                        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                            // line 119
+                        // line 172
+                        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DEVELOPERS")) {
+                            // line 173
                             echo "                                                                    <a class=\"btn btn-primary\"
                                                                        href=\"";
-                            // line 120
-                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["media"], "id", [], "any", false, false, false, 120), "page" => "accueil"]), "html", null, true);
+                            // line 174
+                            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["media"], "id", [], "any", false, false, false, 174), "page" => "index"]), "html", null, true);
                             echo "\"><i class=\"fa fa-trash\"></i></a>
                                                                 ";
                         }
-                        // line 122
+                        // line 176
                         echo "                                                            </div>
                                                         </div><br>
                                                     </div>
                                                     <br>
                                                     ";
-                        // line 126
-                        $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 126, $this->source); })()) + 1);
-                        // line 127
+                        // line 180
+                        $context["i"] = ((isset($context["i"]) || array_key_exists("i", $context) ? $context["i"] : (function () { throw new RuntimeError('Variable "i" does not exist.', 180, $this->source); })()) + 1);
+                        // line 181
                         echo "                                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 128
+                    // line 182
                     echo "                                            </div>
                                             <a class=\"carousel-control-prev\" href=\"#carousel-";
-                    // line 129
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 129), "html", null, true);
+                    // line 183
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 183), "html", null, true);
                     echo "\" role=\"button\"
                                                data-slide=\"prev\">
                                                 <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>
                                                 <span class=\"sr-only\">Previous</span>
                                             </a>
                                             <a class=\"carousel-control-next\" href=\"#carousel-";
-                    // line 134
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 134), "html", null, true);
+                    // line 188
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["carousel"], "id", [], "any", false, false, false, 188), "html", null, true);
                     echo "\" role=\"button\"
                                                data-slide=\"next\">
                                                 <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>
@@ -332,65 +423,65 @@ class __TwigTemplate_f37abbce4e7a65f6868b86196536fe79cf9451d5334201ccb0f3eb28538
                                             </a>
                                         </div>
                                     ";
-                } elseif ((0 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source,                 // line 140
-$context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
-                    // line 141
+                } elseif ((0 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source,                 // line 194
+$context["carousel"], "medias", [], "any", false, false, false, 194)), 1))) {
+                    // line 195
                     echo "                                        ";
-                    $context["media"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 141), "first", [], "any", false, false, false, 141);
-                    // line 142
+                    $context["media"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["carousel"], "medias", [], "any", false, false, false, 195), "first", [], "any", false, false, false, 195);
+                    // line 196
                     echo "                                        ";
-                    if ((((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 142, $this->source); })()), "type", [], "any", false, false, false, 142), "png")) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 142, $this->source); })()), "type", [], "any", false, false, false, 142), "gif"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 142, $this->source); })()), "type", [], "any", false, false, false, 142), "jpeg")))) {
-                        // line 143
+                    if ((((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 196, $this->source); })()), "type", [], "any", false, false, false, 196), "png")) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 196, $this->source); })()), "type", [], "any", false, false, false, 196), "gif"))) || (0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 196, $this->source); })()), "type", [], "any", false, false, false, 196), "jpeg")))) {
+                        // line 197
                         echo "                                            <img class=\"img-fluid mx-auto d-block rounded\"
                                                  src=\"";
-                        // line 144
-                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/accueil/" . twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 144, $this->source); })()), "path", [], "any", false, false, false, 144))), "html", null, true);
+                        // line 198
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/carousel/index/" . twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 198, $this->source); })()), "path", [], "any", false, false, false, 198))), "html", null, true);
                         echo "\"
                                                  alt=\"";
-                        // line 145
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 145, $this->source); })()), "path", [], "any", false, false, false, 145), "html", null, true);
+                        // line 199
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 199, $this->source); })()), "path", [], "any", false, false, false, 199), "html", null, true);
                         echo "\">
                                         ";
                     } else {
-                        // line 147
+                        // line 201
                         echo "                                            <video controls class=\"d-block w-75 align-content-center\" style=\"margin: 0 auto;\">
                                                 <source src=\"";
-                        // line 148
-                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/accueil/" . twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 148, $this->source); })()), "path", [], "any", false, false, false, 148))), "html", null, true);
+                        // line 202
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/carousel/index/" . twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 202, $this->source); })()), "path", [], "any", false, false, false, 202))), "html", null, true);
                         echo "\">
                                             </video>
                                         ";
                     }
-                    // line 151
+                    // line 205
                     echo "                                        <div class=\"rounded bg-blue-gray carousel-custom\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 151, $this->source); })()), "description", [], "any", false, false, false, 151), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 205, $this->source); })()), "description", [], "any", false, false, false, 205), "html", null, true);
                     echo "</div>
                                         ";
-                    // line 152
-                    if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                        // line 153
+                    // line 206
+                    if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_DEVELOPERS")) {
+                        // line 207
                         echo "                                            <div class=\"text-center mt-2 mb-2\">
                                                 <a class=\"btn btn-primary\"
                                                    href=\"";
-                        // line 155
-                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 155, $this->source); })()), "id", [], "any", false, false, false, 155), "page" => "accueil"]), "html", null, true);
+                        // line 209
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["media"]) || array_key_exists("media", $context) ? $context["media"] : (function () { throw new RuntimeError('Variable "media" does not exist.', 209, $this->source); })()), "id", [], "any", false, false, false, 209), "page" => "index"]), "html", null, true);
                         echo "\"><i class=\"fa fa-trash\"></i></a>
                                             </div>
                                         ";
                     }
-                    // line 158
+                    // line 212
                     echo "                                    ";
                 }
-                // line 159
+                // line 213
                 echo "                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['carousel'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 160
+            // line 214
             echo "                            ";
         }
-        // line 161
+        // line 215
         echo "                        </div>
                     </div>
                 </div>
@@ -402,8 +493,8 @@ $context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
     </div>
 
     ";
-        // line 171
-        $this->loadTemplate("includes/home/modal.html.twig", "index/index.html.twig", 171)->display($context);
+        // line 225
+        $this->loadTemplate("includes/home/modal.html.twig", "index/index.html.twig", 225)->display($context);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -424,7 +515,7 @@ $context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
 
     public function getDebugInfo()
     {
-        return array (  406 => 171,  394 => 161,  391 => 160,  385 => 159,  382 => 158,  376 => 155,  372 => 153,  370 => 152,  365 => 151,  359 => 148,  356 => 147,  351 => 145,  347 => 144,  344 => 143,  341 => 142,  338 => 141,  336 => 140,  327 => 134,  319 => 129,  316 => 128,  310 => 127,  308 => 126,  302 => 122,  297 => 120,  294 => 119,  292 => 118,  287 => 116,  284 => 115,  278 => 112,  275 => 111,  270 => 109,  266 => 108,  263 => 107,  261 => 106,  254 => 105,  249 => 104,  247 => 103,  243 => 101,  237 => 100,  235 => 99,  229 => 98,  222 => 97,  217 => 96,  215 => 95,  209 => 93,  206 => 92,  197 => 86,  192 => 84,  187 => 82,  183 => 80,  181 => 79,  176 => 78,  171 => 77,  168 => 76,  161 => 72,  158 => 71,  156 => 70,  153 => 69,  151 => 68,  113 => 32,  109 => 30,  103 => 28,  101 => 27,  91 => 20,  77 => 9,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  497 => 225,  485 => 215,  482 => 214,  476 => 213,  473 => 212,  467 => 209,  463 => 207,  461 => 206,  456 => 205,  450 => 202,  447 => 201,  442 => 199,  438 => 198,  435 => 197,  432 => 196,  429 => 195,  427 => 194,  418 => 188,  410 => 183,  407 => 182,  401 => 181,  399 => 180,  393 => 176,  388 => 174,  385 => 173,  383 => 172,  378 => 170,  375 => 169,  369 => 166,  366 => 165,  361 => 163,  357 => 162,  354 => 161,  352 => 160,  345 => 159,  340 => 158,  338 => 157,  334 => 155,  328 => 154,  326 => 153,  320 => 152,  313 => 151,  308 => 150,  306 => 149,  300 => 147,  297 => 146,  288 => 140,  283 => 138,  278 => 136,  274 => 134,  272 => 133,  267 => 132,  262 => 131,  259 => 130,  252 => 126,  249 => 125,  247 => 124,  244 => 123,  242 => 122,  232 => 114,  220 => 108,  213 => 104,  203 => 96,  198 => 93,  188 => 86,  182 => 83,  170 => 74,  164 => 73,  160 => 72,  154 => 68,  150 => 67,  113 => 32,  109 => 30,  103 => 28,  101 => 27,  91 => 20,  77 => 9,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -493,28 +584,82 @@ $context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
             </section>
 
             <section>
+                <div class=\"container\">
+                    <div class=\"row\">
+                        {% for article in articles %}
+                            <div class=\"col-lg-4\">
+                                <div class=\"card\">
+                                    <div class=\"card-body\">
+                                        <blockquote class=\"blockquote mb-0\">
+                                            <p class=\"text-truncate\">{{ article.subject }}</p>
+                                            <footer class=\"blockquote-footer\">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
+                                                <cite title=\"Source Title\">{{ article.date|date(\"d/m/Y\") }}</cite>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                    <div class=\"card-footer\">
+                                        <div class=\"row\">
+                                            <a class=\"btn btn-outline-primary m-1\" href=\"#\">
+                                                <i class=\"fas fa-eye\"></i>
+                                            </a>
+                                            <a class=\"btn btn-outline-warning m-1\" href=\"{{ path(\"articles_edit\", {\"article\" : article.article}) }}\">
+                                                <i class=\"fas fa-edit\"></i>
+                                            </a>
+                                            <button class=\"btn btn-outline-danger m-1\" onclick=\"\$('#modal-{{ article.id }}-delete').modal();\">
+                                                <i class=\"fas fa-trash\"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"modal fade\" id=\"modal-{{ article.id }}-delete\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"deleteModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog modal-dialog-centered\">
+{#                                        <div class=\"modal-content bg-{{ userSettings.theme }} text-{{ userSettings.color }}\">#}
+                                    <div>
+                                        <div class=\"modal-header\">
+                                            <h5 class=\"modal-title\">Confirmation de suppression</h5>
+                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                                                <span aria-hidden=\"true\">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <p>Êtes-vous sur de vouloir supprimer l'article nommé : \"{{ article.subject }}\" ?</p>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Annuler</button>
+                                            <a type=\"button\" class=\"btn btn-danger\" href=\"{{ path(\"articles_delete\", { \"article\" : article.article }) }}\">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section>
                 <div class=\"row\">
                     <div class=\"col\">
                         <div class=\"title\">
                             {% if carousels is empty or carousels|length == 0 %}
                                 <h1 class=\"heading-stylized text-center\">Rien pour l'instant</h1>
-                                {% if is_granted('ROLE_ADMIN') %}
+                                {% if is_granted('ROLE_DEVELOPERS') %}
                                     <div class=\"text-center mt mb\">
-                                        <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_add', {page:'accueil'}) }}\">
+                                        <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_add', {page:'index'}) }}\">
                                             <i class=\"fa fa-plus-square\"></i></a>
                                     </div>
                                 {% endif %}
                             {% else %}
                                 {% for carousel in carousels %}
                                     <h1 class=\"heading-stylized text-center\">{{ carousel.name }}</h1>
-                                    {% if is_granted('ROLE_ADMIN') %}
+                                    {% if is_granted('ROLE_DEVELOPERS') %}
                                         <div class=\"text-center mt-2 mb-2\">
                                             <div class=\"btn-group\">
-                                                <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_edit', {'id' : carousel.id, page:'accueil'}) }}\">
+                                                <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_edit', {'id' : carousel.id, page:'index'}) }}\">
                                                     <i class=\"fa fa-edit\"></i></a>
-                                                <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_delete', {'id' : carousel.id, page:'accueil'}) }}\">
+                                                <a class=\"btn btn-primary\" href=\"{{ path('admin_carousel_delete', {'id' : carousel.id, page:'index'}) }}\">
                                                     <i class=\"fa fa-trash\"></i></a>
-                                                <a class=\"btn btn-primary\" href=\"{{ path('medias_add', {'id' : carousel.id, page:'accueil'}) }}\">
+                                                <a class=\"btn btn-primary\" href=\"{{ path('medias_add', {'id' : carousel.id, page:'index'}) }}\">
                                                     <i class=\"fa fa-photo\"></i>
                                                 </a>
                                             </div>
@@ -536,19 +681,19 @@ $context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
                                                     <div class=\"carousel-item {% if i == 0 %}active{% endif %}\">
                                                         {% if media.type == \"png\" or media.type == \"gif\" or media.type == \"jpeg\" or media.type == \"jpg\" %}
                                                             <img class=\"d-block w-100\"
-                                                                 src=\"{{ asset('uploads/accueil/' ~ media.path) }}\"
+                                                                 src=\"{{ asset('uploads/carousel/index/' ~ media.path) }}\"
                                                                  alt=\"{{ media.path }}\">
                                                         {% else %}
                                                             <video controls class=\"d-block w-75 align-content-center\" style=\"margin: 0 auto;\">
-                                                                <source src=\"{{ asset('uploads/accueil/' ~ media.path) }}\">
+                                                                <source src=\"{{ asset('uploads/carousel/index/' ~ media.path) }}\">
                                                             </video>
                                                         {% endif %}
                                                         <div class=\"carousel-caption d-none d-md-block text-center\">
                                                             <div class=\"rounded bg-blue-gray carousel-custom\">{{ media.description }}</div>
                                                             <div class=\"mt-2 mb-2\">
-                                                                {% if is_granted('ROLE_ADMIN') %}
+                                                                {% if is_granted('ROLE_DEVELOPERS') %}
                                                                     <a class=\"btn btn-primary\"
-                                                                       href=\"{{ path('medias_delete', {'id': media.id, page:'accueil'}) }}\"><i class=\"fa fa-trash\"></i></a>
+                                                                       href=\"{{ path('medias_delete', {'id': media.id, page:'index'}) }}\"><i class=\"fa fa-trash\"></i></a>
                                                                 {% endif %}
                                                             </div>
                                                         </div><br>
@@ -572,18 +717,18 @@ $context["carousel"], "medias", [], "any", false, false, false, 140)), 1))) {
                                         {% set media = carousel.medias.first %}
                                         {% if media.type == \"png\" or media.type == \"gif\" or media.type == \"jpeg\" %}
                                             <img class=\"img-fluid mx-auto d-block rounded\"
-                                                 src=\"{{ asset('uploads/accueil/' ~ media.path) }}\"
+                                                 src=\"{{ asset('uploads/carousel/index/' ~ media.path) }}\"
                                                  alt=\"{{ media.path }}\">
                                         {% else %}
                                             <video controls class=\"d-block w-75 align-content-center\" style=\"margin: 0 auto;\">
-                                                <source src=\"{{ asset('uploads/accueil/' ~ media.path) }}\">
+                                                <source src=\"{{ asset('uploads/carousel/index/' ~ media.path) }}\">
                                             </video>
                                         {% endif %}
                                         <div class=\"rounded bg-blue-gray carousel-custom\">{{ media.description }}</div>
-                                        {% if is_granted('ROLE_ADMIN') %}
+                                        {% if is_granted('ROLE_DEVELOPERS') %}
                                             <div class=\"text-center mt-2 mb-2\">
                                                 <a class=\"btn btn-primary\"
-                                                   href=\"{{ path('medias_delete', {'id': media.id, page:'accueil'}) }}\"><i class=\"fa fa-trash\"></i></a>
+                                                   href=\"{{ path('medias_delete', {'id': media.id, page:'index'}) }}\"><i class=\"fa fa-trash\"></i></a>
                                             </div>
                                         {% endif %}
                                     {% endif %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\CarouselLike;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -17,9 +18,11 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        $carousel = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+        $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
         return $this->render('index/index.html.twig', [
-            'carousels' => $carousel
+            'carousels' => $carousels,
+            'articles' => $articles
         ]);
     }
 

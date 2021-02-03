@@ -66,7 +66,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
         echo "    </head>
     <body id=\"page-top\" ";
         // line 12
-        if ((!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "request", [], "any", false, false, false, 12), "pathInfo", [], "any", false, false, false, 12), [0 => "/", 1 => "/register", 2 => "/login"]) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()), "medieval", [], "any", false, false, false, 12), 0, [], "array", false, false, false, 12))) {
+        if ((((!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "request", [], "any", false, false, false, 12), "pathInfo", [], "any", false, false, false, 12), [0 => "/", 1 => "/register", 2 => "/login"]) && array_key_exists("userSettings", $context)) &&  !(null === (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()))) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()), "medieval", [], "any", false, false, false, 12), 0, [], "array", false, false, false, 12))) {
             echo "class=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 12, $this->source); })()), "medieval", [], "any", false, false, false, 12), 1, [], "array", false, false, false, 12), "html", null, true);
             echo "\"";
@@ -178,7 +178,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
         {% include \"includes/fonts.html.twig\" %}
         {% include \"includes/icons.html.twig\" %}
     </head>
-    <body id=\"page-top\" {% if app.request.pathInfo not in [\"/\", \"/register\", \"/login\"] and userSettings.medieval[0] %}class=\"{{ userSettings.medieval[1] }}\"{% endif %}>
+    <body id=\"page-top\" {% if app.request.pathInfo not in [\"/\", \"/register\", \"/login\"] and userSettings is defined and userSettings is not null and userSettings.medieval[0] %}class=\"{{ userSettings.medieval[1] }}\"{% endif %}>
         {% block body %}{% endblock %}
 
         {% block scripts %}{% endblock %}

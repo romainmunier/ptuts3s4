@@ -9,7 +9,7 @@
         {% include "includes/fonts.html.twig" %}
         {% include "includes/icons.html.twig" %}
     </head>
-    <body id="page-top" {% if app.request.pathInfo not in ["/", "/register", "/login"] and userSettings.medieval[0] %}class="{{ userSettings.medieval[1] }}"{% endif %}>
+    <body id="page-top" {% if app.request.pathInfo not in ["/", "/register", "/login"] and userSettings is defined and userSettings is not null and userSettings.medieval[0] %}class="{{ userSettings.medieval[1] }}"{% endif %}>
         {% block body %}{% endblock %}
 
         {% block scripts %}{% endblock %}

@@ -72,7 +72,8 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
-    <parameter key="media">C:\Users\alexi\Documents\GitHub\ptuts3s4/public/uploads/media/</parameter>
+    <parameter key="carousel">C:\Users\alexi\Documents\GitHub\ptuts3s4/public/uploads/carousel/</parameter>
+    <parameter key="carousel_index">C:\Users\alexi\Documents\GitHub\ptuts3s4/public/uploads/carousel/index</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -389,14 +390,6 @@
         <argument type="service" id=".service_locator.g9CqTPp.App\Controller\IndexController"/>
       </call>
     </service>
-    <service id="App\Controller\LinkController" class="App\Controller\LinkController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.g9CqTPp.App\Controller\LinkController"/>
-      </call>
-    </service>
     <service id="App\Controller\LogController" class="App\Controller\LogController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -449,12 +442,6 @@
     <service id="App\Form\CarouselLikeFormType" class="App\Form\CarouselLikeFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\CategoryLinkFormType" class="App\Form\CategoryLinkFormType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Form\LinkFormType" class="App\Form\LinkFormType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
     <service id="App\Form\MediaFormType" class="App\Form\MediaFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -466,15 +453,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\CategoryLinkRepository" class="App\Repository\CategoryLinkRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\LinkRepository" class="App\Repository\LinkRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -942,8 +921,6 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\CarouselLikeFormType</argument>
-        <argument>App\Form\CategoryLinkFormType</argument>
-        <argument>App\Form\LinkFormType</argument>
         <argument>App\Form\MediaFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1286,7 +1263,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.zIseaBT"/>
+      <argument type="service" id=".service_locator.6HCF5LN"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3730,7 +3707,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.F6CFDd0"/>
+      <argument type="service" id=".service_locator.2GuBU9l"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5323,9 +5300,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LinkController" class="App\Controller\LinkController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LinkController" class="App\Controller\LinkController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\LinkController" class="App\Controller\LinkController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LogController" class="App\Controller\LogController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LogController" class="App\Controller\LogController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\LogController" class="App\Controller\LogController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5348,22 +5322,14 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CarouselLikeFormType" class="App\Form\CarouselLikeFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CarouselLikeFormType" class="App\Form\CarouselLikeFormType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryLinkFormType" class="App\Form\CategoryLinkFormType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CategoryLinkFormType" class="App\Form\CategoryLinkFormType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\LinkFormType" class="App\Form\LinkFormType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\LinkFormType" class="App\Form\LinkFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MediaFormType" class="App\Form\MediaFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\MediaFormType" class="App\Form\MediaFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CarouselLikeRepository" class="App\Repository\CarouselLikeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CarouselLikeRepository" class="App\Repository\CarouselLikeRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryLinkRepository" class="App\Repository\CategoryLinkRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\CategoryLinkRepository" class="App\Repository\CategoryLinkRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LinkRepository" class="App\Repository\LinkRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\LinkRepository" class="App\Repository\LinkRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LogRepository" class="App\Repository\LogRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LogRepository" class="App\Repository\LogRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MailingListRepository" class="App\Repository\MailingListRepository" autowire="true" abstract="true"/>
@@ -5633,7 +5599,7 @@
         <argument key="kernel" type="service" id="kernel"/>
       </argument>
     </service>
-    <service id=".service_locator.H2bYrLN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator._WIJ0mz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
@@ -5655,16 +5621,6 @@
         <argument key="auth" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.buh6Vb0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection"/>
-    </service>
-    <service id=".service_locator.ucPal8z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="link" type="service" id=".errored..service_locator.ucPal8z.App\Entity\Link"/>
-      </argument>
-    </service>
     <service id=".service_locator.XDBtZsA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5683,7 +5639,7 @@
         <argument key="media" type="service" id=".errored..service_locator.Jpxqoq8.App\Entity\Media"/>
       </argument>
     </service>
-    <service id=".service_locator.5I6Klb8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.LF3S.Rd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\APIController::saveArticle" type="service" id=".service_locator.Ek1Bs8S"/>
@@ -5694,8 +5650,6 @@
         <argument key="App\Controller\CarouselLikeController::carouselDelete" type="service" id=".service_locator.puq85cF"/>
         <argument key="App\Controller\DashboardController::login" type="service" id=".service_locator._RztPCG"/>
         <argument key="App\Controller\IndexController::login" type="service" id=".service_locator.nyfkghW"/>
-        <argument key="App\Controller\LinkController::deleteCat" type="service" id=".service_locator.ucPal8z"/>
-        <argument key="App\Controller\LinkController::linkDelete" type="service" id=".service_locator.ucPal8z"/>
         <argument key="App\Controller\LogController::index" type="service" id=".service_locator.XDBtZsA"/>
         <argument key="App\Controller\MediaController::add" type="service" id=".service_locator.HI4VmaO"/>
         <argument key="App\Controller\MediaController::delete" type="service" id=".service_locator.Jpxqoq8"/>
@@ -5713,8 +5667,6 @@
         <argument key="App\Controller\CarouselLikeController:carouselDelete" type="service" id=".service_locator.puq85cF"/>
         <argument key="App\Controller\DashboardController:login" type="service" id=".service_locator._RztPCG"/>
         <argument key="App\Controller\IndexController:login" type="service" id=".service_locator.nyfkghW"/>
-        <argument key="App\Controller\LinkController:deleteCat" type="service" id=".service_locator.ucPal8z"/>
-        <argument key="App\Controller\LinkController:linkDelete" type="service" id=".service_locator.ucPal8z"/>
         <argument key="App\Controller\LogController:index" type="service" id=".service_locator.XDBtZsA"/>
         <argument key="App\Controller\MediaController:add" type="service" id=".service_locator.HI4VmaO"/>
         <argument key="App\Controller\MediaController:delete" type="service" id=".service_locator.Jpxqoq8"/>
@@ -5782,12 +5734,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.zIseaBT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.6HCF5LN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CarouselLikeFormType" type="service" id="App\Form\CarouselLikeFormType"/>
-        <argument key="App\Form\CategoryLinkFormType" type="service" id="App\Form\CategoryLinkFormType"/>
-        <argument key="App\Form\LinkFormType" type="service" id="App\Form\LinkFormType"/>
         <argument key="App\Form\MediaFormType" type="service" id="App\Form\MediaFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
@@ -5807,14 +5757,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.F6CFDd0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.2GuBU9l" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ArticleRepository" type="service" id="App\Repository\ArticleRepository"/>
         <argument key="App\Repository\CarouselLikeRepository" type="service" id="App\Repository\CarouselLikeRepository"/>
-        <argument key="App\Repository\CategoryLinkRepository" type="service" id="App\Repository\CategoryLinkRepository"/>
         <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
-        <argument key="App\Repository\LinkRepository" type="service" id="App\Repository\LinkRepository"/>
         <argument key="App\Repository\LogRepository" type="service" id="App\Repository\LogRepository"/>
         <argument key="App\Repository\MailingListRepository" type="service" id="App\Repository\MailingListRepository"/>
         <argument key="App\Repository\MediaRepository" type="service" id="App\Repository\MediaRepository"/>
@@ -6070,12 +6018,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.g9CqTPp" method="withContext"/>
     </service>
-    <service id=".service_locator.g9CqTPp.App\Controller\LinkController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\LinkController"/>
-      <argument>App\Controller\LinkController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.g9CqTPp" method="withContext"/>
-    </service>
     <service id=".service_locator.g9CqTPp.App\Controller\LogController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\LogController"/>
       <argument>App\Controller\LogController</argument>
@@ -6273,12 +6215,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.5I6Klb8"/>
+      <argument type="service" id=".service_locator.LF3S.Rd"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.5I6Klb8"/>
+      <argument type="service" id=".service_locator.LF3S.Rd"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6291,7 +6233,6 @@
     <service id=".errored..service_locator.beq5mCo.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.C9JCBPC.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
     <service id=".errored..service_locator.puq85cF.App\Entity\CarouselLike" class="App\Entity\CarouselLike"/>
-    <service id=".errored..service_locator.ucPal8z.App\Entity\Link" class="App\Entity\Link"/>
     <service id=".errored..service_locator.HI4VmaO.App\Entity\CarouselLike" class="App\Entity\CarouselLike"/>
     <service id=".errored..service_locator.Jpxqoq8.App\Entity\Media" class="App\Entity\Media"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
@@ -6680,7 +6621,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.WaGDpDt" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.5I6Klb8"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.LF3S.Rd"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
