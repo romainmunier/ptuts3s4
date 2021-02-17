@@ -199,3 +199,17 @@ a, p, li, label {
         padding: .25rem !important;
     }
 }
+
+/* ################################
+   #                              #
+   #        COLLAPSE STYLE        #
+   #                              #
+   ################################
+ */
+
+.collapse-style {
+    border:none;
+    background: none;
+    display: flex;
+    justify-content: center;
+}

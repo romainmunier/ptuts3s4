@@ -4,16 +4,16 @@
     {% include "includes/home/navbar.html.twig" %}
 
     <div class="home-content">
-        <div class="home-content-left">
-            <div class="card card-custom">
-                <img src="{{ asset("assets/background/banner3.png") }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Sample left menu</h5>
-                    <p class="card-text">Exemple de menu latéral gauche fixe non mobile que l'on ne peut pas bouger sans l'autorisation d'un administrateur</p>
-                    <a href="#" class="btn btn-braun">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+{#        <div class="home-content-left">#}
+{#            <div class="card card-custom">#}
+{#                <img src="{{ asset("assets/background/banner3.png") }}" class="card-img-top" alt="...">#}
+{#                <div class="card-body">#}
+{#                    <h5 class="card-title">Sample left menu</h5>#}
+{#                    <p class="card-text">Exemple de menu latéral gauche fixe non mobile que l'on ne peut pas bouger sans l'autorisation d'un administrateur</p>#}
+{#                    <a href="#" class="btn btn-braun">Go somewhere</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         <div class="home-content-middle">
             <header class="d-flex masthead">
                 <div class="container my-auto text-center">
@@ -61,30 +61,62 @@
                 </div>
             </section>
 
-            <section>
-                <div class="container">
-                    <div class="row">
-                            {% for article in articles %}
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <blockquote class="blockquote mb-0">
-                                                <p class="text-truncate">{{ article.subject }}</p>
-                                                <footer class="blockquote-footer">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
-                                                    <cite title="Source Title">{{ article.date|date("d/m/Y") }}</cite>
-                                                </footer>
-                                            </blockquote>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row">
-                                                <a class="btn btn-outline-primary m-1" href="#">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
+            <section style="margin-bottom: 50px;margin-top: -50px">
+                <div class="accordion" id="accordionAccueil">
+                    <div class="card collapse-style">
+                        <div class="card-header collapse-style" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-dark btn-xl btn-link collapse-icon" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Flash infos
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionAccueil">
+                            <div class="card-body">
+                                {% if flashinfos is defined and flashinfos is not null %}
+                                    {% for flashinfo in flashinfos %}
+
+                                    {% endfor %}
+                                {% else %}
+                                    Rien pour le moment
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card collapse-style" style="background:none">
+                        <div class="card-header collapse-style" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-dark btn-xl btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Derniers articles
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionAccueil">
+                            <div class="card-body">
+                                {% for article in articles %}
+                                    <div class="col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <blockquote class="blockquote mb-0">
+                                                    <p class="text-truncate">{{ article.subject }}</p>
+                                                    <footer class="blockquote-footer">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
+                                                        <cite title="Source Title">{{ article.date|date("d/m/Y") }}</cite>
+                                                    </footer>
+                                                </blockquote>
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="row">
+                                                    <a class="btn btn-outline-primary m-1" href="#">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
