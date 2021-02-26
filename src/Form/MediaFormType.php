@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,6 +23,19 @@ class MediaFormType extends AbstractType
                 ->add('medias', FileType::class, [
                     'mapped' => false,
                     'required' => false,
+                ])
+                ->add('submit', SubmitType::class);
+        } else if ($page == 'gallery') {
+            $builder->add('title', TextType::class)
+                ->add('description', TextareaType::class)
+                ->add('medias', FileType::class, [
+                    'mapped' => false,
+                    'required' => false,
+                    'multiple' => true,
+                ])
+                ->add('category', EntityType::class, [
+                    'class' => Category::class,
+                    'choice_label' => 'name',
                 ])
                 ->add('submit', SubmitType::class);
         }

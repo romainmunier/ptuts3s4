@@ -4,14 +4,20 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\User;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CategoryController extends AbstractController
 {
     /**
      * @Route("/dashboard/category/{id}", name="category", methods={"GET", "POST", "DELETE", "PUT"})
+     * @param int|null $id
+     * @param Request $request
+     * @return RedirectResponse|Response
      */
     public function index(int $id = null, Request $request)
     {
@@ -51,7 +57,7 @@ class CategoryController extends AbstractController
         } elseif ($request->getMethod() == "POST") {
             $cat = new Category();
             $cat->setName($_POST["Name"])
-                ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
+                ->setDate(DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
                 ->setVisibility(true)
                 ->setParent($category);
 
@@ -79,7 +85,7 @@ class CategoryController extends AbstractController
         } elseif ($request->getMethod() == "PUT") {
             $category->setName($_POST["Name"])
                 ->setParent($manager->getRepository(Category::class)->find(intval($_POST["Parent"])))
-                ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")));
+                ->setDate(DateTime::createFromFormat("Y-m-d", date("Y-m-d")));
 
             if ($_POST["Sumup"] == "") {
                 $category->setSumup(NULL);

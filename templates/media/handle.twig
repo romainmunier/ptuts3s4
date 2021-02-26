@@ -3,17 +3,35 @@
 {% block title %}Ajouter un média{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="heading-stylized">Ajouter un média</h1>
-                {{ form(form) }}
-                <p id="files"></p>
-                <a class="btn btn-primary"
-                   href="{{ path(carousel.type) }}">Annuler</a>
+<div id="wrapper">
+    {% include "includes/dashboard/sidebar.html.twig" %}
+    <div class="d-flex flex-column {% if not userSettings.medieval[0] %}bg-{{ userSettings.theme }}{% else %}bg-none{% endif %}" id="content-wrapper">
+        <div id="content">
+            {% include "includes/dashboard/navbar.html.twig" %}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-{{ userSettings.color}} mb-0">Ajouter une image</h3>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="heading-stylized">Ajouter un média</h1>
+                            {{ form(form) }}
+                            <p id="files"></p>
+                            <a class="btn btn-primary"
+                               href="{{ path(carousel.type) }}">Annuler</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright text-{{ userSettings.color }}">
+                    <span>Copyright © CEFC Developers Team {{ date("Y")|date("Y") }}</span>
+                </div>
+            </div>
+        </footer>
 {% endblock %}
 
 {% block progressbar %}

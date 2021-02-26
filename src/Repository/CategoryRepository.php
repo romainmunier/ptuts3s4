@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -31,5 +32,18 @@ class CategoryRepository extends ServiceEntityRepository
         ");
 
         return $query->getResult();
+    }
+
+    public function findByNotNull() {
+        $manager = $this->getEntityManager();
+
+        return $manager->createQuery("
+            SELECT c
+            FROM App\Entity\Category c
+            JOIN App\Entity\Media m WITH c.id = m.category
+            WHERE m.path IS NOT NULL
+            GROUP BY c.Name 
+        ")
+            ->getResult();
     }
 }

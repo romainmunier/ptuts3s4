@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,6 +14,8 @@ class ArticlesController extends AbstractController
 {
     /**
      * @Route("/dashboard/articles", name="articles")
+     * @param KernelInterface $kernel
+     * @return Response
      */
     public function index(KernelInterface $kernel) {
         $manager = $this->getDoctrine()->getManager();
@@ -41,6 +44,8 @@ class ArticlesController extends AbstractController
 
     /**
      * @Route("/dashboard/articles/add", name="articles_add", methods={"GET", "POST"})
+     * @param Request $request
+     * @return Response
      */
     public function add(Request $request) {
         $manager = $this->getDoctrine()->getManager();
@@ -57,9 +62,13 @@ class ArticlesController extends AbstractController
             ]);
         }
     }
-    
+
     /**
      * @Route("/dashboard/articles/edit/{article}", name="articles_edit", methods={"GET", "POST"})
+     * @param String $article
+     * @param Request $request
+     * @param KernelInterface $kernel
+     * @return Response
      */
     public function edit(String $article, Request $request, KernelInterface $kernel) {
         $manager = $this->getDoctrine()->getManager();

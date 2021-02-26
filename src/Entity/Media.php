@@ -44,6 +44,11 @@ class Media
      */
     private $title;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="media")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Media
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

@@ -954,6 +954,6 @@ class __TwigTemplate_dd28beaa4626a73806880eb40c49567317e82f02db68e64e5c7efd386e3
             </div>
         </footer>
         {% endblock %}
-{# Fin de la gestion de la page #}", "dashboard/user/index.html.twig", "C:\\Users\\romainmunier\\Documents\\GitHub\\ptuts3s4\\templates\\dashboard\\user\\index.html.twig");
+{# Fin de la gestion de la page #}", "dashboard/user/index.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\dashboard\\user\\index.html.twig");
     }
 }

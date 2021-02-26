@@ -24,18 +24,15 @@ class MediaController extends AbstractController
         $this->fileUploader = $fileUploader;
     }
 
-    // @Route("/admin/{page}/medias/upload/{id}", name="medias_upload")
-
     /**
      * @Route("/admin/{page}/medias/add/{id}", name="medias_add")
-     * @Route(path="/admin/{page}/medias/upload/{id}", name="medias_upload")
      * @param $page
      * @param Request $request
      * @param CarouselLike $carouselLike
      * @return Response
      * @IsGranted("ROLE_DEVELOPERS")
      */
-    public function add($page, Request $request, CarouselLike $carouselLike): Response
+    public function addMediaPage($page, Request $request, CarouselLike $carouselLike): Response
     {
         if (!$carouselLike) {
             $this->createNotFoundException();
@@ -50,7 +47,8 @@ class MediaController extends AbstractController
                 $filePath = $this->fileUploader->upload($form->get('medias')->getData());
                 $mediaEntity->setPath($filePath)
                     ->setType($this->fileUploader->getType($filePath))
-                    ->setCarouselLike($carouselLike);
+                    ->setCarouselLike($carouselLike)
+                    ->setCategory(NULL);
                 if($form->has('title')) {
                     $mediaEntity->setTitle($form->get('title')->getData())
                         ->setDescription($form->get('description')->getData());
@@ -64,7 +62,8 @@ class MediaController extends AbstractController
                     $filePath = $this->fileUploader->upload($media);
                     $mediaEntity->setPath($filePath)
                         ->setType($this->fileUploader->getType($filePath))
-                        ->setCarouselLike($carouselLike);
+                        ->setCarouselLike(NULL)
+                        ->setCategory(NULL);
                     if($form->has('title')) {
                         $mediaEntity->setTitle($form->get('title')->getData())
                             ->setDescription($form->get('description')->getData());
@@ -84,18 +83,18 @@ class MediaController extends AbstractController
     }
 
     /**
-     * @Route(path="/admin/{page}/medias/delete/{id}", name="medias_delete")
+     * @Route("/admin/{page}/medias/delete/{id}", name="medias_delete")
      * @param $page
      * @param Media $media
      * @return Response
      * @IsGranted("ROLE_DEVELOPERS")
      */
-    public function delete($page, Media $media): Response
+    public function deleteMediaPage($page, Media $media): Response
     {
         if (!$media) {
             $this->createNotFoundException("Ce média n'existe pas");
         }
-        unlink($this->getParameter('carousel').'/'.$page.'/'.$media->getpath());
+        unlink($this->getParameter('carousel').$page.'/'.$media->getpath());
 
         $this->manager->remove($media);
         $this->manager->flush();

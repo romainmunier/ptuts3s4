@@ -206,7 +206,10 @@ class __TwigTemplate_20abba3edc52013275b324ff446d1761ab77317bb57b273f18f18819516
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 57, $this->source); })()), "sumup", [], "any", false, false, false, 57), "html", null, true);
         echo "</p>
                                         <div class=\"row\">
-                                            <a href=\"#\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
+                                            <a href=\"";
+        // line 59
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("gallery", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59)]), "html", null, true);
+        echo "\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
                                             ";
         // line 60
         if ( !(null === twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 60, $this->source); })()), "parent", [], "any", false, false, false, 60))) {
@@ -583,7 +586,7 @@ class __TwigTemplate_20abba3edc52013275b324ff446d1761ab77317bb57b273f18f18819516
 
     public function getDebugInfo()
     {
-        return array (  560 => 282,  556 => 281,  551 => 278,  536 => 266,  531 => 265,  525 => 262,  522 => 261,  520 => 260,  507 => 249,  505 => 248,  502 => 247,  467 => 215,  441 => 196,  435 => 193,  429 => 192,  423 => 189,  417 => 188,  404 => 182,  395 => 176,  390 => 174,  381 => 167,  379 => 166,  348 => 138,  332 => 129,  326 => 126,  319 => 122,  305 => 115,  297 => 110,  293 => 109,  274 => 92,  264 => 88,  258 => 85,  252 => 82,  248 => 81,  242 => 79,  238 => 78,  227 => 70,  223 => 68,  214 => 61,  212 => 60,  206 => 57,  199 => 53,  189 => 45,  182 => 43,  174 => 41,  168 => 39,  166 => 38,  159 => 37,  155 => 36,  150 => 34,  145 => 31,  142 => 30,  130 => 24,  127 => 23,  122 => 22,  120 => 21,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  563 => 282,  559 => 281,  554 => 278,  539 => 266,  534 => 265,  528 => 262,  525 => 261,  523 => 260,  510 => 249,  508 => 248,  505 => 247,  470 => 215,  444 => 196,  438 => 193,  432 => 192,  426 => 189,  420 => 188,  407 => 182,  398 => 176,  393 => 174,  384 => 167,  382 => 166,  351 => 138,  335 => 129,  329 => 126,  322 => 122,  308 => 115,  300 => 110,  296 => 109,  277 => 92,  267 => 88,  261 => 85,  255 => 82,  251 => 81,  245 => 79,  241 => 78,  230 => 70,  226 => 68,  217 => 61,  215 => 60,  211 => 59,  206 => 57,  199 => 53,  189 => 45,  182 => 43,  174 => 41,  168 => 39,  166 => 38,  159 => 37,  155 => 36,  150 => 34,  145 => 31,  142 => 30,  130 => 24,  127 => 23,  122 => 22,  120 => 21,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -646,7 +649,7 @@ class __TwigTemplate_20abba3edc52013275b324ff446d1761ab77317bb57b273f18f18819516
                                     <blockquote class=\"blockquote mb-0\">
                                         <p>{{ category.sumup }}</p>
                                         <div class=\"row\">
-                                            <a href=\"#\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
+                                            <a href=\"{{ path(\"gallery\", {\"id\" : category.id}) }}\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
                                             {% if category.parent is not null %}
                                                 <button class=\"btn btn-outline-warning btn-sm mr-1\" onclick=\"\$('#editCategoryModal').modal();\">
                                                     <i class=\"fas fa-edit\"></i>
