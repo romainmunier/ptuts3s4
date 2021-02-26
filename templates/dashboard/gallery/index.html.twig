@@ -17,12 +17,12 @@
                         <div class="col">
                             <div class="title">
                                 {% if categories is empty %}
-                                    <h1 class="heading-stylized text-center">Aucune gallery trouvée</h1>
+                                    <h1 class="heading-stylized text-center">Aucune galerie trouvée</h1>
                                 {% else %}
                                     {% for category in categories %}
                                         <h10>({{ category.id }})</h10><h1>{{ category.Name }}</h1>
                                         {% if category.media|length == 0 %}
-                                            <h4 class="heading-stylized text-center">Pas d'image dans cette gallerie</h4>
+                                            <h4 class="heading-stylized text-center">Pas d'image dans cette galerie</h4>
                                         {% else %}
                                             <div class="row">
                                                 {% set i = 0 %}
