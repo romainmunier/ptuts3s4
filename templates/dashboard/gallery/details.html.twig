@@ -21,25 +21,24 @@
                                     <h4 class="heading-stylized text-center">Pas d'image dans cette galerie</h4>
                                 {% else %}
                                     <div class="row">
-                                        {% set i = 0 %}
                                         {% for media in categories.media %}
-                                            <div class="col">
-                                                {% if media.type == "png" or media.type == "gif" or media.type == "jpeg" or media.type == "jpg" %}
-                                                    <img class=""
-                                                         src="{{ asset('uploads/gallery/' ~ media.path) }}"
-                                                         alt="{{ media.path }}" width="200px" height="200px">
-                                                {% else %}
-                                                    <video controls class="d-block w-75 align-content-center" style="margin: 0 auto;">
-                                                        <source src="{{ asset('uploads/gallery/' ~ media.path) }}">
-                                                    </video>
-                                                {% endif %}
-                                            </div>
-                                        {% set i = i + 1 %}
+                                            {% if media.type == "png" or media.type == "gif" or media.type == "jpeg" or media.type == "jpg" %}
+                                                <img class=""
+                                                     src="{{ asset('uploads/gallery/' ~ media.path) }}"
+                                                     alt="{{ media.path }}" width="200px" height="200px" style="margin-bottom: 20px; margin-right: 20px">
+                                            {% else %}
+                                                <video controls class="d-block w-75 align-content-center" style="margin: 0 auto;">
+                                                    <source src="{{ asset('uploads/gallery/' ~ media.path) }}">
+                                                </video>
+                                            {% endif %}
                                         {% endfor %}
                                     </div>
                                 {% endif %}
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <a href="{{ path("gallery") }}" class="btn btn-outline-primary btn-sm ml-1 mr-1">Retour vers toutes les galeries</a>
                     </div>
                 </div>
             </div>

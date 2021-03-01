@@ -19,7 +19,7 @@
                             {{ form(form) }}
                             <p id="files"></p>
                             <a class="btn btn-primary"
-                               href="{{ path(carousel.type) }}">Annuler</a>
+                               href="{{ path('gallery') }}">Annuler</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         </footer>
 {% endblock %}
 
-{% block progressbar %}
+{% block files_info %}
     <script type="text/javascript">
         document.getElementById("media_form_medias").onchange = function() {DisplayFiles(this)};
         function DisplayFiles(file) {

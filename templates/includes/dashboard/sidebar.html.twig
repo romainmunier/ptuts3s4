@@ -69,7 +69,7 @@
                             <div class="collapse w-100 py-2" id="collapse-gallery" style="margin-left: 0; border-radius: 8px;">
                                 <div class="bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded" style="width: 96%; margin: 0 2%;">
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Actions rapides</h6>
-                                    <a class="collapse-item text-{{ userSettings.theme }}" href="">Ajouter des images</a>
+                                    <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path('medias_add_gallery') }}">Ajouter des images</a>
                                     <h6 class="collapse-header text-{{ userSettings.theme }}">Options</h6>
                                     <a class="collapse-item text-{{ userSettings.theme }}" href="{{ path('gallery_media') }}">Toutes les images</a>
                                 </div>

@@ -208,7 +208,7 @@ class __TwigTemplate_20abba3edc52013275b324ff446d1761ab77317bb57b273f18f18819516
                                         <div class=\"row\">
                                             <a href=\"";
         // line 59
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("gallery", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("gallery_media", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59)]), "html", null, true);
         echo "\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
                                             ";
         // line 60
@@ -649,7 +649,7 @@ class __TwigTemplate_20abba3edc52013275b324ff446d1761ab77317bb57b273f18f18819516
                                     <blockquote class=\"blockquote mb-0\">
                                         <p>{{ category.sumup }}</p>
                                         <div class=\"row\">
-                                            <a href=\"{{ path(\"gallery\", {\"id\" : category.id}) }}\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
+                                            <a href=\"{{ path(\"gallery_media\", {\"id\" : category.id}) }}\" class=\"btn btn-outline-primary btn-sm ml-1 mr-1\">Aller à la galerie</a>
                                             {% if category.parent is not null %}
                                                 <button class=\"btn btn-outline-warning btn-sm mr-1\" onclick=\"\$('#editCategoryModal').modal();\">
                                                     <i class=\"fas fa-edit\"></i>

@@ -47,6 +47,8 @@ return [
     'mailing_delete' => [['id'], ['_controller' => 'App\\Controller\\MailingListController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/control/admin/mailing/delete']], [], []],
     'medias_add' => [['page', 'id'], ['_controller' => 'App\\Controller\\MediaController::addMediaPage'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/medias/add'], ['variable', '/', '[^/]++', 'page', true], ['text', '/admin']], [], []],
     'medias_delete' => [['page', 'id'], ['_controller' => 'App\\Controller\\MediaController::deleteMediaPage'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/medias/delete'], ['variable', '/', '[^/]++', 'page', true], ['text', '/admin']], [], []],
+    'medias_add_gallery' => [[], ['_controller' => 'App\\Controller\\MediaController::addMediaFromGallery'], [], [['text', '/dashboard/gallery/media/add']], [], []],
+    'medias_delete_gallery' => [['id'], ['_controller' => 'App\\Controller\\MediaController::deleteMediaFromGallery'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/dashboard/gallery/media/delete']], [], []],
     'news' => [[], ['_controller' => 'App\\Controller\\NewsController::index'], [], [['text', '/dashboard/news']], [], []],
     'settings' => [[], ['_controller' => 'App\\Controller\\SettingsController::index'], [], [['text', '/dashboard/settings']], [], []],
     'settings_save' => [['id'], ['_controller' => 'App\\Controller\\SettingsController::saveSettings'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/export/settings/save']], [], []],

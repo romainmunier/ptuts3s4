@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\CarouselLike;
+use App\Entity\User;
 use App\Form\CarouselLikeFormType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,6 +36,11 @@ class CarouselLikeController extends AbstractController
      */
     public function carouselHandle($page, Request $request, CarouselLike $carousel = null): Response
     {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
         $view = "edit";
         if (!$carousel) {
             $view = "add";
@@ -51,7 +57,9 @@ class CarouselLikeController extends AbstractController
             $this->entityManager->flush();
 
             $this->addFlash('success',($view == "edit" ? 'éditée' : 'ajoutée') . ' avec succès');
-            return $this->redirectToRoute($page);
+            return $this->render($page, [
+               'userSettings' => $userSettings
+            ]);
         }
 
         return $this->render('carousel/handle.html.twig', [
@@ -70,6 +78,10 @@ class CarouselLikeController extends AbstractController
      */
     public function carouselDelete($page,CarouselLike $carousel): Response
     {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
 
         if (!$carousel) {
             throw $this->createNotFoundException("Ce carousel n'existe pas");
@@ -84,6 +96,8 @@ class CarouselLikeController extends AbstractController
         $this->entityManager->flush();
 
         $this->addFlash('success', 'Carousel supprimé avec succès');
-        return $this->redirectToRoute($page);
+        return $this->render($page, [
+            'userSettings' => $userSettings
+        ]);
     }
 }

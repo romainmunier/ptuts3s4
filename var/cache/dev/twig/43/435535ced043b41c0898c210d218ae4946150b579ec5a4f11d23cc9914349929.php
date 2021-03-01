@@ -188,7 +188,9 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                                     <a class=\"collapse-item text-";
         // line 72
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 72, $this->source); })()), "theme", [], "any", false, false, false, 72), "html", null, true);
-        echo "\" href=\"\">Ajouter des images</a>
+        echo "\" href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("medias_add_gallery");
+        echo "\">Ajouter des images</a>
                                     <h6 class=\"collapse-header text-";
         // line 73
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 73, $this->source); })()), "theme", [], "any", false, false, false, 73), "html", null, true);
@@ -391,7 +393,7 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
 
     public function getDebugInfo()
     {
-        return array (  370 => 147,  358 => 140,  354 => 139,  348 => 138,  344 => 137,  338 => 136,  326 => 131,  316 => 124,  310 => 123,  306 => 122,  300 => 121,  296 => 120,  290 => 119,  278 => 114,  268 => 106,  265 => 105,  253 => 98,  249 => 97,  243 => 96,  239 => 95,  233 => 94,  221 => 89,  211 => 81,  209 => 80,  198 => 74,  194 => 73,  190 => 72,  186 => 71,  180 => 70,  168 => 65,  156 => 58,  152 => 57,  148 => 56,  144 => 55,  138 => 54,  126 => 49,  103 => 35,  83 => 25,  70 => 14,  66 => 10,  52 => 8,  43 => 1,);
+        return array (  372 => 147,  360 => 140,  356 => 139,  350 => 138,  346 => 137,  340 => 136,  328 => 131,  318 => 124,  312 => 123,  308 => 122,  302 => 121,  298 => 120,  292 => 119,  280 => 114,  270 => 106,  267 => 105,  255 => 98,  251 => 97,  245 => 96,  241 => 95,  235 => 94,  223 => 89,  213 => 81,  211 => 80,  200 => 74,  196 => 73,  190 => 72,  186 => 71,  180 => 70,  168 => 65,  156 => 58,  152 => 57,  148 => 56,  144 => 55,  138 => 54,  126 => 49,  103 => 35,  83 => 25,  70 => 14,  66 => 10,  52 => 8,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -467,7 +469,7 @@ class __TwigTemplate_5b02398a1698571237fd7139460c8dc0a0221a35e4db81b89cef4316324
                             <div class=\"collapse w-100 py-2\" id=\"collapse-gallery\" style=\"margin-left: 0; border-radius: 8px;\">
                                 <div class=\"bg-{{ userSettings.color }} border-{{ userSettings.color }} collapse-inner rounded\" style=\"width: 96%; margin: 0 2%;\">
                                     <h6 class=\"collapse-header text-{{ userSettings.theme }}\">Actions rapides</h6>
-                                    <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"\">Ajouter des images</a>
+                                    <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path('medias_add_gallery') }}\">Ajouter des images</a>
                                     <h6 class=\"collapse-header text-{{ userSettings.theme }}\">Options</h6>
                                     <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path('gallery_media') }}\">Toutes les images</a>
                                 </div>

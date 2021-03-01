@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Category;
-use App\Entity\Media;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +18,8 @@ class GalleryController extends AbstractController
         $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
             "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
         ]);
-
         $userSettings = json_decode($userSettings->getContent(), true);
+
         $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
         return $this->render('dashboard/gallery/index.html.twig',[
             'categories' => $categories,
@@ -37,7 +36,6 @@ class GalleryController extends AbstractController
         $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
             "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
         ]);
-
         $userSettings = json_decode($userSettings->getContent(), true);
 
         $categories = $this->getDoctrine()->getRepository(Category::class)->find($id);

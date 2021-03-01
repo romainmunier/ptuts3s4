@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\CarouselLike;
 use App\Entity\Media;
+use App\Entity\User;
 use App\Form\MediaFormType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -34,6 +35,11 @@ class MediaController extends AbstractController
      */
     public function addMediaPage($page, Request $request, CarouselLike $carouselLike): Response
     {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
         if (!$carouselLike) {
             $this->createNotFoundException();
         }
@@ -79,6 +85,7 @@ class MediaController extends AbstractController
         return $this->render('media/handle.twig', [
             'form' => $form->createView(),
             'carousel' => $carouselLike,
+            'userSettings' => $userSettings
         ]);
     }
 
@@ -100,5 +107,64 @@ class MediaController extends AbstractController
         $this->manager->flush();
 
         return $this->redirectToRoute($page);
+    }
+
+    /**
+     * @Route("/dashboard/gallery/media/add", name="medias_add_gallery")
+     * @param Request $request
+     * @return Response
+     * @IsGranted("ROLE_DEVELOPERS")
+     */
+    public function addMediaFromGallery(Request $request): Response
+    {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
+        $form = $this->createForm(MediaFormType::class, null, array('attr' => ['gallery']));
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->fileUploader->setTargetDirectory($this->getParameter('gallery'));
+            foreach ($form->get('medias')->getData() as $media) {
+                $mediaEntity = new Media();
+                $filePath = $this->fileUploader->upload($media);
+                $mediaEntity->setPath($filePath)
+                    ->setType($this->fileUploader->getType($filePath))
+                    ->setCarouselLike(NULL)
+                    ->setTitle($form->get('title')->getData())
+                    ->setDescription($form->get('description')->getData())
+                    ->setCategory($form->get('category')->getData());
+                $this->manager->persist($mediaEntity);
+                $this->manager->flush();
+            }
+
+            return $this->redirectToRoute('gallery_media',["id" => $mediaEntity->getCategory()->getId()]);
+        }
+
+        return $this->render('media/handle.twig', [
+            'form' => $form->createView(),
+            'userSettings' => $userSettings
+        ]);
+    }
+
+    /**
+     * @Route("/dashboard/gallery/media/delete/{id}", name="medias_delete_gallery")
+     * @param Media $media
+     * @return Response
+     * @IsGranted("ROLE_DEVELOPERS")
+     */
+    public function deleteMediaFromGallery(Media $media): Response
+    {
+        if (!$media) {
+            $this->createNotFoundException("Ce média n'existe pas");
+        }
+        unlink($this->getParameter('gallery').$media->getpath());
+
+        $this->manager->remove($media);
+        $this->manager->flush();
+
+        return $this->redirectToRoute('gallery_media',["id" => $media->getCategory()->getId()]);
     }
 }

@@ -23,8 +23,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f538abe-3504-49dd-874b-231c566b5b68" name="Default Changelist" comment="Création et modification du fichier d'environnement .env">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/gallery/601a7a1570c1d.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CarouselLikeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CarouselLikeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GalleryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MediaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Media.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Media.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/gallery/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/gallery/details.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard/gallery/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard/gallery/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/dashboard/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/dashboard/sidebar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/media/handle.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/media/handle.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/-/2/SW2xtMKj956c22e6IcpQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/-/2/SW2xtMKj956c22e6IcpQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/8/6/yLjsYDcPFmyLDrq7aE-A" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/8/6/yLjsYDcPFmyLDrq7aE-A" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/8/R/8n-w0TdneKD5GnRY7cTQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/8/R/8n-w0TdneKD5GnRY7cTQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/E/D/A7rGc0am5kazEt1MCmgw" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/E/D/A7rGc0am5kazEt1MCmgw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/K/H/C777H0C5-9HufFMTyb+Q" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/K/H/C777H0C5-9HufFMTyb+Q" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/K/L/TQrDXXs3QC+O3CQgW-9g" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/K/L/TQrDXXs3QC+O3CQgW-9g" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/M/T/fV1O0x3rDZMkAKiT1TzQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/M/T/fV1O0x3rDZMkAKiT1TzQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/O/M/FrWhRgg3m6vQHswpNaig" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/O/M/FrWhRgg3m6vQHswpNaig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/T/R/IN4u5r+KWfXA+eYJhyfg" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/T/R/IN4u5r+KWfXA+eYJhyfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/X/V/Vmdi1noYJPVfIeF0v5uQ" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/pools/KDycpzTxOY/X/V/Vmdi1noYJPVfIeF0v5uQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/43/435535ced043b41c0898c210d218ae4946150b579ec5a4f11d23cc9914349929.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/43/435535ced043b41c0898c210d218ae4946150b579ec5a4f11d23cc9914349929.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/45/456ad3c5614aac70c68c0ec86acc839437b901d3845217d5d9cd4f8319e39ab2.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/45/456ad3c5614aac70c68c0ec86acc839437b901d3845217d5d9cd4f8319e39ab2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ea/eab54af96f7e8292b9926104f9ddb0385f9d8fa143726fc4891e282162c17739.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ea/eab54af96f7e8292b9926104f9ddb0385f9d8fa143726fc4891e282162c17739.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +201,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/dashboard/gallery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/uploads/gallery" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -178,8 +213,8 @@
       <recent name="D:\romainmunier\Documents\GitHub\ptuts3s4\public\fonts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4\templates\dashboard\gallery" />
       <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4\public\uploads\gallery" />
+      <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4\templates\dashboard\gallery" />
       <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4\templates\dashboard" />
       <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4" />
       <recent name="C:\Users\alexi\Documents\GitHub\ptuts3s4\templates" />
@@ -231,7 +266,7 @@
       <workItem from="1613487530012" duration="10416000" />
       <workItem from="1613566354539" duration="3787000" />
       <workItem from="1614169284488" duration="2156000" />
-      <workItem from="1614258345576" duration="19197000" />
+      <workItem from="1614258345576" duration="30927000" />
     </task>
     <task id="LOCAL-00001" summary="Création et modification du fichier d'environnement .env">
       <created>1602142829755</created>
@@ -268,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614354982815</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Gallery added">
+      <created>1614355555839</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614355555839</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,18 +337,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Gallery added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614353243923">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614586498094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614353243923" />
-    <state width="498" height="451" key="SwitcherDM" timestamp="1614265790189">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614586498094" />
+    <state width="498" height="451" key="SwitcherDM" timestamp="1614583278970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="498" height="451" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1614265790189" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614355001404">
+    <state width="498" height="451" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1614583278970" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614355562109">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614355001404" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614355562109" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613487567987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -319,10 +361,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="184" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1614264871131" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1614262993727">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1614588718607">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614262993727" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614588718607" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614352900511">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

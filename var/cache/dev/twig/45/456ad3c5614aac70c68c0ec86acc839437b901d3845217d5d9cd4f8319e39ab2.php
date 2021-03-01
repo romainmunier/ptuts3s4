@@ -30,6 +30,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
             'scripts' => [$this, 'block_scripts'],
+            'files_info' => [$this, 'block_files_info'],
         ];
     }
 
@@ -85,7 +86,11 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
         $this->loadTemplate("includes/scripts.html.twig", "base.html.twig", 16)->display($context);
         // line 17
         echo "    </body>
-</html>
+    ";
+        // line 18
+        $this->displayBlock('files_info', $context, $blocks);
+        // line 19
+        echo "</html>
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -150,6 +155,24 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
     }
 
+    // line 18
+    public function block_files_info($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "files_info"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "files_info"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "base.html.twig";
@@ -162,7 +185,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
 
     public function getDebugInfo()
     {
-        return array (  136 => 15,  118 => 13,  99 => 6,  87 => 17,  84 => 16,  82 => 15,  79 => 14,  77 => 13,  69 => 12,  66 => 11,  63 => 10,  60 => 9,  58 => 8,  53 => 6,  46 => 1,);
+        return array (  159 => 18,  141 => 15,  123 => 13,  104 => 6,  93 => 19,  91 => 18,  88 => 17,  85 => 16,  83 => 15,  80 => 14,  78 => 13,  70 => 12,  67 => 11,  64 => 10,  61 => 9,  59 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -184,6 +207,7 @@ class __TwigTemplate_850b81e4a344ea8e9b604c355fba27cb162c17af910461f95b502c344a4
         {% block scripts %}{% endblock %}
         {% include \"includes/scripts.html.twig\" %}
     </body>
+    {% block files_info %}{% endblock %}
 </html>
 ", "base.html.twig", "C:\\Users\\alexi\\Documents\\GitHub\\ptuts3s4\\templates\\base.html.twig");
     }
