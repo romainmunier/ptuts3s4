@@ -61,6 +61,7 @@
                 </div>
             </section>
 
+<<<<<<< Updated upstream
             <section style="margin-bottom: 50px;margin-top: -50px">
                 <div class="accordion" id="accordionAccueil">
                     <div class="card collapse-style">
@@ -117,6 +118,32 @@
                                 {% endfor %}
                             </div>
                         </div>
+=======
+            <section>
+                <div class="container">
+                    <div class="row">
+                        {% for article in articles %}
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <blockquote class="blockquote mb-0">
+                                            <p class="text-truncate">{{ article.subject }}</p>
+                                            <footer class="blockquote-footer">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
+                                                <cite title="Source Title">{{ article.date|date("d/m/Y") }}</cite>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <a class="btn btn-outline-primary m-1" href="#">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </section>

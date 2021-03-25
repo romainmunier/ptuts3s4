@@ -228,7 +228,7 @@ class __TwigTemplate_09dfb75cd418791ee6bd5eb3ef6a2895c865a80325516f0d97b607be56b
                         </span>
                         <img class=\"border rounded-circle img-profile\" src=\"";
         // line 111
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/profile/paladomas.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/profile/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 111, $this->source); })()), "user", [], "any", false, false, false, 111), "profile", [], "any", false, false, false, 111))), "html", null, true);
         echo "\">
                     </a>
                     <div class=\"dropdown-menu shadow dropdown-menu-right animated--grow-in bg-";
@@ -404,7 +404,7 @@ class __TwigTemplate_09dfb75cd418791ee6bd5eb3ef6a2895c865a80325516f0d97b607be56b
                         <span class=\"d-none d-lg-inline mr-2 text-{{ userSettings.color }} small\">
                             {{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}
                         </span>
-                        <img class=\"border rounded-circle img-profile\" src=\"{{ asset(\"assets/profile/paladomas.jpg\") }}\">
+                        <img class=\"border rounded-circle img-profile\" src=\"{{ asset(\"uploads/profile/\" ~ app.user.profile) }}\">
                     </a>
                     <div class=\"dropdown-menu shadow dropdown-menu-right animated--grow-in bg-{{ userSettings.theme }}\">
                         <a class=\"dropdown-item text-{{ userSettings.color }}\" href=\"{{ path(\"account\") }}\">
@@ -425,6 +425,6 @@ class __TwigTemplate_09dfb75cd418791ee6bd5eb3ef6a2895c865a80325516f0d97b607be56b
             </li>
         </ul>
     </div>
-</nav>", "includes/dashboard/navbar.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/templates/includes/dashboard/navbar.html.twig");
+</nav>", "includes/dashboard/navbar.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/templates/includes/dashboard/navbar.html.twig");
     }
 }

@@ -352,3 +352,56 @@ function saveArticle() {
         }
     })
 }
+
+function switchTypeText() {
+    if ($('#articleMailing option:selected').text().includes("PHONE") || $('#articleMailing option:selected').text().includes("HYBRID")) {
+        $('#writeArticleContainer').hide();
+        $('#phonehybrid-textzone').show();
+    } else {
+        $('#writeArticleContainer').show();
+        $('#phonehybrid-textzone').hide();
+    }
+}
+
+function submitMessageOption(value) {
+    const title = $('#messageTitle').val();
+    const mailing = $('#articleMailing').val();
+    let containmentMCE = tinyMCE.get("commentText").getContent();
+    let error = 0;
+
+    if (title === "") {
+        $('#messageTitle').addClass("is-invalid")
+        error+=1;
+    } else {
+        $('#messageTitle').removeClass("is-invalid").addClass("is-valid")
+    }
+
+    if (mailing === null) {
+        $('#articleMailing').addClass("is-invalid")
+        error+=1;
+    } else {
+        $('#articleMailing').removeClass("is-invalid").addClass("is-valid")
+    }
+
+    if ($('#articleMailing option:selected').text().includes("PHONE") || $('#articleMailing option:selected').text().includes("HYBRID")) {
+        containmentMCE = $('#phonehybrid-textzone').val();
+    }
+    
+    if (error === 0) {
+        switch(value) {
+            case "save":
+                axios({
+                    method: "POST",
+                    url: "/api/saveMail",
+                    data: {
+                        title : title,
+                        mailing : mailing,
+                        containment : containmentMCE
+                    }
+                })
+                break;
+            default:
+                break;
+        }
+    }
+}

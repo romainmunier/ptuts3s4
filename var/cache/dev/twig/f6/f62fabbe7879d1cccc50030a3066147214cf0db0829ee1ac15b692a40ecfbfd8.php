@@ -312,7 +312,15 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
                                         <a class=\"collapse-item text-";
             // line 124
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 124, $this->source); })()), "theme", [], "any", false, false, false, 124), "html", null, true);
-            echo "\" href=\"#\">Envoyer un message</a>
+            echo "\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("news");
+            echo "\">Messages envoyés</a>
+                                        <a class=\"collapse-item text-";
+            // line 125
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 125, $this->source); })()), "theme", [], "any", false, false, false, 125), "html", null, true);
+            echo "\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("news_add");
+            echo "\">Envoyer un message</a>
                                     </div>
                                 </div>
                             </div>
@@ -320,10 +328,10 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
                         <li class=\"nav-item\" role=\"presentation\">
                             <div class=\"nav-item dropdown\">
                                 <a class=\"btn btn-link nav-link text-";
-            // line 131
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 131, $this->source); })()), "color", [], "any", false, false, false, 131), "html", null, true);
+            // line 132
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 132, $this->source); })()), "color", [], "any", false, false, false, 132), "html", null, true);
             echo " ";
-            if (twig_in_filter("/dashboard/users", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 131, $this->source); })()), "request", [], "any", false, false, false, 131), "pathInfo", [], "any", false, false, false, 131))) {
+            if (twig_in_filter("/dashboard/users", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 132, $this->source); })()), "request", [], "any", false, false, false, 132), "pathInfo", [], "any", false, false, false, 132))) {
                 echo "active";
             }
             echo "\" data-toggle=\"collapse\" aria-expanded=\"false\" aria-controls=\"collapse-admin-users\" href=\"#collapse-admin-users\" role=\"button\" onclick=\"collapseAll();\">
@@ -332,28 +340,28 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
                                 </a>
                                 <div class=\"collapse w-100 py-2\" id=\"collapse-admin-users\" style=\"margin-left: 0; border-radius: 8px;\">
                                     <div class=\"bg-";
-            // line 136
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 136, $this->source); })()), "color", [], "any", false, false, false, 136), "html", null, true);
+            // line 137
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 137, $this->source); })()), "color", [], "any", false, false, false, 137), "html", null, true);
             echo " border-";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 136, $this->source); })()), "color", [], "any", false, false, false, 136), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 137, $this->source); })()), "color", [], "any", false, false, false, 137), "html", null, true);
             echo " collapse-inner rounded\" style=\"width: 96%; margin: 0 2%;\">
                                         <h6 class=\"collapse-header text-";
-            // line 137
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 137, $this->source); })()), "theme", [], "any", false, false, false, 137), "html", null, true);
-            echo "\">Actions rapides</h6>
-                                        <a class=\"collapse-item text-";
             // line 138
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 138, $this->source); })()), "theme", [], "any", false, false, false, 138), "html", null, true);
+            echo "\">Actions rapides</h6>
+                                        <a class=\"collapse-item text-";
+            // line 139
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 139, $this->source); })()), "theme", [], "any", false, false, false, 139), "html", null, true);
             echo "\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users_add");
             echo "\">Nouvel utilisateur</a>
                                         <h6 class=\"collapse-header text-";
-            // line 139
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 139, $this->source); })()), "theme", [], "any", false, false, false, 139), "html", null, true);
-            echo "\">Options</h6>
-                                        <a class=\"collapse-item text-";
             // line 140
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 140, $this->source); })()), "theme", [], "any", false, false, false, 140), "html", null, true);
+            echo "\">Options</h6>
+                                        <a class=\"collapse-item text-";
+            // line 141
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 141, $this->source); })()), "theme", [], "any", false, false, false, 141), "html", null, true);
             echo "\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("users");
             echo "\">Utilisateurs</a>
@@ -364,7 +372,7 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
                     </ul>
                 ";
         }
-        // line 147
+        // line 148
         echo "            </div>
         </nav>
     </div>
@@ -389,7 +397,7 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
 
     public function getDebugInfo()
     {
-        return array (  368 => 147,  356 => 140,  352 => 139,  346 => 138,  342 => 137,  336 => 136,  324 => 131,  314 => 124,  308 => 123,  304 => 122,  298 => 121,  294 => 120,  288 => 119,  276 => 114,  266 => 106,  263 => 105,  251 => 98,  247 => 97,  241 => 96,  237 => 95,  231 => 94,  219 => 89,  209 => 81,  207 => 80,  198 => 74,  194 => 73,  190 => 72,  186 => 71,  180 => 70,  168 => 65,  156 => 58,  152 => 57,  148 => 56,  144 => 55,  138 => 54,  126 => 49,  103 => 35,  83 => 25,  70 => 14,  66 => 10,  52 => 8,  43 => 1,);
+        return array (  376 => 148,  364 => 141,  360 => 140,  354 => 139,  350 => 138,  344 => 137,  332 => 132,  320 => 125,  314 => 124,  308 => 123,  304 => 122,  298 => 121,  294 => 120,  288 => 119,  276 => 114,  266 => 106,  263 => 105,  251 => 98,  247 => 97,  241 => 96,  237 => 95,  231 => 94,  219 => 89,  209 => 81,  207 => 80,  198 => 74,  194 => 73,  190 => 72,  186 => 71,  180 => 70,  168 => 65,  156 => 58,  152 => 57,  148 => 56,  144 => 55,  138 => 54,  126 => 49,  103 => 35,  83 => 25,  70 => 14,  66 => 10,  52 => 8,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -517,7 +525,8 @@ class __TwigTemplate_1fe8e0ef4fab29a487f3f670d43702de9293128e6598129c7da16f089dc
                                         <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path(\"mailing_add\") }}\">Nouvelle liste</a>
                                         <h6 class=\"collapse-header text-{{ userSettings.theme }}\">Options</h6>
                                         <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path(\"mailing\") }}\">Listes de diffusion</a>
-                                        <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"#\">Envoyer un message</a>
+                                        <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path(\"news\") }}\">Messages envoyés</a>
+                                        <a class=\"collapse-item text-{{ userSettings.theme }}\" href=\"{{ path(\"news_add\") }}\">Envoyer un message</a>
                                     </div>
                                 </div>
                             </div>

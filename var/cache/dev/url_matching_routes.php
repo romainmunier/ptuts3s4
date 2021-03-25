@@ -19,6 +19,7 @@ return [
         '/api/getCategoryByValue' => [[['_route' => 'get_category', '_controller' => 'App\\Controller\\APIController::getCategory'], null, ['POST' => 0], null, false, false, null]],
         '/api/storeArticle' => [[['_route' => 'store_article', '_controller' => 'App\\Controller\\APIController::storeArticle'], null, ['POST' => 0], null, false, false, null]],
         '/api/saveArticle' => [[['_route' => 'save_article', '_controller' => 'App\\Controller\\APIController::saveArticle'], null, ['POST' => 0], null, false, false, null]],
+        '/api/saveMail' => [[['_route' => 'save_mail', '_controller' => 'App\\Controller\\APIController::saveMail'], null, ['POST' => 0], null, false, false, null]],
         '/dashboard/articles' => [[['_route' => 'articles', '_controller' => 'App\\Controller\\ArticlesController::index'], null, null, null, false, false, null]],
         '/dashboard/articles/add' => [[['_route' => 'articles_add', '_controller' => 'App\\Controller\\ArticlesController::add'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/dashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\DashboardController::index'], null, null, null, false, false, null]],
@@ -33,13 +34,24 @@ return [
         '/log' => [[['_route' => 'log', '_controller' => 'App\\Controller\\LogController::index'], null, null, null, false, false, null]],
         '/dashboard/mailing' => [[['_route' => 'mailing', '_controller' => 'App\\Controller\\MailingListController::index'], null, null, null, false, false, null]],
         '/dashboard/mailing/add' => [[['_route' => 'mailing_add', '_controller' => 'App\\Controller\\MailingListController::add'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+<<<<<<< Updated upstream
         '/dashboard/gallery/media/add' => [[['_route' => 'medias_add_gallery', '_controller' => 'App\\Controller\\MediaController::addMediaFromGallery'], null, null, null, false, false, null]],
+=======
+        '/mobile/api/pictures/post' => [[['_route' => 'app_mobileapi_postpicture', '_controller' => 'App\\Controller\\MobileAPIController::postPicture'], null, ['POST' => 0], null, false, false, null]],
+        '/mobile/api/suivix/getpeople' => [[['_route' => 'app_mobileapi_getpeople', '_controller' => 'App\\Controller\\MobileAPIController::getPeople'], null, ['GET' => 0], null, false, false, null]],
+        '/mobile/api/suivix/setpeople' => [[['_route' => 'app_mobileapi_setpeople', '_controller' => 'App\\Controller\\MobileAPIController::setPeople'], null, ['POST' => 0], null, false, false, null]],
+        '/mobile/api/mailer/drafts' => [[['_route' => 'app_mobileapi_getsmsdrafts', '_controller' => 'App\\Controller\\MobileAPIController::getSMSDrafts'], null, ['GET' => 0], null, false, false, null]],
+        '/mobile/api/users/get' => [[['_route' => 'app_mobileapi_getusers', '_controller' => 'App\\Controller\\MobileAPIController::getUsers'], null, ['GET' => 0], null, false, false, null]],
+        '/mobile/api/users/post' => [[['_route' => 'app_mobileapi_setusers', '_controller' => 'App\\Controller\\MobileAPIController::setUsers'], null, ['POST' => 0], null, false, false, null]],
+>>>>>>> Stashed changes
         '/dashboard/news' => [[['_route' => 'news', '_controller' => 'App\\Controller\\NewsController::index'], null, null, null, false, false, null]],
+        '/dashboard/news/add' => [[['_route' => 'news_add', '_controller' => 'App\\Controller\\NewsController::add'], null, null, null, false, false, null]],
         '/dashboard/settings' => [[['_route' => 'settings', '_controller' => 'App\\Controller\\SettingsController::index'], null, null, null, false, false, null]],
         '/dashboard/account' => [[['_route' => 'account', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/dashboard/users' => [[['_route' => 'users', '_controller' => 'App\\Controller\\UserController::users'], null, null, null, false, false, null]],
         '/dashboard/users/add' => [[['_route' => 'users_add', '_controller' => 'App\\Controller\\UserController::add'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/control/admin/users/executeAction' => [[['_route' => 'user_executeAction', '_controller' => 'App\\Controller\\UserController::executeAction'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/control/user/changeProfilePicture' => [[['_route' => 'user_changeProfilePicture', '_controller' => 'App\\Controller\\UserController::changeProfilePicture'], null, ['POST' => 0], null, false, false, null]],
         '/' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

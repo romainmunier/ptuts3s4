@@ -122,6 +122,6 @@ class __TwigTemplate_09f8efec36f58357b165fc38f4fe1583c4834d04513bb399162b875f392
         {% endfor %}
     </tbody>
 </table>
-", "@WebProfiler/Profiler/table.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/table.html.twig");
+", "@WebProfiler/Profiler/table.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/table.html.twig");
     }
 }

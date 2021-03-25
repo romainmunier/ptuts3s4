@@ -145,43 +145,43 @@ class __TwigTemplate_70c2731f91133e04127520bd062dd5a9f8543e17c4db3d935ef4ce3a218
             <section>
                 <div class=\"container\">
                     <div class=\"row\">
-                            ";
+                        ";
         // line 67
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 67, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
             // line 68
-            echo "                                <div class=\"col-lg-4\">
-                                    <div class=\"card\">
-                                        <div class=\"card-body\">
-                                            <blockquote class=\"blockquote mb-0\">
-                                                <p class=\"text-truncate\">";
+            echo "                            <div class=\"col-lg-4\">
+                                <div class=\"card\">
+                                    <div class=\"card-body\">
+                                        <blockquote class=\"blockquote mb-0\">
+                                            <p class=\"text-truncate\">";
             // line 72
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "subject", [], "any", false, false, false, 72), "html", null, true);
             echo "</p>
-                                                <footer class=\"blockquote-footer\">Rédigé par ";
+                                            <footer class=\"blockquote-footer\">Rédigé par ";
             // line 73
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "author", [], "any", false, false, false, 73), "firstname", [], "any", false, false, false, 73), "html", null, true);
             echo " ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "author", [], "any", false, false, false, 73), "lastname", [], "any", false, false, false, 73), "html", null, true);
             echo " le
-                                                    <cite title=\"Source Title\">";
+                                                <cite title=\"Source Title\">";
             // line 74
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "date", [], "any", false, false, false, 74), "d/m/Y"), "html", null, true);
             echo "</cite>
-                                                </footer>
-                                            </blockquote>
-                                        </div>
-                                        <div class=\"card-footer\">
-                                            <div class=\"row\">
-                                                <a class=\"btn btn-outline-primary m-1\" href=\"#\">
-                                                    <i class=\"fas fa-eye\"></i>
-                                                </a>
-                                            </div>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                    <div class=\"card-footer\">
+                                        <div class=\"row\">
+                                            <a class=\"btn btn-outline-primary m-1\" href=\"#\">
+                                                <i class=\"fas fa-eye\"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            ";
+                            </div>
+                        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
@@ -544,27 +544,27 @@ $context["carousel"], "medias", [], "any", false, false, false, 168)), 1))) {
             <section>
                 <div class=\"container\">
                     <div class=\"row\">
-                            {% for article in articles %}
-                                <div class=\"col-lg-4\">
-                                    <div class=\"card\">
-                                        <div class=\"card-body\">
-                                            <blockquote class=\"blockquote mb-0\">
-                                                <p class=\"text-truncate\">{{ article.subject }}</p>
-                                                <footer class=\"blockquote-footer\">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
-                                                    <cite title=\"Source Title\">{{ article.date|date(\"d/m/Y\") }}</cite>
-                                                </footer>
-                                            </blockquote>
-                                        </div>
-                                        <div class=\"card-footer\">
-                                            <div class=\"row\">
-                                                <a class=\"btn btn-outline-primary m-1\" href=\"#\">
-                                                    <i class=\"fas fa-eye\"></i>
-                                                </a>
-                                            </div>
+                        {% for article in articles %}
+                            <div class=\"col-lg-4\">
+                                <div class=\"card\">
+                                    <div class=\"card-body\">
+                                        <blockquote class=\"blockquote mb-0\">
+                                            <p class=\"text-truncate\">{{ article.subject }}</p>
+                                            <footer class=\"blockquote-footer\">Rédigé par {{ article.author.firstname }} {{ article.author.lastname }} le
+                                                <cite title=\"Source Title\">{{ article.date|date(\"d/m/Y\") }}</cite>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                    <div class=\"card-footer\">
+                                        <div class=\"row\">
+                                            <a class=\"btn btn-outline-primary m-1\" href=\"#\">
+                                                <i class=\"fas fa-eye\"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            {% endfor %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>

@@ -108,7 +108,7 @@
                         <span class="d-none d-lg-inline mr-2 text-{{ userSettings.color }} small">
                             {{ app.user.firstname|capitalize }} {{ app.user.lastname|upper }}
                         </span>
-                        <img class="border rounded-circle img-profile" src="{{ asset("assets/profile/paladomas.jpg") }}">
+                        <img class="border rounded-circle img-profile" src="{{ asset("uploads/profile/" ~ app.user.profile) }}">
                     </a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in bg-{{ userSettings.theme }}">
                         <a class="dropdown-item text-{{ userSettings.color }}" href="{{ path("account") }}">

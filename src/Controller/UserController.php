@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -366,5 +367,24 @@ class UserController extends AbstractController
             }
         }
         return $this->redirectToRoute("users");
+    }
+    
+    /**
+     * @Route("/control/user/changeProfilePicture", name="user_changeProfilePicture", methods={"POST"})
+     */
+    public function changeProfilePicture(KernelInterface $kernel) {
+        $target_dir = $kernel->getProjectDir() . "/public/uploads/profile/";
+        $rdmName = bin2hex(random_bytes(20));
+        $target_file = $target_dir . $rdmName . "." . explode(".", $_FILES["profile"]["name"])[count(explode(".", $_FILES["profile"]["name"]))-1];
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        if (move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file)) {
+            $manager = $this->getDoctrine()->getManager();
+            $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+            $user->setProfile($rdmName . "." . explode(".", $_FILES["profile"]["name"])[count(explode(".", $_FILES["profile"]["name"]))-1]);
+            $manager->flush();
+            
+            return $this->redirectToRoute("account");
+        }
     }
 }

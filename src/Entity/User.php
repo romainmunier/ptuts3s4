@@ -70,6 +70,11 @@ class User implements UserInterface
      */
     private $Articles;
 
+    /**
+     * @ORM\Column(type="string", length=128, nullable=true)
+     */
+    private $Profile;
+
     public function __construct()
     {
         $this->Settings = new ArrayCollection();
@@ -252,6 +257,18 @@ class User implements UserInterface
                 $article->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getProfile(): ?string
+    {
+        return $this->Profile;
+    }
+
+    public function setProfile(?string $Profile): self
+    {
+        $this->Profile = $Profile;
 
         return $this;
     }

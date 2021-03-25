@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\MailingList;
+use App\Entity\News;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -172,5 +174,31 @@ class APIController extends AbstractController
 
             return new JsonResponse("OK");
         }
+    }
+    
+    /**
+     * @Route("/api/saveMail", name="save_mail", methods={"POST"})
+     */
+    public function saveMail(Request $request, KernelInterface $kernel) {
+        $manager = $this->getDoctrine()->getManager();
+
+        $title = json_decode($request->getContent(), true)["title"];
+        $list = json_decode($request->getContent(), true)["mailing"];
+        $mailingList = $manager->getRepository(MailingList::class)->find(intval($list));
+        $message = json_decode($request->getContent(), true)["containment"];
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+        $news = new News();
+        $news->setTitle($title)
+            ->setMailingList($mailingList)
+            ->setAuthor($user)
+            ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
+            ->setType("DRAFT")
+            ->setContainment($message);
+        
+        $manager->persist($news);
+        $manager->flush();
+        
+        return new JsonResponse("OK");
     }
 }

@@ -489,6 +489,6 @@ class __TwigTemplate_01aedc264df346d983e3ec9da9152fbb77d50b21b98a6022f7abe72dbd4
             </div>
         </footer>
         {% endblock %}
-{# Fin de la gestion de la page #}", "dashboard/mailinglist/index.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/templates/dashboard/mailinglist/index.html.twig");
+{# Fin de la gestion de la page #}", "dashboard/mailinglist/index.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/templates/dashboard/mailinglist/index.html.twig");
     }
 }

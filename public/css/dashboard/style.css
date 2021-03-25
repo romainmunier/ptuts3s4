@@ -61,6 +61,16 @@ html, body {
     border-color: #007BFF !important
 }
 
+.card-hover-success:hover {
+    border: 1px solid #28A745;
+    cursor: pointer;
+}
+
+.card-hover-warning:hover {
+    border: 1px solid #FFC107;
+    cursor: pointer;
+}
+
 /* ################################
    #                              #
    #   CUSTOM CSS - GENERAL WEB   #

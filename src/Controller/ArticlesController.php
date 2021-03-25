@@ -30,9 +30,11 @@ class ArticlesController extends AbstractController
         $containments = [];
         
         foreach($articles as $key => $a) {
-            $file = fopen($kernel->getProjectDir() . "/public/articles/" . $a->getArticle() . ".html", "r");
-            
-            $containments[$a->getArticle()] = fgets($file);
+            if (file_exists($kernel->getProjectDir() . "/public/articles/" . $a->getArticle() . ".html")) {
+                $file = fopen($kernel->getProjectDir() . "/public/articles/" . $a->getArticle() . ".html", "r");
+
+                $containments[$a->getArticle()] = fgets($file);
+            }
         }
         
         return $this->render("dashboard/articles/index.html.twig", [

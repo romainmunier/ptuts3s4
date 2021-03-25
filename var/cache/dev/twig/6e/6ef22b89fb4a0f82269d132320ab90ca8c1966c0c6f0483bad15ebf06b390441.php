@@ -97,6 +97,6 @@ class __TwigTemplate_924164b10b50a079ee554ae8ef577f5e9b3b72ce03016ecdd2fc8a13529
         </div>
     </div>
 </div>
-", "@WebProfiler/Profiler/header.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
+", "@WebProfiler/Profiler/header.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/header.html.twig");
     }
 }

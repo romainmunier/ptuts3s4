@@ -417,6 +417,6 @@ class __TwigTemplate_1b24f9244b8b30d218b31a401e43be14ae37c900e6e63b391ad0bd140de
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/settings.html.twig");
     }
 }

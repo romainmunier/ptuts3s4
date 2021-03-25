@@ -140,7 +140,7 @@ class __TwigTemplate_fb557eef3b2f080a0dd14ea7789b57eca03dcf124866d80126eefb2b1c2
                                 <div class=\"card-body text-center shadow\">
                                     <img class=\"rounded-circle mb-3 mt-4\" src=\"";
         // line 28
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/profile/paladomas.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/profile/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 28, $this->source); })()), "user", [], "any", false, false, false, 28), "profile", [], "any", false, false, false, 28))), "html", null, true);
         echo "\" width=\"160\" height=\"160\">
                                     <div class=\"mb-3\">
                                         <button class=\"btn btn-primary btn-sm\" type=\"button\">Changer de photo</button>
@@ -625,7 +625,7 @@ class __TwigTemplate_fb557eef3b2f080a0dd14ea7789b57eca03dcf124866d80126eefb2b1c2
                         <div class=\"col-lg-4\">
                             <div class=\"card mb-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}\">
                                 <div class=\"card-body text-center shadow\">
-                                    <img class=\"rounded-circle mb-3 mt-4\" src=\"{{ asset(\"assets/profile/paladomas.jpg\") }}\" width=\"160\" height=\"160\">
+                                    <img class=\"rounded-circle mb-3 mt-4\" src=\"{{ asset(\"uploads/profile/\" ~ app.user.profile) }}\" width=\"160\" height=\"160\">
                                     <div class=\"mb-3\">
                                         <button class=\"btn btn-primary btn-sm\" type=\"button\">Changer de photo</button>
                                     </div>
@@ -863,6 +863,6 @@ class __TwigTemplate_fb557eef3b2f080a0dd14ea7789b57eca03dcf124866d80126eefb2b1c2
             </div>
         </footer>
         {% endblock %}
-{# Fin de la gestion de la page #}", "dashboard/user/edit.html.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/templates/dashboard/user/edit.html.twig");
+{# Fin de la gestion de la page #}", "dashboard/user/edit.html.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/templates/dashboard/user/edit.html.twig");
     }
 }
