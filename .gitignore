@@ -11,11 +11,9 @@
 #/var
 #/vendor
 .env
-<<<<<<< HEAD
 
 =======
 .vendor/
 .var/
->>>>>>> parent of 99a5f27... gitignore
 .idea/
 .DS_Store
