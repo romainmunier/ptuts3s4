@@ -1,0 +1,215 @@
+html, body {
+    user-select: none !important;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url('../../assets/background/parchemin.jpg') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ################################
+   #                              #
+   # FONT FACE FOR WEB & MOBILE   #
+   #                              #
+   ################################
+ */
+
+@font-face {
+    font-family: "MedievalSharp";
+    src: url("../../fonts/MedievalSharp/MedievalSharp-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Grenze";
+    src: url("../../fonts/Grenze/Grenze-Regular.ttf");
+}
+
+/* ################################
+   #                              #
+   #   BOOSTRAP SURCHARGE STYLE   #
+   #                              #
+   ################################
+ */
+
+.masthead {
+    background: none;
+}
+
+/* ################################
+   #                              #
+   # CUSTOM BUTTON LIKE BOOTSTRAP #
+   #                              #
+   ################################
+ */
+
+.btn-braun {
+    color: #FFFFFF;
+    background-color: #B66B23;
+    border-color: #B66B23;
+}
+
+/* ################################
+   #                              #
+   #  GLOBAL WEBSITE STYLESHEET   #
+   #                              #
+   ################################
+ */
+
+.txt-black {
+    color: #000000 !important;
+}
+
+.bg-lightbraun {
+    background: rgba(232,206,143,0.8) !important;
+}
+
+.rounded-5 {
+    border-radius: 2em;
+}
+
+.collapse-btn {
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 8px;
+    color: #1C1C1C !important;
+    padding: 10px !important;
+}
+
+.collapse-btn:hover {
+    background: #F4F4F4 !important;
+}
+
+.progress-bar-dark {
+    background-color: #343A40 !important;
+}
+
+.progress-bar-danger {
+    background-color: #DC3545 !important;
+}
+
+.progress-bar-warning {
+    background-color: #FFC107 !important;
+}
+
+.progress-bar-primary {
+    background-color: #18BC9C !important;
+}
+
+.progress-bar-success {
+    background-color: #28A745 !important;
+}
+
+h2, h4, h5 {
+    font-family: "MedievalSharp", serif;
+}
+
+a, p, li, label {
+    font-family: "Grenze", serif;
+}
+
+/* ################################
+   #                              #
+   # RESPONSIVE STYLE - COMPUTER  #
+   #                              #
+   ################################
+ */
+
+@media screen and (min-width: 1001px) {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 3px transparent;
+        border-radius: 50px;
+        background: #010000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#F4B67E,#BE8551);
+        border-radius: 10px;
+    }
+
+    .row-align-left {
+        text-align: left !important;;
+    }
+
+    .row-align-right {
+        text-align: right !important;;
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .home-content-left {
+        width: 25%;
+        height: 100%;
+        position: fixed;
+    }
+
+    .home-content-middle {
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .home-content-right {
+        width: 25%;
+    }
+
+    .card-custom {
+        background: rgba(247,221,141, 0.8) !important;
+        margin: 20% 2% 0;
+    }
+
+    .cmpadding-51 {
+        padding: 3rem !important;
+    }
+}
+
+/* ################################
+   #                              #
+   #  RESPONSIVE STYLE - MOBILE   #
+   #                              #
+   ################################
+ */
+
+@media screen and (max-width: 1000px) {
+    .row-align-left {
+        text-align: center !important;
+    }
+
+    .row-align-right {
+        text-align: center !important;;
+    }
+
+    .card-custom {
+        display: none;
+    }
+
+    .cmpadding-51 {
+        padding: .25rem !important;
+    }
+}
+
+/* ################################
+   #                              #
+   #        COLLAPSE STYLE        #
+   #                              #
+   ################################
+ */
+
+.collapse-style {
+    border:none;
+    background: none;
+    display: flex;
+    justify-content: center;
+}

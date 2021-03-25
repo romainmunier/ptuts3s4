@@ -1,0 +1,11 @@
+{% if app.request.pathInfo in ["/401", "/404", "/501"] %}
+    <link rel="icon" href="{{ asset("assets/icon/error.png") }}">
+    <link rel="apple-touch-icon" href="{{ asset("assets/icon/error.png") }}">
+    <link rel="shortcut icon" href="{{ asset("assets/icon/error.png") }}">
+    <link rel="mask-icon" href="{{ asset("assets/icon/error.png") }}">
+{% else %}
+    <link rel="icon" href="{{ asset("assets/icon/icon.png") }}">
+    <link rel="apple-touch-icon" href="{{ asset("assets/icon/icon.png") }}">
+    <link rel="shortcut icon" href="{{ asset("assets/icon/icon.png") }}">
+    <link rel="mask-icon" href="{{ asset("assets/icon/icon.png") }}">
+{% endif %}

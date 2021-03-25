@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un média{% endblock %}
+
+{% block body %}
+<div id="wrapper">
+    {% include "includes/dashboard/sidebar.html.twig" %}
+    <div class="d-flex flex-column {% if not userSettings.medieval[0] %}bg-{{ userSettings.theme }}{% else %}bg-none{% endif %}" id="content-wrapper">
+        <div id="content">
+            {% include "includes/dashboard/navbar.html.twig" %}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-{{ userSettings.color}} mb-0">Ajouter une image</h3>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="heading-stylized">Ajouter un média</h1>
+                            {{ form(form) }}
+                            <p id="files"></p>
+                            <a class="btn btn-primary"
+                               href="{{ path('gallery') }}">Annuler</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright text-{{ userSettings.color }}">
+                    <span>Copyright © CEFC Developers Team {{ date("Y")|date("Y") }}</span>
+                </div>
+            </div>
+        </footer>
+{% endblock %}
+
+{% block files_info %}
+    <script type="text/javascript">
+        document.getElementById("media_form_medias").onchange = function() {DisplayFiles(this)};
+        function DisplayFiles(file) {
+            var FileSize = 0;
+            var text = '<div class="container"><div class="row">';
+            var col1 = '<div class="col">';
+            var col2 = '<div class="col">';
+            for(var i = 0;i<file.files.length;i++) {
+                FileSize += file.files[i].size/1000000;
+                col1 += file.files[i].name + '<br>';
+                col2 += (file.files[i].size/1000000).toFixed(2) + ' Mo <br>';
+            }
+            col1 += '</div>'; col2 += '</div>';
+            text += col1 + col2 + '</div></div>' + '<div>' + "Total upload : " + FileSize.toFixed(2) + ' Mo' + '</div>';
+            document.getElementById("files").innerHTML = text;
+        }
+    </script>
+{% endblock %}
+

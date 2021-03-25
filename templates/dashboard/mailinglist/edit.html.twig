@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diffusion{% endblock %}
+
+{# Gestion de la page #}
+{% block body %}
+<div id="wrapper">
+    {% include "includes/dashboard/sidebar.html.twig" %}
+    <div class="d-flex flex-column {% if not userSettings.medieval[0] %}bg-{{ userSettings.theme }}{% else %}bg-none{% endif %}" id="content-wrapper">
+        <div id="content">
+            {% include "includes/dashboard/navbar.html.twig" %}
+            <div class="container-fluid">
+                <h3 class="text-{{ userSettings.color}} mb-0">Modification de la liste : {{ mailing.name }}</h3>
+                <br>
+                <form action="{{ path("mailing_edit", {"id" : mailing.id}) }}" method="POST" onsubmit="checkAddListForm(); return false;" id="addListForm">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card shadow mb-3 border-{{ userSettings.color }}">
+                                <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Configuration</p>
+                                </div>
+                                <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <div class="form-group">
+                                        <label for="type" class="text-{{ userSettings.color }}">
+                                            <strong>Type de liste</strong>
+                                        </label>
+                                        <select class="form-control {% if errors["Type"] is defined %}is-invalid{% endif %}" id="type" name="Type" required>
+                                            <option value="" readonly disabled selected>-- Sélectionner un type</option>
+                                            <option value="HYBRID" {% if data["Type"] is defined and data["Type"] == "HYBRID" or mailing is defined and mailing.type == "HYBRID" %}selected{% endif %}>Liste hybride</option>
+                                            <option value="MAIL" {% if data["Type"] is defined and data["Type"] == "MAIL" or mailing is defined and mailing.type == "MAIL" %}selected{% endif %}>Liste d'adresses mail</option>
+                                            <option value="PHONE" {% if data["Type"] is defined and data["Type"] == "PHONE" or mailing is defined and mailing.type == "PHONE" %}selected{% endif %}>Liste de numéros de téléphones</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Le type sélectionné est invalide.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card shadow mb-3 border-{{ userSettings.color }}">
+                                <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Informations sur la liste</p>
+                                </div>
+                                <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                                    <div class="form-group">
+                                        <label for="name" class="text-{{ userSettings.color }}">
+                                            <strong>Nom de la liste</strong>
+                                        </label>
+                                        <input class="form-control {% if errors["Name"] is defined %}is-invalid{% endif %}" type="text" placeholder="Liste de diffusion ..." id="name" name="Name" value="{{ data["Name"]|default(mailing.name) }}" required minlength="2" maxlength="128" oninput="checkRegExp(this.id, 'NAME')">
+                                        <div class="valid-feedback">
+                                            Ce nom semble correct !
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Le nom de la liste ne respecte pas les spécifications demandées.
+                                        </div>
+                                    </div>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="useSumup" {% if mailing.sumup is not null %}checked{% endif%} onchange="onSumupSwitcheChange(this.checked)">
+                                        <label class="custom-control-label text-{{ userSettings.color }}" for="useSumup" name="useSumup">Utiliser une description</label>
+                                    </div>
+                                    <br>
+                                    <div class="form-group" id="sumupDiv" {% if mailing.sumup is null %}style="display: none"{% endif %}>
+                                        <label for="sumup" class="text-{{ userSettings.color }}">
+                                            <strong>Description de la liste</strong>
+                                        </label>
+                                        <textarea class="form-control {% if errors["Sumup"] is defined %}is-invalid{% endif %}" name="Sumup" id="sumup" rows="3" minlength="0" maxlength="1024">{{ data["Sumup"]|default(mailing.sumup) }}</textarea>
+                                        <div class="invalid-feedback">
+                                            La description semble éronnée.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-3 border-{{ userSettings.color }}">
+                        <div class="card-header py-3 bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                            <p class="text-{{ userSettings.color }} m-0 font-weight-bold">Gestion des destinataires</p>
+                        </div>
+                        <div class="card-body bg-{{ userSettings.theme }} border-{{ userSettings.color }}">
+                            {% if errors["Users"] is defined %}
+                                <div class="alert alert-danger" role="alert">
+                                    Votre liste d'utilisateur a mal été définie. Veuillez réessayer.
+                                </div>
+                            {% endif %}
+                            <div id="shared-lists" class="row">
+                                <h4 class="col-12 text-{{ userSettings.color }}">Ajouter des utilisateurs à la liste</h4>
+                                <div id="unassigned-user" class="list-group col" style="height: 20rem; overflow-y: scroll">
+                                    {% for user in users %}
+                                        {% if data is defined %}
+                                            {% if data["Users"] is defined and user.id not in data["Users"] %}
+                                                <div class="list-group-item" id="unsassigned-{{ user.id }}">{{ user.firstname }} {{ user.lastname }}</div>
+                                            {% endif %}
+                                        {% else %}
+                                            {% if user.id not in mailing.list %}
+                                                <div class="list-group-item" id="unsassigned-{{ user.id }}">{{ user.firstname }} {{ user.lastname }}</div>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div id="assigned-user" class="list-group col">
+                                    {% if data["Users"] is defined %}
+                                        {% for user in users %}
+                                            {% if user.id in data["Users"] %}
+                                                <div class="list-group-item" id="assigned-{{ user.id }}">{{ user.firstname }} {{ user.lastname }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% if mailing.list is defined %}
+                                        {% for user in users %}
+                                            {% if user.id in mailing.list %}
+                                                <div class="list-group-item" id="assigned-{{ user.id }}">{{ user.firstname }} {{ user.lastname }}</div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                                <div id="usersItem">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary">Modifier la liste</button>
+                </form>
+            </div>
+        </div>
+        <script src="{{ asset("js/dashboard/Sortable.js") }}"></script>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright text-{{ userSettings.color }}">
+                    <span>Copyright © CEFC Developers Team {{ date("Y")|date("Y") }}</span>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+{# Fin de la gestion de la page #}
