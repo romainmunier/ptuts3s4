@@ -126,7 +126,7 @@ class MobileAPIController extends AbstractController
             $jsonUser["pseudo"] = $user->getPseudo();
             $jsonUser["mail"] = $user->getMail();
             $jsonUser["phone"] = $user->getPhone();
-            $jsonUser["profile"] = $user->getProfile();
+//            $jsonUser["profile"] = $user->getProfile();
 
             array_push($json, $jsonUser);
         }

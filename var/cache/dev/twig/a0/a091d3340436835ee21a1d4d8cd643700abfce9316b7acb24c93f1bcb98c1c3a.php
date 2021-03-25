@@ -196,7 +196,41 @@ class __TwigTemplate_3d0b4690b088553909418b6b9a41109031923f2231522af33bef0ed8d01
                                         ";
             }
             // line 58
-            echo "                                        <button type=\"button\" class=\"btn btn-danger\">Supprimer</button>
+            echo "                                        <button type=\"button\" class=\"btn btn-danger\" onclick=\"\$('#modal-news-";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["new"], "id", [], "any", false, false, false, 58), "html", null, true);
+            echo "-delete').modal();\">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=\"modal fade\" id=\"modal-news-";
+            // line 64
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["new"], "id", [], "any", false, false, false, 64), "html", null, true);
+            echo "-delete\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                            <div class=\"modal-dialog modal-dialog-centered\">
+                                <div class=\"modal-content\">
+                                    <div class=\"modal-header\">
+                                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Suppression d'un message enregistré</h5>
+                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                                            <span aria-hidden=\"true\">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class=\"modal-body\">
+                                        Voulez-vous supprimé le message nommé : ";
+            // line 74
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["new"], "title", [], "any", false, false, false, 74), "html", null, true);
+            echo " ?<br>
+                                        <div class=\"alert alert-danger\">
+                                            Attention : la suppression est définitive. Une fois supprimé, vous ne pourrez plus récupérer ce message.
+                                        </div>
+                                    </div>
+                                    <div class=\"modal-footer\">
+                                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fermer</button>
+                                        <a href=\"";
+            // line 81
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("news_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["new"], "id", [], "any", false, false, false, 81)]), "html", null, true);
+            echo "\" class=\"btn btn-danger\">Supprimer</a>
                                     </div>
                                 </div>
                             </div>
@@ -206,18 +240,18 @@ class __TwigTemplate_3d0b4690b088553909418b6b9a41109031923f2231522af33bef0ed8d01
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['new'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 64
+        // line 87
         echo "                </div>
             </div>
         </div>
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-";
-        // line 69
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 69, $this->source); })()), "color", [], "any", false, false, false, 69), "html", null, true);
+        // line 92
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 92, $this->source); })()), "color", [], "any", false, false, false, 92), "html", null, true);
         echo "\">
                     <span>Copyright © CEFC Developers Team ";
-        // line 70
+        // line 93
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
                 </div>
@@ -244,7 +278,7 @@ class __TwigTemplate_3d0b4690b088553909418b6b9a41109031923f2231522af33bef0ed8d01
 
     public function getDebugInfo()
     {
-        return array (  221 => 70,  217 => 69,  210 => 64,  199 => 58,  194 => 56,  191 => 55,  187 => 53,  185 => 52,  178 => 48,  165 => 38,  153 => 31,  148 => 29,  141 => 25,  130 => 23,  127 => 22,  123 => 21,  114 => 15,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  255 => 93,  251 => 92,  244 => 87,  232 => 81,  222 => 74,  209 => 64,  199 => 58,  194 => 56,  191 => 55,  187 => 53,  185 => 52,  178 => 48,  165 => 38,  153 => 31,  148 => 29,  141 => 25,  130 => 23,  127 => 22,  123 => 21,  114 => 15,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -306,7 +340,30 @@ class __TwigTemplate_3d0b4690b088553909418b6b9a41109031923f2231522af33bef0ed8d01
                                             <button type=\"button\" class=\"btn btn-success\">Envoyer</button>
                                             <a class=\"btn btn-warning\" href=\"{{ path(\"news_edit\", {\"id\" : new.id}) }}\">Modifier</a>
                                         {% endif %}
-                                        <button type=\"button\" class=\"btn btn-danger\">Supprimer</button>
+                                        <button type=\"button\" class=\"btn btn-danger\" onclick=\"\$('#modal-news-{{ new.id }}-delete').modal();\">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=\"modal fade\" id=\"modal-news-{{ new.id }}-delete\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                            <div class=\"modal-dialog modal-dialog-centered\">
+                                <div class=\"modal-content\">
+                                    <div class=\"modal-header\">
+                                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Suppression d'un message enregistré</h5>
+                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                                            <span aria-hidden=\"true\">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class=\"modal-body\">
+                                        Voulez-vous supprimé le message nommé : {{ new.title }} ?<br>
+                                        <div class=\"alert alert-danger\">
+                                            Attention : la suppression est définitive. Une fois supprimé, vous ne pourrez plus récupérer ce message.
+                                        </div>
+                                    </div>
+                                    <div class=\"modal-footer\">
+                                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fermer</button>
+                                        <a href=\"{{ path(\"news_delete\", {\"id\" : new.id}) }}\" class=\"btn btn-danger\">Supprimer</a>
                                     </div>
                                 </div>
                             </div>

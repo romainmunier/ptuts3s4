@@ -33,7 +33,7 @@
                         <label for="articleMailing">
                             <strong>Liste de diffusion</strong>
                         </label>
-                        <select class="form-control" id="articleMailing" name="Mailing" onchange="switchTypeText()">
+                        <select class="form-control is-valid" id="articleMailing" name="Mailing" onchange="switchTypeText()" disabled readonly>
                             <option value="#" readonly disabled selected>-- Sélectionner une liste de diffusion</option>
                             {% for list in mailings %}
                                 <option value="{{ list.id }}" {% if message.mailingList.id == list.id %}selected{% endif %}>{{ list.name }} - <i>{{ list.type }}</i></option>
@@ -41,6 +41,9 @@
                         </select>
                         <div class="invalid-feedback">
                             Veuillez sélectionner une liste de diffusion avant d'enregistrer
+                        </div>
+                        <div class="valid-feedback">
+                            Le type de liste a été sélectionné lors de la création de celle-ci. Il ne peut plus être modifié manuellement.
                         </div>
                     </div>
                     <div class="form-group" style="display: {% if message.mailingList.type in ["PHONE", "HYBRID"] %}block{% else %}none{% endif %}" id="phonehybrid-textzone">

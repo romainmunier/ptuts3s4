@@ -137,7 +137,7 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                         <label for=\"articleMailing\">
                             <strong>Liste de diffusion</strong>
                         </label>
-                        <select class=\"form-control\" id=\"articleMailing\" name=\"Mailing\" onchange=\"switchTypeText()\">
+                        <select class=\"form-control is-valid\" id=\"articleMailing\" name=\"Mailing\" onchange=\"switchTypeText()\" disabled readonly>
                             <option value=\"#\" readonly disabled selected>-- Sélectionner une liste de diffusion</option>
                             ";
         // line 38
@@ -166,10 +166,13 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                         <div class=\"invalid-feedback\">
                             Veuillez sélectionner une liste de diffusion avant d'enregistrer
                         </div>
+                        <div class=\"valid-feedback\">
+                            Le type de liste a été sélectionné lors de la création de celle-ci. Il ne peut plus être modifié manuellement.
+                        </div>
                     </div>
                     <div class=\"form-group\" style=\"display: ";
-        // line 46
-        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 46, $this->source); })()), "mailingList", [], "any", false, false, false, 46), "type", [], "any", false, false, false, 46), [0 => "PHONE", 1 => "HYBRID"])) {
+        // line 49
+        if (twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 49, $this->source); })()), "mailingList", [], "any", false, false, false, 49), "type", [], "any", false, false, false, 49), [0 => "PHONE", 1 => "HYBRID"])) {
             echo "block";
         } else {
             echo "none";
@@ -179,14 +182,14 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                             <strong>Message</strong>
                         </label>
                         <textarea class=\"form-control\" id=\"inputTextAreaArticle\" rows=\"5\">";
-        // line 50
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 50, $this->source); })()), "containment", [], "any", false, false, false, 50), "html", null, true);
+        // line 53
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 53, $this->source); })()), "containment", [], "any", false, false, false, 53), "html", null, true);
         echo "</textarea>
                     </div>
                 </div>
                 <div id=\"writeArticleContainer\" style=\"width: 90%; height: 70%; margin: 0 5%; display: ";
-        // line 53
-        if (!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 53, $this->source); })()), "mailingList", [], "any", false, false, false, 53), "type", [], "any", false, false, false, 53), [0 => "PHONE", 1 => "HYBRID"])) {
+        // line 56
+        if (!twig_in_filter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 56, $this->source); })()), "mailingList", [], "any", false, false, false, 56), "type", [], "any", false, false, false, 56), [0 => "PHONE", 1 => "HYBRID"])) {
             echo "block";
         } else {
             echo "none";
@@ -195,8 +198,8 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                     <script src=\"https://cdn.tiny.cloud/1/i2h5rer3g2vr9z38cqattj8uoptnq5kldg8o0087o9sa8obm/tinymce/5/tinymce.min.js\" referrerpolicy=\"origin\"></script>
                     <textarea id=\"commentText\" name=\"Message\">
                         ";
-        // line 56
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 56, $this->source); })()), "containment", [], "any", false, false, false, 56), "html", null, true);
+        // line 59
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 59, $this->source); })()), "containment", [], "any", false, false, false, 59), "html", null, true);
         echo "
                     </textarea>
                     <script>
@@ -207,7 +210,7 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                             height: document.getElementById(\"writeArticleContainer\").offsetHeight,
                             toolbar: 'undo redo | link image | code',
                             images_upload_url: \"";
-        // line 65
+        // line 68
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("autoUploadTiny.php"), "html", null, true);
         echo "\",
                             directionality: \"fr_FR\",
@@ -267,12 +270,12 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                 </div>
                 <div class=\"btn-group ml-5\">
                     <button type=\"button\" class=\"btn btn-success\" onclick=\"submitMessageOption('send', 'edit', '";
-        // line 122
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 122, $this->source); })()), "id", [], "any", false, false, false, 122), "html", null, true);
+        // line 125
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 125, $this->source); })()), "id", [], "any", false, false, false, 125), "html", null, true);
         echo "')\">Envoyer le message</button>
                     <button type=\"button\" class=\"btn btn-warning\" onclick=\"submitMessageOption('save', 'edit', '";
-        // line 123
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 123, $this->source); })()), "id", [], "any", false, false, false, 123), "html", null, true);
+        // line 126
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 126, $this->source); })()), "id", [], "any", false, false, false, 126), "html", null, true);
         echo "')\">Enregistrer le message</button>
                 </div>
             </form>
@@ -280,11 +283,11 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
         <footer class=\"sticky-footer\">
             <div class=\"container my-auto\">
                 <div class=\"text-center my-auto copyright text-";
-        // line 129
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 129, $this->source); })()), "color", [], "any", false, false, false, 129), "html", null, true);
+        // line 132
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["userSettings"]) || array_key_exists("userSettings", $context) ? $context["userSettings"] : (function () { throw new RuntimeError('Variable "userSettings" does not exist.', 132, $this->source); })()), "color", [], "any", false, false, false, 132), "html", null, true);
         echo "\">
                     <span>Copyright © CEFC Developers Team ";
-        // line 130
+        // line 133
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_date_converter($this->env, "Y"), "Y"), "html", null, true);
         echo "</span>
                 </div>
@@ -311,7 +314,7 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
 
     public function getDebugInfo()
     {
-        return array (  288 => 130,  284 => 129,  275 => 123,  271 => 122,  211 => 65,  199 => 56,  189 => 53,  183 => 50,  172 => 46,  165 => 41,  148 => 39,  144 => 38,  130 => 27,  120 => 19,  118 => 18,  116 => 17,  114 => 16,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
+        return array (  291 => 133,  287 => 132,  278 => 126,  274 => 125,  214 => 68,  202 => 59,  192 => 56,  186 => 53,  175 => 49,  165 => 41,  148 => 39,  144 => 38,  130 => 27,  120 => 19,  118 => 18,  116 => 17,  114 => 16,  110 => 14,  106 => 12,  104 => 11,  93 => 9,  91 => 8,  88 => 7,  78 => 6,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -351,7 +354,7 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                         <label for=\"articleMailing\">
                             <strong>Liste de diffusion</strong>
                         </label>
-                        <select class=\"form-control\" id=\"articleMailing\" name=\"Mailing\" onchange=\"switchTypeText()\">
+                        <select class=\"form-control is-valid\" id=\"articleMailing\" name=\"Mailing\" onchange=\"switchTypeText()\" disabled readonly>
                             <option value=\"#\" readonly disabled selected>-- Sélectionner une liste de diffusion</option>
                             {% for list in mailings %}
                                 <option value=\"{{ list.id }}\" {% if message.mailingList.id == list.id %}selected{% endif %}>{{ list.name }} - <i>{{ list.type }}</i></option>
@@ -359,6 +362,9 @@ class __TwigTemplate_2cf6e613b7d2832ecfd6b6305e5285cc47e7fb17fe5266477320c603042
                         </select>
                         <div class=\"invalid-feedback\">
                             Veuillez sélectionner une liste de diffusion avant d'enregistrer
+                        </div>
+                        <div class=\"valid-feedback\">
+                            Le type de liste a été sélectionné lors de la création de celle-ci. Il ne peut plus être modifié manuellement.
                         </div>
                     </div>
                     <div class=\"form-group\" style=\"display: {% if message.mailingList.type in [\"PHONE\", \"HYBRID\"] %}block{% else %}none{% endif %}\" id=\"phonehybrid-textzone\">

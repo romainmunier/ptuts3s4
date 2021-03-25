@@ -30,32 +30,44 @@ class AppFixtures extends Fixture
             0 => array(
                 "Firstname" => "Romain",
                 "Lastname" => "MUNIER",
-                "Username" => "romainmunier"
+                "Username" => "romainmunier",
+                "Email" => "romain.munier@edu.univ-fcomte.fr",
+                "Phone" => "0768467364"
             ),
             1 => array(
                 "Firstname" => "Marion",
                 "Lastname" => "DUBAIL",
-                "Username" => "mariondubail"
+                "Username" => "mariondubail",
+                "Email" => "marion.dubail@edu.univ-fcomte.fr",
+                "Phone" => "0648206900"
             ),
             2 => array(
                 "Firstname" => "Anthony",
                 "Lastname" => "GOUAT",
-                "Username" => "anthonygouat"
+                "Username" => "anthonygouat",
+                "Email" => "anthony.gouat@edu.univ-fcomte.fr",
+                "Phone" => "0783699502"
             ),
             3 => array(
                 "Firstname" => "Quentin",
                 "Lastname" => "TATTO",
-                "Username" => "quentintatto"
+                "Username" => "quentintatto",
+                "Email" => "quentin.tatto@edu.univ-fcomte.fr",
+                "Phone" => "0617283981"
             ),
             4 => array(
                 "Firstname" => "Alexis",
                 "Lastname" => "PY",
-                "Username" => "alexispy"
+                "Username" => "alexispy",
+                "Email" => "alexis.py@edu.univ-fcomte.fr",
+                "Phone" => "0778556587"
             ),
             5 => array(
                 "Firstname" => "Stéphane",
                 "Lastname" => "DOMAS",
-                "Username" => "stephanedomas"
+                "Username" => "stephanedomas",
+                "Email" => "marion.dubail@edu.univ-fcomte.fr",
+                "Phone" => "0648206900"
             )
         );
 
@@ -65,7 +77,9 @@ class AppFixtures extends Fixture
                 ->setPassword("toor")
                 ->setRoles(["ROLE_DEVELOPERS"])
                 ->setFirstname(ucfirst($u["Firstname"]))
-                ->setLastname(strtoupper($u["Lastname"]));
+                ->setLastname(strtoupper($u["Lastname"]))
+                ->setMail($u["Email"])
+                ->setPhone($u["Phone"]);
 
             $encoded = $this->encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);

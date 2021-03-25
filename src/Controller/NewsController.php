@@ -6,6 +6,7 @@ use App\Entity\MailingList;
 use App\Entity\News;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends AbstractController
@@ -34,7 +35,8 @@ class NewsController extends AbstractController
     /**
      * @Route("/dashboard/news/add", name="news_add")
      */
-    public function add() {
+    public function add(): Response
+    {
         $manager = $this->getDoctrine()->getManager();
 
         $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
@@ -50,11 +52,14 @@ class NewsController extends AbstractController
             "mailings" => $mailinglists
         ]);
     }
-    
+
     /**
      * @Route("/dashboard/news/edit/{id}", name="news_edit", methods={"GET"})
+     * @param int $id
+     * @return Response
      */
-    public function edit(int $id) {
+    public function edit(int $id): Response
+    {
         $manager = $this->getDoctrine()->getManager();
 
         $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
@@ -71,5 +76,18 @@ class NewsController extends AbstractController
             "mailings" => $mailinglists,
             "message" => $message
         ]);
+    }
+    
+    /**
+     * @Route("/dashboard/news/delete/{id}", name="news_delete", methods={"GET"})
+     */
+    public function delete(int $id) {
+        $manager = $this->getDoctrine()->getManager();
+        
+        $news = $manager->getRepository(News::class)->find($id);
+        $manager->remove($news);
+        $manager->flush();
+        
+        return $this->redirectToRoute("news");
     }
 }

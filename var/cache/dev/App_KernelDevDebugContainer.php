@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerElof5CS\App_KernelDevDebugContainer([
     'container.build_hash' => 'Elof5CS',
-    'container.build_id' => 'a7837d63',
-    'container.build_time' => 1616673304,
+    'container.build_id' => 'e28a5f07',
+    'container.build_time' => 1616679271,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerElof5CS');

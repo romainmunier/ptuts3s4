@@ -60,6 +60,7 @@ return [
     'news' => [[], ['_controller' => 'App\\Controller\\NewsController::index'], [], [['text', '/dashboard/news']], [], []],
     'news_add' => [[], ['_controller' => 'App\\Controller\\NewsController::add'], [], [['text', '/dashboard/news/add']], [], []],
     'news_edit' => [['id'], ['_controller' => 'App\\Controller\\NewsController::edit'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/dashboard/news/edit']], [], []],
+    'news_delete' => [['id'], ['_controller' => 'App\\Controller\\NewsController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/dashboard/news/delete']], [], []],
     'settings' => [[], ['_controller' => 'App\\Controller\\SettingsController::index'], [], [['text', '/dashboard/settings']], [], []],
     'settings_save' => [['id'], ['_controller' => 'App\\Controller\\SettingsController::saveSettings'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/export/settings/save']], [], []],
     'account' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/dashboard/account']], [], []],

@@ -239,8 +239,8 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                     <br>
                 </div>
                 <div class=\"btn-group ml-5\">
-                    <button type=\"button\" class=\"btn btn-success\" onclick=\"submitMessageOption('send')\">Envoyer le message</button>
-                    <button type=\"button\" class=\"btn btn-warning\" onclick=\"submitMessageOption('save')\">Enregistrer le message</button>
+                    <button type=\"button\" class=\"btn btn-success\" onclick=\"submitMessageOption('send', 'save')\">Envoyer le message</button>
+                    <button type=\"button\" class=\"btn btn-warning\" onclick=\"submitMessageOption('save', 'save')\">Enregistrer le message</button>
                 </div>
             </form>
         </div>
@@ -404,8 +404,8 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                     <br>
                 </div>
                 <div class=\"btn-group ml-5\">
-                    <button type=\"button\" class=\"btn btn-success\" onclick=\"submitMessageOption('send')\">Envoyer le message</button>
-                    <button type=\"button\" class=\"btn btn-warning\" onclick=\"submitMessageOption('save')\">Enregistrer le message</button>
+                    <button type=\"button\" class=\"btn btn-success\" onclick=\"submitMessageOption('send', 'save')\">Envoyer le message</button>
+                    <button type=\"button\" class=\"btn btn-warning\" onclick=\"submitMessageOption('save', 'save')\">Enregistrer le message</button>
                 </div>
             </form>
         </div>
