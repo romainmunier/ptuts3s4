@@ -22,4 +22,3 @@ jobs:
             git clean -fd
             git pull
             symfony server:start --port=5555 --daemon
-            symfony server:log
