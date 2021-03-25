@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>{% block title %}CEFC{% endblock %}</title>
+
+        {% include "includes/stylesheets.html.twig" %}
+        {% include "includes/fonts.html.twig" %}
+        {% include "includes/icons.html.twig" %}
+    </head>
+    <body id="page-top" {% if app.request.pathInfo not in ["/", "/register", "/login"] and userSettings is defined and userSettings is not null and userSettings.medieval[0] %}class="{{ userSettings.medieval[1] }}"{% endif %}>
+        {% block body %}{% endblock %}
+
+        {% block scripts %}{% endblock %}
+        {% include "includes/scripts.html.twig" %}
+    </body>
+    {% block files_info %}{% endblock %}
+</html>

@@ -1,0 +1,15 @@
+{% if "dashboard" not in app.request.pathInfo %}
+    <script src="{{ asset("js/home/jquery.min.js") }}"></script>
+    <script src="{{ asset("js/home/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset("js/home/jquery.easing.min.js") }}"></script>
+    <script src="{{ asset("js/home/external.min.js") }}"></script>
+    <script src="{{ asset("js/home/axios.min.js") }}"></script>
+    <script src="{{ asset("js/home/script.js") }}"></script>
+{% else %}
+    <script src="{{ asset("js/dashboard/jquery.min.js") }}"></script>
+    <script src="{{ asset("js/dashboard/bootstrap.min.js") }}"></script>
+    <script src="{{ asset("js/dashboard/chart.min.js") }}"></script>
+    <script src="{{ asset("js/home/axios.min.js") }}"></script>
+    <script src="{{ asset("js/dashboard/script.min.js") }}"></script>
+    <script src="{{ asset("js/dashboard/script.js") }}"></script>
+{% endif %}

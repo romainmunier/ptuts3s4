@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{# Gestion de la page #}
+{% block body %}
+<div id="wrapper">
+    {% include "includes/dashboard/sidebar.html.twig" %}
+    <div class="d-flex flex-column {% if not userSettings.medieval[0] %}bg-{{ userSettings.theme }}{% else %}bg-none{% endif %}" id="content-wrapper">
+        <div id="content">
+            {% include "includes/dashboard/navbar.html.twig" %}
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-{{ userSettings.color}} mb-0">Messages envoyés / brouillons</h3>
+                    <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="{{ path("news_add") }}">
+                        <i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;
+                        Nouveau message
+                    </a>
+                </div>
+                <div class="row">
+                    {% for new in news %}
+                        <div class="col-lg-3">
+                            <div class="card card-hover-{% if new.type == "SEND" %}success{% else %}warning{% endif %}" onclick="$('#modal-news-{{ new.id }}').modal();">
+                                <div class="card-header">
+                                    {{ new.date|date("d/m/Y") }}
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>{{ new.title }}</p>
+                                        <footer class="blockquote-footer">
+                                            Rédigé par <cite title="Source Title">{{ new.author.firstname }} {{ new.author.lastname }}</cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-news-{{ new.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Contenu du message</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{ new.containment|raw }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        {% if new.type == "SEND" %}
+                                            <button type="button" class="btn btn-warning">Réutiliser</button>
+                                        {% else %}
+                                            <button type="button" class="btn btn-success">Envoyer</button>
+                                            <a class="btn btn-warning" href="{{ path("news_edit", {"id" : new.id}) }}">Modifier</a>
+                                        {% endif %}
+                                        <button type="button" class="btn btn-danger" onclick="$('#modal-news-{{ new.id }}-delete').modal();">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modal-news-{{ new.id }}-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Suppression d'un message enregistré</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Voulez-vous supprimé le message nommé : {{ new.title }} ?<br>
+                                        <div class="alert alert-danger">
+                                            Attention : la suppression est définitive. Une fois supprimé, vous ne pourrez plus récupérer ce message.
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        <a href="{{ path("news_delete", {"id" : new.id}) }}" class="btn btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright text-{{ userSettings.color }}">
+                    <span>Copyright © CEFC Developers Team {{ date("Y")|date("Y") }}</span>
+                </div>
+            </div>
+        </footer>
+        {% endblock %}
+{# Fin de la gestion de la page #}
