@@ -199,7 +199,7 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                 var input = document.createElement('input');
                                 input.setAttribute('type', 'file');
                                 input.setAttribute('accept', 'image/*');
-    
+
                                 /*
                                   Note: In modern browsers input[type=\"file\"] is functional without
                                   even adding it to the DOM, but that might not be the case in some older
@@ -207,10 +207,10 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                   just in case, and visually hide it. And do not forget do remove it
                                   once you do not need it anymore.
                                 */
-    
+
                                 input.onchange = function () {
                                     var file = this.files[0];
-    
+
                                     var reader = new FileReader();
                                     reader.onload = function () {
                                         /*
@@ -222,15 +222,15 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                         var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
                                         var base64 = reader.result.split(',')[1];
                                         var blobInfo = blobCache.create(id, file, base64);
-    
+
                                         blobCache.add(blobInfo);
-    
+
                                         /* call the callback and populate the Title field with the file name */
                                         cb(blobInfo.blobUri(), { title: file.name });
                                     };
                                     reader.readAsDataURL(file);
                                 };
-    
+
                                 input.click();
                             },
                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
@@ -364,7 +364,7 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                 var input = document.createElement('input');
                                 input.setAttribute('type', 'file');
                                 input.setAttribute('accept', 'image/*');
-    
+
                                 /*
                                   Note: In modern browsers input[type=\"file\"] is functional without
                                   even adding it to the DOM, but that might not be the case in some older
@@ -372,10 +372,10 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                   just in case, and visually hide it. And do not forget do remove it
                                   once you do not need it anymore.
                                 */
-    
+
                                 input.onchange = function () {
                                     var file = this.files[0];
-    
+
                                     var reader = new FileReader();
                                     reader.onload = function () {
                                         /*
@@ -387,15 +387,15 @@ class __TwigTemplate_0d851af2d169d0d8041970d46f08bfce4dc5e883fbde96b3859e8830c50
                                         var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
                                         var base64 = reader.result.split(',')[1];
                                         var blobInfo = blobCache.create(id, file, base64);
-    
+
                                         blobCache.add(blobInfo);
-    
+
                                         /* call the callback and populate the Title field with the file name */
                                         cb(blobInfo.blobUri(), { title: file.name });
                                     };
                                     reader.readAsDataURL(file);
                                 };
-    
+
                                 input.click();
                             },
                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'

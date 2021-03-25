@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\MailingList;
 use App\Entity\News;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -177,8 +178,12 @@ class APIController extends AbstractController
 
     /**
      * @Route("/api/saveMail", name="save_mail", methods={"POST"})
+     * @param Request $request
+     * @param KernelInterface $kernel
+     * @return JsonResponse
      */
-    public function saveMail(Request $request, KernelInterface $kernel) {
+    public function saveMail(Request $request, KernelInterface $kernel): JsonResponse
+    {
         $manager = $this->getDoctrine()->getManager();
 
         $title = json_decode($request->getContent(), true)["title"];
@@ -196,6 +201,35 @@ class APIController extends AbstractController
             ->setContainment($message);
 
         $manager->persist($news);
+        $manager->flush();
+
+        return new JsonResponse("OK");
+    }
+
+    /**
+     * @Route("/api/editMail", name="edit_mail", methods={"POST"})
+     * @param Request $request
+     * @param KernelInterface $kernel
+     * @return JsonResponse
+     */
+    public function editMail(Request $request, KernelInterface $kernel): JsonResponse
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $title = json_decode($request->getContent(), true)["title"];
+        $list = json_decode($request->getContent(), true)["mailing"];
+        $mailingList = $manager->getRepository(MailingList::class)->find(intval($list));
+        $message = json_decode($request->getContent(), true)["containment"];
+        $user = $manager->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()]);
+
+        $news = $manager->getRepository(News::class)->find(json_decode($request->getContent(), true)["id"]);
+        $news->setTitle($title)
+            ->setMailingList($mailingList)
+            ->setAuthor($user)
+            ->setDate(\DateTime::createFromFormat("Y-m-d", date("Y-m-d")))
+            ->setType("DRAFT")
+            ->setContainment($message);
+        
         $manager->flush();
 
         return new JsonResponse("OK");

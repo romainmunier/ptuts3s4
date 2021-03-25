@@ -1,4 +1,3 @@
-@@ -1,75 +0,0 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Utilisateurs{% endblock %}
@@ -54,7 +53,7 @@
                                             <button type="button" class="btn btn-warning">Réutiliser</button>
                                         {% else %}
                                             <button type="button" class="btn btn-success">Envoyer</button>
-                                            <button type="button" class="btn btn-warning">Modifier</button>
+                                            <a class="btn btn-warning" href="{{ path("news_edit", {"id" : new.id}) }}">Modifier</a>
                                         {% endif %}
                                         <button type="button" class="btn btn-danger">Supprimer</button>
                                     </div>

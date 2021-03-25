@@ -363,7 +363,7 @@ function switchTypeText() {
     }
 }
 
-function submitMessageOption(value) {
+function submitMessageOption(value, option, id = '0') {
     const title = $('#messageTitle').val();
     const mailing = $('#articleMailing').val();
     let containmentMCE = tinyMCE.get("commentText").getContent();
@@ -384,24 +384,58 @@ function submitMessageOption(value) {
     }
 
     if ($('#articleMailing option:selected').text().includes("PHONE") || $('#articleMailing option:selected').text().includes("HYBRID")) {
-        containmentMCE = $('#phonehybrid-textzone').val();
+        containmentMCE = $('#inputTextAreaArticle').val();
     }
-
-    if (error === 0) {
-        switch (value) {
-            case "save":
-                axios({
-                    method: "POST",
-                    url: "/api/saveMail",
-                    data: {
-                        title: title,
-                        mailing: mailing,
-                        containment: containmentMCE
-                    }
-                })
-                break;
-            default:
-                break;
-        }
+    
+    switch (option) {
+        case "save":
+            if (error === 0) {
+                switch (value) {
+                    case "save":
+                        axios({
+                            method: "POST",
+                            url: "/api/saveMail",
+                            data: {
+                                title: title,
+                                mailing: mailing,
+                                containment: containmentMCE
+                            }
+                        }).then((response) => {
+                            if (response.data === "OK") {
+                                window.location.href = "/dashboard/news";
+                            }
+                        })
+                        break;
+                    default:
+                        break;
+                }
+            }
+            break;
+        case "edit":
+            if (error === 0) {
+                switch (value) {
+                    case "save":
+                        axios({
+                            method: "POST",
+                            url: "/api/editMail",
+                            data: {
+                                id : parseInt(id),
+                                title: title,
+                                mailing: mailing,
+                                containment: containmentMCE
+                            }
+                        }).then((response) => {
+                            if (response.data === "OK") {
+                                window.location.href = "/dashboard/news";
+                            }
+                        })
+                        break;
+                    default:
+                        break;
+                }
+            }
+            break;
+        default:
+            break;
     }
 }

@@ -125,6 +125,6 @@ class __TwigTemplate_17eaef9ab65022e890bc9d01380d076b7746e496f17e1c08682d3ebd67d
 .exception-message-wrapper .container {
     min-height: auto;
 }
-", "@WebProfiler/Collector/exception.css.twig", "/Users/romainmunier/Documents/Projets/Symfony/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig");
+", "@WebProfiler/Collector/exception.css.twig", "/Users/romainmunier/Documents/GitHub/ptuts3s4/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.css.twig");
     }
 }
