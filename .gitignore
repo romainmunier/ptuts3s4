@@ -11,7 +11,5 @@
 #/var
 #/vendor
 .env
-.vendor/
-.var/
 .idea/
 .DS_Store
