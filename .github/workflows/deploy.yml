@@ -15,8 +15,11 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
           password: ${{secrets.SSH_PASSWORD}}
           script: |
+            symfony server:stop
+            symfony local:server:stop
+            pm2 delete 0
             cd /home/ptuts3s4
             git reset --hard
             git clean -fd
             git pull
-            pm2 start --name="PTUT S3S4" "symfony serve"
+            pm2 start --name="PTUT S3S4" "symfony server:start --port=5555 --daemon"
