@@ -87,9 +87,11 @@ class AppFixtures extends Fixture
 
         echo "Nombre d'utilisateurs : " . count($userList) ." \n\n";
 
-        $createrandom = readline("Créer des comptes aléatoires ? [Yes/no]\n> ");
+//        $createrandom = readline("Créer des comptes aléatoires ? [Yes/no]\n> ");
+        $createrandom = "y";
         if (strpos(strtolower(strval($createrandom)), "y") !== false) {
-            $count = readline("Nombre de comptes aléatoires : [0-10 000]\n> ");
+//            $count = readline("Nombre de comptes aléatoires : [0-10 000]\n> ");
+            $count = 100;
             if (is_numeric(intval($count))) {
                 for($i=0; $i<intval($count); $i++) {
                     $user = new User();
@@ -129,10 +131,15 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $manager->flush();
 
-        $createrandom = readline("Créer des listes de diffusion aléatoire ? [Yes/no]\n> ");
+//        $createrandom = readline("Créer des listes de diffusion aléatoire ? [Yes/no]\n> ");
+        $createrandom = "y";
         if (strpos(strtolower(strval($createrandom)), "y") !== false) {
-            $count = readline("Nombre de listes : [0-10 000]\n> ");
-            $cntByList = readline("Nombre de comptes max par liste : [0-10 000]\n> ");
+//            $count = readline("Nombre de listes : [0-10 000]\n> ");
+//            $cntByList = readline("Nombre de comptes max par liste : [0-10 000]\n> ");
+            
+            $count = 100;
+            $cntByList = 50;
+            
             if (is_numeric(intval($count))) {
                 for($i=0; $i<intval($count); $i++) {
                     if (is_numeric($cntByList)) {
