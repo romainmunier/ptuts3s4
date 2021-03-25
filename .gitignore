@@ -8,8 +8,8 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-/var
-/vendor
+#/var
+#/vendor
 .env
 
 .idea
