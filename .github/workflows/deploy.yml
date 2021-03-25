@@ -21,6 +21,7 @@ jobs:
             git reset --hard
             git clean -fd
             git pull
+            composer install
             symfony server:start --port=5555 --daemon
             php bin/console doctrine:database:drop --force
             php bin/console doctrine:database:create
