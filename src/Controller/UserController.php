@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -370,8 +371,12 @@ class UserController extends AbstractController
 
     /**
      * @Route("/control/user/changeProfilePicture", name="user_changeProfilePicture", methods={"POST"})
+     * @param KernelInterface $kernel
+     * @return RedirectResponse
+     * @throws \Exception
      */
-    public function changeProfilePicture(KernelInterface $kernel) {
+    public function changeProfilePicture(KernelInterface $kernel): RedirectResponse
+    {
         $target_dir = $kernel->getProjectDir() . "/public/uploads/profile/";
         $rdmName = bin2hex(random_bytes(20));
         $target_file = $target_dir . $rdmName . "." . explode(".", $_FILES["profile"]["name"])[count(explode(".", $_FILES["profile"]["name"]))-1];
