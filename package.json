@@ -1,8 +1,0 @@
-{
-  "name": "ptuts3s4",
-  "version": "1.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "axios": "^0.20.0"
-  }
-}
