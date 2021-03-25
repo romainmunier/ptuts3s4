@@ -16,6 +16,7 @@ jobs:
           password: ${{secrets.SSH_PASSWORD}}
           script: |
             symfony server:stop
+            killall -9 symfony
             pm2 delete 0
             cd /home/ptuts3s4
             git reset --hard
