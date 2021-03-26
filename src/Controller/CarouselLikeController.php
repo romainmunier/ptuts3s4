@@ -57,8 +57,19 @@ class CarouselLikeController extends AbstractController
             $this->entityManager->flush();
 
             $this->addFlash('success',($view == "edit" ? 'éditée' : 'ajoutée') . ' avec succès');
+
+            if ($page == 'index') {
+                $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+                $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+                return $this->render('index/index.html.twig', [
+                    'userSettings' => $userSettings,
+                    'articles' => $articles,
+                    'carousels' => $carousels
+                ]);
+            }
+
             return $this->render($page, [
-               'userSettings' => $userSettings
+                'userSettings' => $userSettings
             ]);
         }
 
@@ -96,8 +107,17 @@ class CarouselLikeController extends AbstractController
         $this->entityManager->flush();
 
         $this->addFlash('success', 'Carousel supprimé avec succès');
+        if ($page == 'index') {
+            $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+            $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+            return $this->render('index/index.html.twig', [
+                'userSettings' => $userSettings,
+                'articles' => $articles,
+                'carousels' => $carousels
+            ]);
+        }
         return $this->render($page, [
-            'userSettings' => $userSettings
+                'userSettings' => $userSettings
         ]);
     }
 }

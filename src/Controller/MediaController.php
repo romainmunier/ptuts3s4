@@ -79,6 +79,15 @@ class MediaController extends AbstractController
                     $this->manager->flush();
                 }
             }
+            if ($page == 'index') {
+                $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+                $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+                return $this->render('index/index.html.twig', [
+                    'userSettings' => $userSettings,
+                    'articles' => $articles,
+                    'carousels' => $carousels
+                ]);
+            }
             return $this->redirectToRoute($page);
         }
 
@@ -98,6 +107,11 @@ class MediaController extends AbstractController
      */
     public function deleteMediaPage($page, Media $media): Response
     {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
         if (!$media) {
             $this->createNotFoundException("Ce média n'existe pas");
         }
@@ -105,7 +119,15 @@ class MediaController extends AbstractController
 
         $this->manager->remove($media);
         $this->manager->flush();
-
+        if ($page == 'index') {
+            $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
+            $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
+            return $this->render('index/index.html.twig', [
+                'userSettings' => $userSettings,
+                'articles' => $articles,
+                'carousels' => $carousels
+            ]);
+        }
         return $this->redirectToRoute($page);
     }
 
@@ -157,6 +179,11 @@ class MediaController extends AbstractController
      */
     public function deleteMediaFromGallery(Media $media): Response
     {
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
         if (!$media) {
             $this->createNotFoundException("Ce média n'existe pas");
         }
@@ -165,6 +192,9 @@ class MediaController extends AbstractController
         $this->manager->remove($media);
         $this->manager->flush();
 
-        return $this->redirectToRoute('gallery_media',["id" => $media->getCategory()->getId()]);
+        return $this->redirectToRoute('gallery_media',[
+            "id" => $media->getCategory()->getId(),
+            "userSettings" => $userSettings
+            ]);
     }
 }

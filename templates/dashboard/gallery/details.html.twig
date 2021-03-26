@@ -31,6 +31,9 @@
                                                     <source src="{{ asset('uploads/gallery/' ~ media.path) }}">
                                                 </video>
                                             {% endif %}
+                                            <div class="col">
+                                                <a class="btn btn-primary" href="{{ path('medias_delete_gallery', {'id': media.id, 'page':'gallery'}) }}"><span class="fa fa-trash-alt"></span></a>
+                                            </div>
                                         {% endfor %}
                                     </div>
                                 {% endif %}

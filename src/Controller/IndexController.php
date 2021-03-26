@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\CarouselLike;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,12 +36,18 @@ class IndexController extends AbstractController
             ->html('<p>COUCOU <b>BG !</b></p>');
 
         $mailer->send($email);
-        
+
+        $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
+            "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
+        ]);
+        $userSettings = json_decode($userSettings->getContent(), true);
+
         $carousels = $this->getDoctrine()->getRepository(CarouselLike::class)->findAll();
         $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
         return $this->render('index/index.html.twig', [
             'carousels' => $carousels,
-            'articles' => $articles
+            'articles' => $articles,
+            'userSettings' => $userSettings
         ]);
     }
 
