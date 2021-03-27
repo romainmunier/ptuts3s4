@@ -24,18 +24,18 @@ class IndexController extends AbstractController
      */
     public function index(MailerInterface $mailer): Response
     {
-        $email = (new Email())
-            ->from('romain-munier@orange.fr')
-            ->to('romain.munier90@outlook.fr')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('TEST')
-            ->text('TEST')
-            ->html('<p>COUCOU <b>BG !</b></p>');
-
-        $mailer->send($email);
+//        $email = (new Email())
+//            ->from('romain-munier@orange.fr')
+//            ->to('romain.munier90@outlook.fr')
+//            //->cc('cc@example.com')
+//            //->bcc('bcc@example.com')
+//            //->replyTo('fabien@example.com')
+//            //->priority(Email::PRIORITY_HIGH)
+//            ->subject('TEST')
+//            ->text('TEST')
+//            ->html('<p>COUCOU <b>BG !</b></p>');
+//
+//        $mailer->send($email);
 
         $userSettings = $this->forward("App\Controller\SettingsController::resolveSettings", [
             "settings" => $this->getDoctrine()->getRepository(User::class)->findOneBy(["Username" => $this->getUser()->getUsername()])->getSettings()[0]->getSettings()
